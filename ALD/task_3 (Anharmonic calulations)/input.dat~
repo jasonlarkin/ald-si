@@ -1,0 +1,42 @@
+// Silicon at 300K 
+
+// cell size in x y and z direction.
+1.0 1.0 1.0
+
+// typr of lattice: 0 for scc, 1 for bcc, 2 for fcc;
+2 
+
+//type of unit cell: 1 for conventional and 0 for primitive (for reciprocal space)
+0
+
+//number of atoms per unit cell: if fcc and si then 2 for primitive and 8 for conventional (for force calculation)
+8
+
+//fractional coordinates and masses of atoms: 8 enteries for conventional si and 2 for primitive si
+0.0 0.0 0.0 1.0
+0.25 0.25 0.25 1.0
+0.0 0.5 0.5 1.0
+0.25 0.75 0.75 1.0
+0.5 0.0 0.5 1.0
+0.75 0.25 0.75 1.0
+0.5 0.5 0.0 1.0
+0.75 0.75 0.25 1.0
+
+//number of unit cells in x y and z direction for force calulation [independent on cutoff] [ 1st three in +ve directiona nd last 3 in -ve directon]
+2 2 2 3 3 3
+
+//number of kx, ky, kz required.   //must be even
+10 10 10
+
+//specify number of processors......
+1
+
+//# of nearest neighbour for cutoff in force calculation...(greater than or equal to one) (2nd order, 3rd order, 4th order)
+3 1 1 
+
+// simulation temperature in Kelvin
+300
+
+// FC_available....0 if want to generate FC list and 1 if want to do full calculation....
+1
+ 
