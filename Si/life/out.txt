@@ -1,0 +1,1888 @@
+Parallel job using 1 processing elements.
+Processing element 0 (Master) reports.
+INITIALIZED AND RUNNING '/home/jason/LD/LDCode/bin/JOE_PARALLEL'.
+
+
+Parsing File 'LD_Input_Si2.txt' For Input Data...
+
+
+Done reading input file.  Outputing stored data to log file for error checking...
+
+Outputing crystal structure to file 'Structure.xyz'...
+
+
+
+Computing Energies and Forces...
+
+Energy and forces on atom 0 = -1.38957e-18 J, 0 0 0
+Energy and forces on atom 1 = -1.38957e-18 J, 0 0 0
+
+
+Computing Harmonic Force Constants...
+
+Harmonic force constants for atom 0: N1, N2 = 1, 16
+Harmonic force constants for atom 1: N1, N2 = 1, 16
+
+
+Begining Dispersion Relation Calculation.
+
+Dispersion is 1% complete. k* = < 0.005 0 0.005 >, |k*| = 0.00707107
+Dispersion is 2% complete. k* = < 0.01 0 0.01 >, |k*| = 0.0141421
+Dispersion is 3% complete. k* = < 0.015 0 0.015 >, |k*| = 0.0212132
+Dispersion is 4% complete. k* = < 0.02 0 0.02 >, |k*| = 0.0282843
+Dispersion is 5% complete. k* = < 0.025 0 0.025 >, |k*| = 0.0353553
+Dispersion is 6% complete. k* = < 0.03 0 0.03 >, |k*| = 0.0424264
+Dispersion is 7% complete. k* = < 0.035 0 0.035 >, |k*| = 0.0494975
+Dispersion is 8% complete. k* = < 0.04 0 0.04 >, |k*| = 0.0565685
+Dispersion is 9% complete. k* = < 0.045 0 0.045 >, |k*| = 0.0636396
+Dispersion is 10% complete. k* = < 0.05 0 0.05 >, |k*| = 0.0707107
+Dispersion is 11% complete. k* = < 0.055 0 0.055 >, |k*| = 0.0777817
+Dispersion is 12% complete. k* = < 0.06 0 0.06 >, |k*| = 0.0848528
+Dispersion is 13% complete. k* = < 0.065 0 0.065 >, |k*| = 0.0919239
+Dispersion is 14% complete. k* = < 0.07 0 0.07 >, |k*| = 0.0989949
+Dispersion is 15% complete. k* = < 0.075 0 0.075 >, |k*| = 0.106066
+Dispersion is 16% complete. k* = < 0.08 0 0.08 >, |k*| = 0.113137
+Dispersion is 17% complete. k* = < 0.085 0 0.085 >, |k*| = 0.120208
+Dispersion is 18% complete. k* = < 0.09 0 0.09 >, |k*| = 0.127279
+Dispersion is 19% complete. k* = < 0.095 0 0.095 >, |k*| = 0.13435
+Dispersion is 20% complete. k* = < 0.1 0 0.1 >, |k*| = 0.141421
+Dispersion is 21% complete. k* = < 0.105 0 0.105 >, |k*| = 0.148492
+Dispersion is 22% complete. k* = < 0.11 0 0.11 >, |k*| = 0.155563
+Dispersion is 23% complete. k* = < 0.115 0 0.115 >, |k*| = 0.162635
+Dispersion is 24% complete. k* = < 0.12 0 0.12 >, |k*| = 0.169706
+Dispersion is 25% complete. k* = < 0.125 0 0.125 >, |k*| = 0.176777
+Dispersion is 26% complete. k* = < 0.13 0 0.13 >, |k*| = 0.183848
+Dispersion is 27% complete. k* = < 0.135 0 0.135 >, |k*| = 0.190919
+Dispersion is 28% complete. k* = < 0.14 0 0.14 >, |k*| = 0.19799
+Dispersion is 28% complete. k* = < 0.145 0 0.145 >, |k*| = 0.205061
+Dispersion is 30% complete. k* = < 0.15 0 0.15 >, |k*| = 0.212132
+Dispersion is 31% complete. k* = < 0.155 0 0.155 >, |k*| = 0.219203
+Dispersion is 32% complete. k* = < 0.16 0 0.16 >, |k*| = 0.226274
+Dispersion is 33% complete. k* = < 0.165 0 0.165 >, |k*| = 0.233345
+Dispersion is 34% complete. k* = < 0.17 0 0.17 >, |k*| = 0.240416
+Dispersion is 35% complete. k* = < 0.175 0 0.175 >, |k*| = 0.247487
+Dispersion is 36% complete. k* = < 0.18 0 0.18 >, |k*| = 0.254558
+Dispersion is 37% complete. k* = < 0.185 0 0.185 >, |k*| = 0.261629
+Dispersion is 38% complete. k* = < 0.19 0 0.19 >, |k*| = 0.2687
+Dispersion is 39% complete. k* = < 0.195 0 0.195 >, |k*| = 0.275772
+Dispersion is 40% complete. k* = < 0.2 0 0.2 >, |k*| = 0.282843
+Dispersion is 41% complete. k* = < 0.205 0 0.205 >, |k*| = 0.289914
+Dispersion is 42% complete. k* = < 0.21 0 0.21 >, |k*| = 0.296985
+Dispersion is 43% complete. k* = < 0.215 0 0.215 >, |k*| = 0.304056
+Dispersion is 44% complete. k* = < 0.22 0 0.22 >, |k*| = 0.311127
+Dispersion is 45% complete. k* = < 0.225 0 0.225 >, |k*| = 0.318198
+Dispersion is 46% complete. k* = < 0.23 0 0.23 >, |k*| = 0.325269
+Dispersion is 47% complete. k* = < 0.235 0 0.235 >, |k*| = 0.33234
+Dispersion is 48% complete. k* = < 0.24 0 0.24 >, |k*| = 0.339411
+Dispersion is 49% complete. k* = < 0.245 0 0.245 >, |k*| = 0.346482
+Dispersion is 50% complete. k* = < 0.25 0 0.25 >, |k*| = 0.353553
+Dispersion is 51% complete. k* = < 0.255 0 0.255 >, |k*| = 0.360624
+Dispersion is 52% complete. k* = < 0.26 0 0.26 >, |k*| = 0.367695
+Dispersion is 53% complete. k* = < 0.265 0 0.265 >, |k*| = 0.374766
+Dispersion is 54% complete. k* = < 0.27 0 0.27 >, |k*| = 0.381838
+Dispersion is 55% complete. k* = < 0.275 0 0.275 >, |k*| = 0.388909
+Dispersion is 56% complete. k* = < 0.28 0 0.28 >, |k*| = 0.39598
+Dispersion is 56% complete. k* = < 0.285 0 0.285 >, |k*| = 0.403051
+Dispersion is 57% complete. k* = < 0.29 0 0.29 >, |k*| = 0.410122
+Dispersion is 59% complete. k* = < 0.295 0 0.295 >, |k*| = 0.417193
+Dispersion is 60% complete. k* = < 0.3 0 0.3 >, |k*| = 0.424264
+Dispersion is 61% complete. k* = < 0.305 0 0.305 >, |k*| = 0.431335
+Dispersion is 62% complete. k* = < 0.31 0 0.31 >, |k*| = 0.438406
+Dispersion is 63% complete. k* = < 0.315 0 0.315 >, |k*| = 0.445477
+Dispersion is 64% complete. k* = < 0.32 0 0.32 >, |k*| = 0.452548
+Dispersion is 65% complete. k* = < 0.325 0 0.325 >, |k*| = 0.459619
+Dispersion is 66% complete. k* = < 0.33 0 0.33 >, |k*| = 0.46669
+Dispersion is 67% complete. k* = < 0.335 0 0.335 >, |k*| = 0.473761
+Dispersion is 68% complete. k* = < 0.34 0 0.34 >, |k*| = 0.480832
+Dispersion is 69% complete. k* = < 0.345 0 0.345 >, |k*| = 0.487904
+Dispersion is 70% complete. k* = < 0.35 0 0.35 >, |k*| = 0.494975
+Dispersion is 71% complete. k* = < 0.355 0 0.355 >, |k*| = 0.502046
+Dispersion is 72% complete. k* = < 0.36 0 0.36 >, |k*| = 0.509117
+Dispersion is 73% complete. k* = < 0.365 0 0.365 >, |k*| = 0.516188
+Dispersion is 74% complete. k* = < 0.37 0 0.37 >, |k*| = 0.523259
+Dispersion is 75% complete. k* = < 0.375 0 0.375 >, |k*| = 0.53033
+Dispersion is 76% complete. k* = < 0.38 0 0.38 >, |k*| = 0.537401
+Dispersion is 77% complete. k* = < 0.385 0 0.385 >, |k*| = 0.544472
+Dispersion is 78% complete. k* = < 0.39 0 0.39 >, |k*| = 0.551543
+Dispersion is 79% complete. k* = < 0.395 0 0.395 >, |k*| = 0.558614
+Dispersion is 80% complete. k* = < 0.4 0 0.4 >, |k*| = 0.565685
+Dispersion is 81% complete. k* = < 0.405 0 0.405 >, |k*| = 0.572756
+Dispersion is 82% complete. k* = < 0.41 0 0.41 >, |k*| = 0.579827
+Dispersion is 83% complete. k* = < 0.415 0 0.415 >, |k*| = 0.586898
+Dispersion is 84% complete. k* = < 0.42 0 0.42 >, |k*| = 0.593969
+Dispersion is 85% complete. k* = < 0.425 0 0.425 >, |k*| = 0.601041
+Dispersion is 86% complete. k* = < 0.43 0 0.43 >, |k*| = 0.608112
+Dispersion is 87% complete. k* = < 0.435 0 0.435 >, |k*| = 0.615183
+Dispersion is 88% complete. k* = < 0.44 0 0.44 >, |k*| = 0.622254
+Dispersion is 89% complete. k* = < 0.445 0 0.445 >, |k*| = 0.629325
+Dispersion is 90% complete. k* = < 0.45 0 0.45 >, |k*| = 0.636396
+Dispersion is 91% complete. k* = < 0.455 0 0.455 >, |k*| = 0.643467
+Dispersion is 92% complete. k* = < 0.46 0 0.46 >, |k*| = 0.650538
+Dispersion is 93% complete. k* = < 0.465 0 0.465 >, |k*| = 0.657609
+Dispersion is 94% complete. k* = < 0.47 0 0.47 >, |k*| = 0.66468
+Dispersion is 95% complete. k* = < 0.475 0 0.475 >, |k*| = 0.671751
+Dispersion is 96% complete. k* = < 0.48 0 0.48 >, |k*| = 0.678822
+Dispersion is 97% complete. k* = < 0.485 0 0.485 >, |k*| = 0.685893
+Dispersion is 98% complete. k* = < 0.49 0 0.49 >, |k*| = 0.692964
+Dispersion is 99% complete. k* = < 0.495 0 0.495 >, |k*| = 0.700035
+Dispersion is 100% complete. k* = < 0.5 0 0.5 >, |k*| = 0.707107
+
+
+Beginning Harmonic Calculation of Frequency, Velocity, Eigenvector.
+
+1% done.  24 of 2046 waves calculated.
+2% done.  42 of 2046 waves calculated.
+3% done.  66 of 2046 waves calculated.
+4% done.  84 of 2046 waves calculated.
+5% done.  108 of 2046 waves calculated.
+6% done.  126 of 2046 waves calculated.
+7% done.  144 of 2046 waves calculated.
+8% done.  168 of 2046 waves calculated.
+9% done.  186 of 2046 waves calculated.
+10% done.  210 of 2046 waves calculated.
+11% done.  228 of 2046 waves calculated.
+12% done.  246 of 2046 waves calculated.
+13% done.  270 of 2046 waves calculated.
+14% done.  288 of 2046 waves calculated.
+15% done.  312 of 2046 waves calculated.
+16% done.  330 of 2046 waves calculated.
+17% done.  348 of 2046 waves calculated.
+18% done.  372 of 2046 waves calculated.
+19% done.  390 of 2046 waves calculated.
+20% done.  414 of 2046 waves calculated.
+21% done.  432 of 2046 waves calculated.
+22% done.  456 of 2046 waves calculated.
+23% done.  474 of 2046 waves calculated.
+24% done.  492 of 2046 waves calculated.
+25% done.  516 of 2046 waves calculated.
+26% done.  534 of 2046 waves calculated.
+27% done.  558 of 2046 waves calculated.
+28% done.  576 of 2046 waves calculated.
+29% done.  594 of 2046 waves calculated.
+30% done.  618 of 2046 waves calculated.
+31% done.  636 of 2046 waves calculated.
+32% done.  660 of 2046 waves calculated.
+33% done.  678 of 2046 waves calculated.
+34% done.  696 of 2046 waves calculated.
+35% done.  720 of 2046 waves calculated.
+36% done.  738 of 2046 waves calculated.
+37% done.  762 of 2046 waves calculated.
+38% done.  780 of 2046 waves calculated.
+39% done.  798 of 2046 waves calculated.
+40% done.  822 of 2046 waves calculated.
+41% done.  840 of 2046 waves calculated.
+42% done.  864 of 2046 waves calculated.
+43% done.  882 of 2046 waves calculated.
+44% done.  906 of 2046 waves calculated.
+45% done.  924 of 2046 waves calculated.
+46% done.  942 of 2046 waves calculated.
+47% done.  966 of 2046 waves calculated.
+48% done.  984 of 2046 waves calculated.
+49% done.  1008 of 2046 waves calculated.
+50% done.  1026 of 2046 waves calculated.
+51% done.  1044 of 2046 waves calculated.
+52% done.  1068 of 2046 waves calculated.
+53% done.  1086 of 2046 waves calculated.
+54% done.  1110 of 2046 waves calculated.
+55% done.  1128 of 2046 waves calculated.
+56% done.  1146 of 2046 waves calculated.
+57% done.  1170 of 2046 waves calculated.
+58% done.  1188 of 2046 waves calculated.
+59% done.  1212 of 2046 waves calculated.
+60% done.  1230 of 2046 waves calculated.
+61% done.  1254 of 2046 waves calculated.
+62% done.  1272 of 2046 waves calculated.
+63% done.  1290 of 2046 waves calculated.
+64% done.  1314 of 2046 waves calculated.
+65% done.  1332 of 2046 waves calculated.
+66% done.  1356 of 2046 waves calculated.
+67% done.  1374 of 2046 waves calculated.
+68% done.  1392 of 2046 waves calculated.
+69% done.  1416 of 2046 waves calculated.
+70% done.  1434 of 2046 waves calculated.
+71% done.  1458 of 2046 waves calculated.
+72% done.  1476 of 2046 waves calculated.
+73% done.  1494 of 2046 waves calculated.
+74% done.  1518 of 2046 waves calculated.
+75% done.  1536 of 2046 waves calculated.
+76% done.  1560 of 2046 waves calculated.
+77% done.  1578 of 2046 waves calculated.
+78% done.  1596 of 2046 waves calculated.
+79% done.  1620 of 2046 waves calculated.
+80% done.  1638 of 2046 waves calculated.
+81% done.  1662 of 2046 waves calculated.
+82% done.  1680 of 2046 waves calculated.
+83% done.  1704 of 2046 waves calculated.
+84% done.  1722 of 2046 waves calculated.
+85% done.  1740 of 2046 waves calculated.
+86% done.  1764 of 2046 waves calculated.
+87% done.  1782 of 2046 waves calculated.
+88% done.  1806 of 2046 waves calculated.
+89% done.  1824 of 2046 waves calculated.
+90% done.  1842 of 2046 waves calculated.
+91% done.  1866 of 2046 waves calculated.
+92% done.  1884 of 2046 waves calculated.
+93% done.  1908 of 2046 waves calculated.
+94% done.  1926 of 2046 waves calculated.
+95% done.  1944 of 2046 waves calculated.
+96% done.  1968 of 2046 waves calculated.
+97% done.  1986 of 2046 waves calculated.
+98% done.  2010 of 2046 waves calculated.
+99% done.  2028 of 2046 waves calculated.
+100% done.  2046 of 2046 waves calculated.
+
+Computing phonon density of states.
+10% done.  21 of 210 waves calculated.
+20% done.  42 of 210 waves calculated.
+30% done.  63 of 210 waves calculated.
+40% done.  84 of 210 waves calculated.
+50% done.  105 of 210 waves calculated.
+60% done.  126 of 210 waves calculated.
+70% done.  147 of 210 waves calculated.
+80% done.  168 of 210 waves calculated.
+90% done.  189 of 210 waves calculated.
+100% done.  210 of 210 waves calculated.
+
+
+Computing Anharmonic Force Constants...
+
+Anharmonic force constants for atom 0: N1, N2, N3, N4 = 1, 16, 18, 0
+Anharmonic force constants for atom 1: N1, N2, N3, N4 = 1, 16, 18, 0
+
+Building Files of Initial Guesses...
+  For quantum system from harmonic frequencies.
+  For classical system from harmonic frequencies.
+
+
+Computing frequency shift and linewidth (iter 1)...
+
+4 4 4 (0)
+4 4 4 (1)
+4 4 4 (2)
+1% done after 0 minutes.  3 of 210 waves calculated.
+4 4 4 (3)
+4 4 4 (4)
+2% done after 0 minutes.  5 of 210 waves calculated.
+4 4 4 (5)
+4 4 3 (0)
+3% done after 0.0166667 minutes.  7 of 210 waves calculated.
+4 4 3 (1)
+4 4 3 (2)
+4% done after 0.0166667 minutes.  9 of 210 waves calculated.
+4 4 3 (3)
+4 4 3 (4)
+5% done after 0.0166667 minutes.  11 of 210 waves calculated.
+4 4 3 (5)
+4 4 2 (0)
+6% done after 0.0333333 minutes.  13 of 210 waves calculated.
+4 4 2 (1)
+4 4 2 (2)
+7% done after 0.0333333 minutes.  15 of 210 waves calculated.
+4 4 2 (3)
+4 4 2 (4)
+8% done after 0.0333333 minutes.  17 of 210 waves calculated.
+4 4 2 (5)
+4 4 1 (0)
+9% done after 0.05 minutes.  19 of 210 waves calculated.
+4 4 1 (1)
+4 4 1 (2)
+10% done after 0.05 minutes.  21 of 210 waves calculated.
+4 4 1 (3)
+4 4 1 (4)
+4 4 1 (5)
+11% done after 0.05 minutes.  24 of 210 waves calculated.
+4 4 0 (0)
+4 4 0 (1)
+12% done after 0.0666667 minutes.  26 of 210 waves calculated.
+4 4 0 (2)
+4 4 0 (3)
+13% done after 0.0666667 minutes.  28 of 210 waves calculated.
+4 4 0 (4)
+4 4 0 (5)
+14% done after 0.0666667 minutes.  30 of 210 waves calculated.
+4 3 3 (0)
+4 3 3 (1)
+15% done after 0.0666667 minutes.  32 of 210 waves calculated.
+4 3 3 (2)
+4 3 3 (3)
+16% done after 0.0833333 minutes.  34 of 210 waves calculated.
+4 3 3 (4)
+4 3 3 (5)
+17% done after 0.0833333 minutes.  36 of 210 waves calculated.
+4 3 2 (0)
+4 3 2 (1)
+18% done after 0.0833333 minutes.  38 of 210 waves calculated.
+4 3 2 (2)
+4 3 2 (3)
+19% done after 0.1 minutes.  40 of 210 waves calculated.
+4 3 2 (4)
+4 3 2 (5)
+20% done after 0.1 minutes.  42 of 210 waves calculated.
+4 3 1 (0)
+4 3 1 (1)
+4 3 1 (2)
+21% done after 0.1 minutes.  45 of 210 waves calculated.
+4 3 1 (3)
+4 3 1 (4)
+22% done after 0.1 minutes.  47 of 210 waves calculated.
+4 3 1 (5)
+4 3 0 (0)
+23% done after 0.116667 minutes.  49 of 210 waves calculated.
+4 3 0 (1)
+4 3 0 (2)
+24% done after 0.116667 minutes.  51 of 210 waves calculated.
+4 3 0 (3)
+4 3 0 (4)
+25% done after 0.116667 minutes.  53 of 210 waves calculated.
+4 3 0 (5)
+4 2 2 (0)
+26% done after 0.133333 minutes.  55 of 210 waves calculated.
+4 2 2 (1)
+4 2 2 (2)
+27% done after 0.133333 minutes.  57 of 210 waves calculated.
+4 2 2 (3)
+4 2 2 (4)
+28% done after 0.133333 minutes.  59 of 210 waves calculated.
+4 2 2 (5)
+4 2 1 (0)
+29% done after 0.15 minutes.  61 of 210 waves calculated.
+4 2 1 (1)
+4 2 1 (2)
+30% done after 0.15 minutes.  63 of 210 waves calculated.
+4 2 1 (3)
+4 2 1 (4)
+4 2 1 (5)
+31% done after 0.15 minutes.  66 of 210 waves calculated.
+4 2 0 (0)
+4 2 0 (1)
+32% done after 0.166667 minutes.  68 of 210 waves calculated.
+4 2 0 (2)
+4 2 0 (3)
+33% done after 0.166667 minutes.  70 of 210 waves calculated.
+4 2 0 (4)
+4 2 0 (5)
+34% done after 0.166667 minutes.  72 of 210 waves calculated.
+4 1 1 (0)
+4 1 1 (1)
+35% done after 0.166667 minutes.  74 of 210 waves calculated.
+4 1 1 (2)
+4 1 1 (3)
+36% done after 0.183333 minutes.  76 of 210 waves calculated.
+4 1 1 (4)
+4 1 1 (5)
+37% done after 0.183333 minutes.  78 of 210 waves calculated.
+4 1 0 (0)
+4 1 0 (1)
+38% done after 0.183333 minutes.  80 of 210 waves calculated.
+4 1 0 (2)
+4 1 0 (3)
+39% done after 0.183333 minutes.  82 of 210 waves calculated.
+4 1 0 (4)
+4 1 0 (5)
+40% done after 0.2 minutes.  84 of 210 waves calculated.
+4 0 0 (0)
+4 0 0 (1)
+4 0 0 (2)
+41% done after 0.2 minutes.  87 of 210 waves calculated.
+4 0 0 (3)
+4 0 0 (4)
+42% done after 0.2 minutes.  89 of 210 waves calculated.
+4 0 0 (5)
+3 3 3 (0)
+43% done after 0.216667 minutes.  91 of 210 waves calculated.
+3 3 3 (1)
+3 3 3 (2)
+44% done after 0.216667 minutes.  93 of 210 waves calculated.
+3 3 3 (3)
+3 3 3 (4)
+45% done after 0.216667 minutes.  95 of 210 waves calculated.
+3 3 3 (5)
+3 3 2 (0)
+46% done after 0.216667 minutes.  97 of 210 waves calculated.
+3 3 2 (1)
+3 3 2 (2)
+47% done after 0.233333 minutes.  99 of 210 waves calculated.
+3 3 2 (3)
+3 3 2 (4)
+48% done after 0.233333 minutes.  101 of 210 waves calculated.
+3 3 2 (5)
+3 3 1 (0)
+49% done after 0.233333 minutes.  103 of 210 waves calculated.
+3 3 1 (1)
+3 3 1 (2)
+50% done after 0.25 minutes.  105 of 210 waves calculated.
+3 3 1 (3)
+3 3 1 (4)
+3 3 1 (5)
+51% done after 0.25 minutes.  108 of 210 waves calculated.
+3 3 0 (0)
+3 3 0 (1)
+52% done after 0.25 minutes.  110 of 210 waves calculated.
+3 3 0 (2)
+3 3 0 (3)
+53% done after 0.25 minutes.  112 of 210 waves calculated.
+3 3 0 (4)
+3 3 0 (5)
+54% done after 0.266667 minutes.  114 of 210 waves calculated.
+3 2 2 (0)
+3 2 2 (1)
+55% done after 0.266667 minutes.  116 of 210 waves calculated.
+3 2 2 (2)
+3 2 2 (3)
+56% done after 0.266667 minutes.  118 of 210 waves calculated.
+3 2 2 (4)
+3 2 2 (5)
+57% done after 0.283333 minutes.  120 of 210 waves calculated.
+3 2 1 (0)
+3 2 1 (1)
+58% done after 0.283333 minutes.  122 of 210 waves calculated.
+3 2 1 (2)
+3 2 1 (3)
+59% done after 0.283333 minutes.  124 of 210 waves calculated.
+3 2 1 (4)
+3 2 1 (5)
+60% done after 0.283333 minutes.  126 of 210 waves calculated.
+3 2 0 (0)
+3 2 0 (1)
+3 2 0 (2)
+61% done after 0.3 minutes.  129 of 210 waves calculated.
+3 2 0 (3)
+3 2 0 (4)
+62% done after 0.3 minutes.  131 of 210 waves calculated.
+3 2 0 (5)
+3 1 1 (0)
+63% done after 0.3 minutes.  133 of 210 waves calculated.
+3 1 1 (1)
+3 1 1 (2)
+64% done after 0.316667 minutes.  135 of 210 waves calculated.
+3 1 1 (3)
+3 1 1 (4)
+65% done after 0.316667 minutes.  137 of 210 waves calculated.
+3 1 1 (5)
+3 1 0 (0)
+66% done after 0.316667 minutes.  139 of 210 waves calculated.
+3 1 0 (1)
+3 1 0 (2)
+67% done after 0.316667 minutes.  141 of 210 waves calculated.
+3 1 0 (3)
+3 1 0 (4)
+68% done after 0.333333 minutes.  143 of 210 waves calculated.
+3 1 0 (5)
+3 0 0 (0)
+69% done after 0.333333 minutes.  145 of 210 waves calculated.
+3 0 0 (1)
+3 0 0 (2)
+70% done after 0.333333 minutes.  147 of 210 waves calculated.
+3 0 0 (3)
+3 0 0 (4)
+3 0 0 (5)
+71% done after 0.35 minutes.  150 of 210 waves calculated.
+2 2 2 (0)
+2 2 2 (1)
+72% done after 0.35 minutes.  152 of 210 waves calculated.
+2 2 2 (2)
+2 2 2 (3)
+73% done after 0.35 minutes.  154 of 210 waves calculated.
+2 2 2 (4)
+2 2 2 (5)
+74% done after 0.35 minutes.  156 of 210 waves calculated.
+2 2 1 (0)
+2 2 1 (1)
+75% done after 0.366667 minutes.  158 of 210 waves calculated.
+2 2 1 (2)
+2 2 1 (3)
+76% done after 0.366667 minutes.  160 of 210 waves calculated.
+2 2 1 (4)
+2 2 1 (5)
+77% done after 0.366667 minutes.  162 of 210 waves calculated.
+2 2 0 (0)
+2 2 0 (1)
+78% done after 0.383333 minutes.  164 of 210 waves calculated.
+2 2 0 (2)
+2 2 0 (3)
+79% done after 0.383333 minutes.  166 of 210 waves calculated.
+2 2 0 (4)
+2 2 0 (5)
+80% done after 0.383333 minutes.  168 of 210 waves calculated.
+2 1 1 (0)
+2 1 1 (1)
+2 1 1 (2)
+81% done after 0.383333 minutes.  171 of 210 waves calculated.
+2 1 1 (3)
+2 1 1 (4)
+82% done after 0.4 minutes.  173 of 210 waves calculated.
+2 1 1 (5)
+2 1 0 (0)
+83% done after 0.4 minutes.  175 of 210 waves calculated.
+2 1 0 (1)
+2 1 0 (2)
+84% done after 0.4 minutes.  177 of 210 waves calculated.
+2 1 0 (3)
+2 1 0 (4)
+85% done after 0.416667 minutes.  179 of 210 waves calculated.
+2 1 0 (5)
+2 0 0 (0)
+86% done after 0.416667 minutes.  181 of 210 waves calculated.
+2 0 0 (1)
+2 0 0 (2)
+87% done after 0.416667 minutes.  183 of 210 waves calculated.
+2 0 0 (3)
+2 0 0 (4)
+88% done after 0.416667 minutes.  185 of 210 waves calculated.
+2 0 0 (5)
+1 1 1 (0)
+89% done after 0.433333 minutes.  187 of 210 waves calculated.
+1 1 1 (1)
+1 1 1 (2)
+90% done after 0.433333 minutes.  189 of 210 waves calculated.
+1 1 1 (3)
+1 1 1 (4)
+1 1 1 (5)
+91% done after 0.433333 minutes.  192 of 210 waves calculated.
+1 1 0 (0)
+1 1 0 (1)
+92% done after 0.45 minutes.  194 of 210 waves calculated.
+1 1 0 (2)
+1 1 0 (3)
+93% done after 0.45 minutes.  196 of 210 waves calculated.
+1 1 0 (4)
+1 1 0 (5)
+94% done after 0.45 minutes.  198 of 210 waves calculated.
+1 0 0 (0)
+1 0 0 (1)
+95% done after 0.45 minutes.  200 of 210 waves calculated.
+1 0 0 (2)
+1 0 0 (3)
+96% done after 0.466667 minutes.  202 of 210 waves calculated.
+1 0 0 (4)
+1 0 0 (5)
+97% done after 0.466667 minutes.  204 of 210 waves calculated.
+0 0 0 (0)
+0 0 0 (1)
+98% done after 0.466667 minutes.  206 of 210 waves calculated.
+0 0 0 (2)
+0 0 0 (3)
+99% done after 0.466667 minutes.  208 of 210 waves calculated.
+0 0 0 (4)
+0 0 0 (5)
+100% done after 0.466667 minutes.  210 of 210 waves calculated.
+
+Computing thermal conductivity (iter 1)...
+
+10% done.  21 of 210 waves calculated.
+20% done.  42 of 210 waves calculated.
+30% done.  63 of 210 waves calculated.
+40% done.  84 of 210 waves calculated.
+50% done.  105 of 210 waves calculated.
+60% done.  126 of 210 waves calculated.
+70% done.  147 of 210 waves calculated.
+80% done.  168 of 210 waves calculated.
+90% done.  189 of 210 waves calculated.
+100% done.  210 of 210 waves calculated.
+
+Computing frequency shift and linewidth (iter 2)...
+
+4 4 4 (0)
+4 4 4 (1)
+4 4 4 (2)
+1% done after 0.0166667 minutes.  3 of 210 waves calculated.
+4 4 4 (3)
+4 4 4 (4)
+2% done after 0.0166667 minutes.  5 of 210 waves calculated.
+4 4 4 (5)
+4 4 3 (0)
+3% done after 0.0166667 minutes.  7 of 210 waves calculated.
+4 4 3 (1)
+4 4 3 (2)
+4% done after 0.0333333 minutes.  9 of 210 waves calculated.
+4 4 3 (3)
+4 4 3 (4)
+5% done after 0.0333333 minutes.  11 of 210 waves calculated.
+4 4 3 (5)
+4 4 2 (0)
+6% done after 0.0333333 minutes.  13 of 210 waves calculated.
+4 4 2 (1)
+4 4 2 (2)
+7% done after 0.0333333 minutes.  15 of 210 waves calculated.
+4 4 2 (3)
+4 4 2 (4)
+8% done after 0.05 minutes.  17 of 210 waves calculated.
+4 4 2 (5)
+4 4 1 (0)
+9% done after 0.05 minutes.  19 of 210 waves calculated.
+4 4 1 (1)
+4 4 1 (2)
+10% done after 0.05 minutes.  21 of 210 waves calculated.
+4 4 1 (3)
+4 4 1 (4)
+4 4 1 (5)
+11% done after 0.0666667 minutes.  24 of 210 waves calculated.
+4 4 0 (0)
+4 4 0 (1)
+12% done after 0.0666667 minutes.  26 of 210 waves calculated.
+4 4 0 (2)
+4 4 0 (3)
+13% done after 0.0666667 minutes.  28 of 210 waves calculated.
+4 4 0 (4)
+4 4 0 (5)
+14% done after 0.0833333 minutes.  30 of 210 waves calculated.
+4 3 3 (0)
+4 3 3 (1)
+15% done after 0.0833333 minutes.  32 of 210 waves calculated.
+4 3 3 (2)
+4 3 3 (3)
+16% done after 0.0833333 minutes.  34 of 210 waves calculated.
+4 3 3 (4)
+4 3 3 (5)
+17% done after 0.0833333 minutes.  36 of 210 waves calculated.
+4 3 2 (0)
+4 3 2 (1)
+18% done after 0.1 minutes.  38 of 210 waves calculated.
+4 3 2 (2)
+4 3 2 (3)
+19% done after 0.1 minutes.  40 of 210 waves calculated.
+4 3 2 (4)
+4 3 2 (5)
+20% done after 0.1 minutes.  42 of 210 waves calculated.
+4 3 1 (0)
+4 3 1 (1)
+4 3 1 (2)
+21% done after 0.116667 minutes.  45 of 210 waves calculated.
+4 3 1 (3)
+4 3 1 (4)
+22% done after 0.116667 minutes.  47 of 210 waves calculated.
+4 3 1 (5)
+4 3 0 (0)
+23% done after 0.116667 minutes.  49 of 210 waves calculated.
+4 3 0 (1)
+4 3 0 (2)
+24% done after 0.133333 minutes.  51 of 210 waves calculated.
+4 3 0 (3)
+4 3 0 (4)
+25% done after 0.133333 minutes.  53 of 210 waves calculated.
+4 3 0 (5)
+4 2 2 (0)
+26% done after 0.133333 minutes.  55 of 210 waves calculated.
+4 2 2 (1)
+4 2 2 (2)
+27% done after 0.133333 minutes.  57 of 210 waves calculated.
+4 2 2 (3)
+4 2 2 (4)
+28% done after 0.15 minutes.  59 of 210 waves calculated.
+4 2 2 (5)
+4 2 1 (0)
+29% done after 0.15 minutes.  61 of 210 waves calculated.
+4 2 1 (1)
+4 2 1 (2)
+30% done after 0.15 minutes.  63 of 210 waves calculated.
+4 2 1 (3)
+4 2 1 (4)
+4 2 1 (5)
+31% done after 0.166667 minutes.  66 of 210 waves calculated.
+4 2 0 (0)
+4 2 0 (1)
+32% done after 0.166667 minutes.  68 of 210 waves calculated.
+4 2 0 (2)
+4 2 0 (3)
+33% done after 0.166667 minutes.  70 of 210 waves calculated.
+4 2 0 (4)
+4 2 0 (5)
+34% done after 0.183333 minutes.  72 of 210 waves calculated.
+4 1 1 (0)
+4 1 1 (1)
+35% done after 0.183333 minutes.  74 of 210 waves calculated.
+4 1 1 (2)
+4 1 1 (3)
+36% done after 0.183333 minutes.  76 of 210 waves calculated.
+4 1 1 (4)
+4 1 1 (5)
+37% done after 0.183333 minutes.  78 of 210 waves calculated.
+4 1 0 (0)
+4 1 0 (1)
+38% done after 0.2 minutes.  80 of 210 waves calculated.
+4 1 0 (2)
+4 1 0 (3)
+39% done after 0.2 minutes.  82 of 210 waves calculated.
+4 1 0 (4)
+4 1 0 (5)
+40% done after 0.2 minutes.  84 of 210 waves calculated.
+4 0 0 (0)
+4 0 0 (1)
+4 0 0 (2)
+41% done after 0.216667 minutes.  87 of 210 waves calculated.
+4 0 0 (3)
+4 0 0 (4)
+42% done after 0.216667 minutes.  89 of 210 waves calculated.
+4 0 0 (5)
+3 3 3 (0)
+43% done after 0.216667 minutes.  91 of 210 waves calculated.
+3 3 3 (1)
+3 3 3 (2)
+44% done after 0.233333 minutes.  93 of 210 waves calculated.
+3 3 3 (3)
+3 3 3 (4)
+45% done after 0.233333 minutes.  95 of 210 waves calculated.
+3 3 3 (5)
+3 3 2 (0)
+46% done after 0.233333 minutes.  97 of 210 waves calculated.
+3 3 2 (1)
+3 3 2 (2)
+47% done after 0.233333 minutes.  99 of 210 waves calculated.
+3 3 2 (3)
+3 3 2 (4)
+48% done after 0.25 minutes.  101 of 210 waves calculated.
+3 3 2 (5)
+3 3 1 (0)
+49% done after 0.25 minutes.  103 of 210 waves calculated.
+3 3 1 (1)
+3 3 1 (2)
+50% done after 0.25 minutes.  105 of 210 waves calculated.
+3 3 1 (3)
+3 3 1 (4)
+3 3 1 (5)
+51% done after 0.25 minutes.  108 of 210 waves calculated.
+3 3 0 (0)
+3 3 0 (1)
+52% done after 0.266667 minutes.  110 of 210 waves calculated.
+3 3 0 (2)
+3 3 0 (3)
+53% done after 0.266667 minutes.  112 of 210 waves calculated.
+3 3 0 (4)
+3 3 0 (5)
+54% done after 0.266667 minutes.  114 of 210 waves calculated.
+3 2 2 (0)
+3 2 2 (1)
+55% done after 0.283333 minutes.  116 of 210 waves calculated.
+3 2 2 (2)
+3 2 2 (3)
+56% done after 0.283333 minutes.  118 of 210 waves calculated.
+3 2 2 (4)
+3 2 2 (5)
+57% done after 0.283333 minutes.  120 of 210 waves calculated.
+3 2 1 (0)
+3 2 1 (1)
+58% done after 0.283333 minutes.  122 of 210 waves calculated.
+3 2 1 (2)
+3 2 1 (3)
+59% done after 0.3 minutes.  124 of 210 waves calculated.
+3 2 1 (4)
+3 2 1 (5)
+60% done after 0.3 minutes.  126 of 210 waves calculated.
+3 2 0 (0)
+3 2 0 (1)
+3 2 0 (2)
+61% done after 0.3 minutes.  129 of 210 waves calculated.
+3 2 0 (3)
+3 2 0 (4)
+62% done after 0.316667 minutes.  131 of 210 waves calculated.
+3 2 0 (5)
+3 1 1 (0)
+63% done after 0.316667 minutes.  133 of 210 waves calculated.
+3 1 1 (1)
+3 1 1 (2)
+64% done after 0.316667 minutes.  135 of 210 waves calculated.
+3 1 1 (3)
+3 1 1 (4)
+65% done after 0.316667 minutes.  137 of 210 waves calculated.
+3 1 1 (5)
+3 1 0 (0)
+66% done after 0.333333 minutes.  139 of 210 waves calculated.
+3 1 0 (1)
+3 1 0 (2)
+67% done after 0.333333 minutes.  141 of 210 waves calculated.
+3 1 0 (3)
+3 1 0 (4)
+68% done after 0.333333 minutes.  143 of 210 waves calculated.
+3 1 0 (5)
+3 0 0 (0)
+69% done after 0.333333 minutes.  145 of 210 waves calculated.
+3 0 0 (1)
+3 0 0 (2)
+70% done after 0.35 minutes.  147 of 210 waves calculated.
+3 0 0 (3)
+3 0 0 (4)
+3 0 0 (5)
+71% done after 0.35 minutes.  150 of 210 waves calculated.
+2 2 2 (0)
+2 2 2 (1)
+72% done after 0.35 minutes.  152 of 210 waves calculated.
+2 2 2 (2)
+2 2 2 (3)
+73% done after 0.366667 minutes.  154 of 210 waves calculated.
+2 2 2 (4)
+2 2 2 (5)
+74% done after 0.366667 minutes.  156 of 210 waves calculated.
+2 2 1 (0)
+2 2 1 (1)
+75% done after 0.366667 minutes.  158 of 210 waves calculated.
+2 2 1 (2)
+2 2 1 (3)
+76% done after 0.366667 minutes.  160 of 210 waves calculated.
+2 2 1 (4)
+2 2 1 (5)
+77% done after 0.383333 minutes.  162 of 210 waves calculated.
+2 2 0 (0)
+2 2 0 (1)
+78% done after 0.383333 minutes.  164 of 210 waves calculated.
+2 2 0 (2)
+2 2 0 (3)
+79% done after 0.383333 minutes.  166 of 210 waves calculated.
+2 2 0 (4)
+2 2 0 (5)
+80% done after 0.4 minutes.  168 of 210 waves calculated.
+2 1 1 (0)
+2 1 1 (1)
+2 1 1 (2)
+81% done after 0.4 minutes.  171 of 210 waves calculated.
+2 1 1 (3)
+2 1 1 (4)
+82% done after 0.4 minutes.  173 of 210 waves calculated.
+2 1 1 (5)
+2 1 0 (0)
+83% done after 0.416667 minutes.  175 of 210 waves calculated.
+2 1 0 (1)
+2 1 0 (2)
+84% done after 0.416667 minutes.  177 of 210 waves calculated.
+2 1 0 (3)
+2 1 0 (4)
+85% done after 0.416667 minutes.  179 of 210 waves calculated.
+2 1 0 (5)
+2 0 0 (0)
+86% done after 0.416667 minutes.  181 of 210 waves calculated.
+2 0 0 (1)
+2 0 0 (2)
+87% done after 0.433333 minutes.  183 of 210 waves calculated.
+2 0 0 (3)
+2 0 0 (4)
+88% done after 0.433333 minutes.  185 of 210 waves calculated.
+2 0 0 (5)
+1 1 1 (0)
+89% done after 0.433333 minutes.  187 of 210 waves calculated.
+1 1 1 (1)
+1 1 1 (2)
+90% done after 0.433333 minutes.  189 of 210 waves calculated.
+1 1 1 (3)
+1 1 1 (4)
+1 1 1 (5)
+91% done after 0.45 minutes.  192 of 210 waves calculated.
+1 1 0 (0)
+1 1 0 (1)
+92% done after 0.45 minutes.  194 of 210 waves calculated.
+1 1 0 (2)
+1 1 0 (3)
+93% done after 0.45 minutes.  196 of 210 waves calculated.
+1 1 0 (4)
+1 1 0 (5)
+94% done after 0.466667 minutes.  198 of 210 waves calculated.
+1 0 0 (0)
+1 0 0 (1)
+95% done after 0.466667 minutes.  200 of 210 waves calculated.
+1 0 0 (2)
+1 0 0 (3)
+96% done after 0.466667 minutes.  202 of 210 waves calculated.
+1 0 0 (4)
+1 0 0 (5)
+97% done after 0.466667 minutes.  204 of 210 waves calculated.
+0 0 0 (0)
+0 0 0 (1)
+98% done after 0.483333 minutes.  206 of 210 waves calculated.
+0 0 0 (2)
+0 0 0 (3)
+99% done after 0.483333 minutes.  208 of 210 waves calculated.
+0 0 0 (4)
+0 0 0 (5)
+100% done after 0.483333 minutes.  210 of 210 waves calculated.
+
+Computing thermal conductivity (iter 2)...
+
+10% done.  21 of 210 waves calculated.
+20% done.  42 of 210 waves calculated.
+30% done.  63 of 210 waves calculated.
+40% done.  84 of 210 waves calculated.
+50% done.  105 of 210 waves calculated.
+60% done.  126 of 210 waves calculated.
+70% done.  147 of 210 waves calculated.
+80% done.  168 of 210 waves calculated.
+90% done.  189 of 210 waves calculated.
+100% done.  210 of 210 waves calculated.
+
+Computing frequency shift and linewidth (iter 3)...
+
+4 4 4 (0)
+4 4 4 (1)
+4 4 4 (2)
+1% done after 0 minutes.  3 of 210 waves calculated.
+4 4 4 (3)
+4 4 4 (4)
+2% done after 0.0166667 minutes.  5 of 210 waves calculated.
+4 4 4 (5)
+4 4 3 (0)
+3% done after 0.0166667 minutes.  7 of 210 waves calculated.
+4 4 3 (1)
+4 4 3 (2)
+4% done after 0.0166667 minutes.  9 of 210 waves calculated.
+4 4 3 (3)
+4 4 3 (4)
+5% done after 0.0166667 minutes.  11 of 210 waves calculated.
+4 4 3 (5)
+4 4 2 (0)
+6% done after 0.0333333 minutes.  13 of 210 waves calculated.
+4 4 2 (1)
+4 4 2 (2)
+7% done after 0.0333333 minutes.  15 of 210 waves calculated.
+4 4 2 (3)
+4 4 2 (4)
+8% done after 0.0333333 minutes.  17 of 210 waves calculated.
+4 4 2 (5)
+4 4 1 (0)
+9% done after 0.05 minutes.  19 of 210 waves calculated.
+4 4 1 (1)
+4 4 1 (2)
+10% done after 0.05 minutes.  21 of 210 waves calculated.
+4 4 1 (3)
+4 4 1 (4)
+4 4 1 (5)
+11% done after 0.05 minutes.  24 of 210 waves calculated.
+4 4 0 (0)
+4 4 0 (1)
+12% done after 0.0666667 minutes.  26 of 210 waves calculated.
+4 4 0 (2)
+4 4 0 (3)
+13% done after 0.0666667 minutes.  28 of 210 waves calculated.
+4 4 0 (4)
+4 4 0 (5)
+14% done after 0.0666667 minutes.  30 of 210 waves calculated.
+4 3 3 (0)
+4 3 3 (1)
+15% done after 0.0666667 minutes.  32 of 210 waves calculated.
+4 3 3 (2)
+4 3 3 (3)
+16% done after 0.0833333 minutes.  34 of 210 waves calculated.
+4 3 3 (4)
+4 3 3 (5)
+17% done after 0.0833333 minutes.  36 of 210 waves calculated.
+4 3 2 (0)
+4 3 2 (1)
+18% done after 0.0833333 minutes.  38 of 210 waves calculated.
+4 3 2 (2)
+4 3 2 (3)
+19% done after 0.1 minutes.  40 of 210 waves calculated.
+4 3 2 (4)
+4 3 2 (5)
+20% done after 0.1 minutes.  42 of 210 waves calculated.
+4 3 1 (0)
+4 3 1 (1)
+4 3 1 (2)
+21% done after 0.1 minutes.  45 of 210 waves calculated.
+4 3 1 (3)
+4 3 1 (4)
+22% done after 0.116667 minutes.  47 of 210 waves calculated.
+4 3 1 (5)
+4 3 0 (0)
+23% done after 0.116667 minutes.  49 of 210 waves calculated.
+4 3 0 (1)
+4 3 0 (2)
+24% done after 0.116667 minutes.  51 of 210 waves calculated.
+4 3 0 (3)
+4 3 0 (4)
+25% done after 0.116667 minutes.  53 of 210 waves calculated.
+4 3 0 (5)
+4 2 2 (0)
+26% done after 0.133333 minutes.  55 of 210 waves calculated.
+4 2 2 (1)
+4 2 2 (2)
+27% done after 0.133333 minutes.  57 of 210 waves calculated.
+4 2 2 (3)
+4 2 2 (4)
+28% done after 0.133333 minutes.  59 of 210 waves calculated.
+4 2 2 (5)
+4 2 1 (0)
+29% done after 0.15 minutes.  61 of 210 waves calculated.
+4 2 1 (1)
+4 2 1 (2)
+30% done after 0.15 minutes.  63 of 210 waves calculated.
+4 2 1 (3)
+4 2 1 (4)
+4 2 1 (5)
+31% done after 0.15 minutes.  66 of 210 waves calculated.
+4 2 0 (0)
+4 2 0 (1)
+32% done after 0.166667 minutes.  68 of 210 waves calculated.
+4 2 0 (2)
+4 2 0 (3)
+33% done after 0.166667 minutes.  70 of 210 waves calculated.
+4 2 0 (4)
+4 2 0 (5)
+34% done after 0.166667 minutes.  72 of 210 waves calculated.
+4 1 1 (0)
+4 1 1 (1)
+35% done after 0.183333 minutes.  74 of 210 waves calculated.
+4 1 1 (2)
+4 1 1 (3)
+36% done after 0.183333 minutes.  76 of 210 waves calculated.
+4 1 1 (4)
+4 1 1 (5)
+37% done after 0.183333 minutes.  78 of 210 waves calculated.
+4 1 0 (0)
+4 1 0 (1)
+38% done after 0.183333 minutes.  80 of 210 waves calculated.
+4 1 0 (2)
+4 1 0 (3)
+39% done after 0.2 minutes.  82 of 210 waves calculated.
+4 1 0 (4)
+4 1 0 (5)
+40% done after 0.2 minutes.  84 of 210 waves calculated.
+4 0 0 (0)
+4 0 0 (1)
+4 0 0 (2)
+41% done after 0.2 minutes.  87 of 210 waves calculated.
+4 0 0 (3)
+4 0 0 (4)
+42% done after 0.216667 minutes.  89 of 210 waves calculated.
+4 0 0 (5)
+3 3 3 (0)
+43% done after 0.216667 minutes.  91 of 210 waves calculated.
+3 3 3 (1)
+3 3 3 (2)
+44% done after 0.216667 minutes.  93 of 210 waves calculated.
+3 3 3 (3)
+3 3 3 (4)
+45% done after 0.216667 minutes.  95 of 210 waves calculated.
+3 3 3 (5)
+3 3 2 (0)
+46% done after 0.233333 minutes.  97 of 210 waves calculated.
+3 3 2 (1)
+3 3 2 (2)
+47% done after 0.233333 minutes.  99 of 210 waves calculated.
+3 3 2 (3)
+3 3 2 (4)
+48% done after 0.233333 minutes.  101 of 210 waves calculated.
+3 3 2 (5)
+3 3 1 (0)
+49% done after 0.233333 minutes.  103 of 210 waves calculated.
+3 3 1 (1)
+3 3 1 (2)
+50% done after 0.25 minutes.  105 of 210 waves calculated.
+3 3 1 (3)
+3 3 1 (4)
+3 3 1 (5)
+51% done after 0.25 minutes.  108 of 210 waves calculated.
+3 3 0 (0)
+3 3 0 (1)
+52% done after 0.25 minutes.  110 of 210 waves calculated.
+3 3 0 (2)
+3 3 0 (3)
+53% done after 0.266667 minutes.  112 of 210 waves calculated.
+3 3 0 (4)
+3 3 0 (5)
+54% done after 0.266667 minutes.  114 of 210 waves calculated.
+3 2 2 (0)
+3 2 2 (1)
+55% done after 0.266667 minutes.  116 of 210 waves calculated.
+3 2 2 (2)
+3 2 2 (3)
+56% done after 0.266667 minutes.  118 of 210 waves calculated.
+3 2 2 (4)
+3 2 2 (5)
+57% done after 0.283333 minutes.  120 of 210 waves calculated.
+3 2 1 (0)
+3 2 1 (1)
+58% done after 0.283333 minutes.  122 of 210 waves calculated.
+3 2 1 (2)
+3 2 1 (3)
+59% done after 0.283333 minutes.  124 of 210 waves calculated.
+3 2 1 (4)
+3 2 1 (5)
+60% done after 0.3 minutes.  126 of 210 waves calculated.
+3 2 0 (0)
+3 2 0 (1)
+3 2 0 (2)
+61% done after 0.3 minutes.  129 of 210 waves calculated.
+3 2 0 (3)
+3 2 0 (4)
+62% done after 0.3 minutes.  131 of 210 waves calculated.
+3 2 0 (5)
+3 1 1 (0)
+63% done after 0.316667 minutes.  133 of 210 waves calculated.
+3 1 1 (1)
+3 1 1 (2)
+64% done after 0.316667 minutes.  135 of 210 waves calculated.
+3 1 1 (3)
+3 1 1 (4)
+65% done after 0.316667 minutes.  137 of 210 waves calculated.
+3 1 1 (5)
+3 1 0 (0)
+66% done after 0.316667 minutes.  139 of 210 waves calculated.
+3 1 0 (1)
+3 1 0 (2)
+67% done after 0.333333 minutes.  141 of 210 waves calculated.
+3 1 0 (3)
+3 1 0 (4)
+68% done after 0.333333 minutes.  143 of 210 waves calculated.
+3 1 0 (5)
+3 0 0 (0)
+69% done after 0.333333 minutes.  145 of 210 waves calculated.
+3 0 0 (1)
+3 0 0 (2)
+70% done after 0.333333 minutes.  147 of 210 waves calculated.
+3 0 0 (3)
+3 0 0 (4)
+3 0 0 (5)
+71% done after 0.35 minutes.  150 of 210 waves calculated.
+2 2 2 (0)
+2 2 2 (1)
+72% done after 0.35 minutes.  152 of 210 waves calculated.
+2 2 2 (2)
+2 2 2 (3)
+73% done after 0.35 minutes.  154 of 210 waves calculated.
+2 2 2 (4)
+2 2 2 (5)
+74% done after 0.366667 minutes.  156 of 210 waves calculated.
+2 2 1 (0)
+2 2 1 (1)
+75% done after 0.366667 minutes.  158 of 210 waves calculated.
+2 2 1 (2)
+2 2 1 (3)
+76% done after 0.366667 minutes.  160 of 210 waves calculated.
+2 2 1 (4)
+2 2 1 (5)
+77% done after 0.366667 minutes.  162 of 210 waves calculated.
+2 2 0 (0)
+2 2 0 (1)
+78% done after 0.383333 minutes.  164 of 210 waves calculated.
+2 2 0 (2)
+2 2 0 (3)
+79% done after 0.383333 minutes.  166 of 210 waves calculated.
+2 2 0 (4)
+2 2 0 (5)
+80% done after 0.383333 minutes.  168 of 210 waves calculated.
+2 1 1 (0)
+2 1 1 (1)
+2 1 1 (2)
+81% done after 0.4 minutes.  171 of 210 waves calculated.
+2 1 1 (3)
+2 1 1 (4)
+82% done after 0.4 minutes.  173 of 210 waves calculated.
+2 1 1 (5)
+2 1 0 (0)
+83% done after 0.4 minutes.  175 of 210 waves calculated.
+2 1 0 (1)
+2 1 0 (2)
+84% done after 0.416667 minutes.  177 of 210 waves calculated.
+2 1 0 (3)
+2 1 0 (4)
+85% done after 0.416667 minutes.  179 of 210 waves calculated.
+2 1 0 (5)
+2 0 0 (0)
+86% done after 0.416667 minutes.  181 of 210 waves calculated.
+2 0 0 (1)
+2 0 0 (2)
+87% done after 0.416667 minutes.  183 of 210 waves calculated.
+2 0 0 (3)
+2 0 0 (4)
+88% done after 0.433333 minutes.  185 of 210 waves calculated.
+2 0 0 (5)
+1 1 1 (0)
+89% done after 0.433333 minutes.  187 of 210 waves calculated.
+1 1 1 (1)
+1 1 1 (2)
+90% done after 0.433333 minutes.  189 of 210 waves calculated.
+1 1 1 (3)
+1 1 1 (4)
+1 1 1 (5)
+91% done after 0.45 minutes.  192 of 210 waves calculated.
+1 1 0 (0)
+1 1 0 (1)
+92% done after 0.45 minutes.  194 of 210 waves calculated.
+1 1 0 (2)
+1 1 0 (3)
+93% done after 0.45 minutes.  196 of 210 waves calculated.
+1 1 0 (4)
+1 1 0 (5)
+94% done after 0.45 minutes.  198 of 210 waves calculated.
+1 0 0 (0)
+1 0 0 (1)
+95% done after 0.466667 minutes.  200 of 210 waves calculated.
+1 0 0 (2)
+1 0 0 (3)
+96% done after 0.466667 minutes.  202 of 210 waves calculated.
+1 0 0 (4)
+1 0 0 (5)
+97% done after 0.466667 minutes.  204 of 210 waves calculated.
+0 0 0 (0)
+0 0 0 (1)
+98% done after 0.466667 minutes.  206 of 210 waves calculated.
+0 0 0 (2)
+0 0 0 (3)
+99% done after 0.466667 minutes.  208 of 210 waves calculated.
+0 0 0 (4)
+0 0 0 (5)
+100% done after 0.466667 minutes.  210 of 210 waves calculated.
+
+Computing thermal conductivity (iter 3)...
+
+10% done.  21 of 210 waves calculated.
+20% done.  42 of 210 waves calculated.
+30% done.  63 of 210 waves calculated.
+40% done.  84 of 210 waves calculated.
+50% done.  105 of 210 waves calculated.
+60% done.  126 of 210 waves calculated.
+70% done.  147 of 210 waves calculated.
+80% done.  168 of 210 waves calculated.
+90% done.  189 of 210 waves calculated.
+100% done.  210 of 210 waves calculated.
+
+Computing frequency shift and linewidth (iter 4)...
+
+4 4 4 (0)
+4 4 4 (1)
+4 4 4 (2)
+1% done after 0.0166667 minutes.  3 of 210 waves calculated.
+4 4 4 (3)
+4 4 4 (4)
+2% done after 0.0166667 minutes.  5 of 210 waves calculated.
+4 4 4 (5)
+4 4 3 (0)
+3% done after 0.0333333 minutes.  7 of 210 waves calculated.
+4 4 3 (1)
+4 4 3 (2)
+4% done after 0.0333333 minutes.  9 of 210 waves calculated.
+4 4 3 (3)
+4 4 3 (4)
+5% done after 0.0333333 minutes.  11 of 210 waves calculated.
+4 4 3 (5)
+4 4 2 (0)
+6% done after 0.0333333 minutes.  13 of 210 waves calculated.
+4 4 2 (1)
+4 4 2 (2)
+7% done after 0.05 minutes.  15 of 210 waves calculated.
+4 4 2 (3)
+4 4 2 (4)
+8% done after 0.05 minutes.  17 of 210 waves calculated.
+4 4 2 (5)
+4 4 1 (0)
+9% done after 0.05 minutes.  19 of 210 waves calculated.
+4 4 1 (1)
+4 4 1 (2)
+10% done after 0.0666667 minutes.  21 of 210 waves calculated.
+4 4 1 (3)
+4 4 1 (4)
+4 4 1 (5)
+11% done after 0.0666667 minutes.  24 of 210 waves calculated.
+4 4 0 (0)
+4 4 0 (1)
+12% done after 0.0666667 minutes.  26 of 210 waves calculated.
+4 4 0 (2)
+4 4 0 (3)
+13% done after 0.0833333 minutes.  28 of 210 waves calculated.
+4 4 0 (4)
+4 4 0 (5)
+14% done after 0.0833333 minutes.  30 of 210 waves calculated.
+4 3 3 (0)
+4 3 3 (1)
+15% done after 0.0833333 minutes.  32 of 210 waves calculated.
+4 3 3 (2)
+4 3 3 (3)
+16% done after 0.0833333 minutes.  34 of 210 waves calculated.
+4 3 3 (4)
+4 3 3 (5)
+17% done after 0.1 minutes.  36 of 210 waves calculated.
+4 3 2 (0)
+4 3 2 (1)
+18% done after 0.1 minutes.  38 of 210 waves calculated.
+4 3 2 (2)
+4 3 2 (3)
+19% done after 0.1 minutes.  40 of 210 waves calculated.
+4 3 2 (4)
+4 3 2 (5)
+20% done after 0.116667 minutes.  42 of 210 waves calculated.
+4 3 1 (0)
+4 3 1 (1)
+4 3 1 (2)
+21% done after 0.116667 minutes.  45 of 210 waves calculated.
+4 3 1 (3)
+4 3 1 (4)
+22% done after 0.116667 minutes.  47 of 210 waves calculated.
+4 3 1 (5)
+4 3 0 (0)
+23% done after 0.133333 minutes.  49 of 210 waves calculated.
+4 3 0 (1)
+4 3 0 (2)
+24% done after 0.133333 minutes.  51 of 210 waves calculated.
+4 3 0 (3)
+4 3 0 (4)
+25% done after 0.133333 minutes.  53 of 210 waves calculated.
+4 3 0 (5)
+4 2 2 (0)
+26% done after 0.133333 minutes.  55 of 210 waves calculated.
+4 2 2 (1)
+4 2 2 (2)
+27% done after 0.15 minutes.  57 of 210 waves calculated.
+4 2 2 (3)
+4 2 2 (4)
+28% done after 0.15 minutes.  59 of 210 waves calculated.
+4 2 2 (5)
+4 2 1 (0)
+29% done after 0.15 minutes.  61 of 210 waves calculated.
+4 2 1 (1)
+4 2 1 (2)
+30% done after 0.166667 minutes.  63 of 210 waves calculated.
+4 2 1 (3)
+4 2 1 (4)
+4 2 1 (5)
+31% done after 0.166667 minutes.  66 of 210 waves calculated.
+4 2 0 (0)
+4 2 0 (1)
+32% done after 0.166667 minutes.  68 of 210 waves calculated.
+4 2 0 (2)
+4 2 0 (3)
+33% done after 0.183333 minutes.  70 of 210 waves calculated.
+4 2 0 (4)
+4 2 0 (5)
+34% done after 0.183333 minutes.  72 of 210 waves calculated.
+4 1 1 (0)
+4 1 1 (1)
+35% done after 0.183333 minutes.  74 of 210 waves calculated.
+4 1 1 (2)
+4 1 1 (3)
+36% done after 0.183333 minutes.  76 of 210 waves calculated.
+4 1 1 (4)
+4 1 1 (5)
+37% done after 0.2 minutes.  78 of 210 waves calculated.
+4 1 0 (0)
+4 1 0 (1)
+38% done after 0.2 minutes.  80 of 210 waves calculated.
+4 1 0 (2)
+4 1 0 (3)
+39% done after 0.2 minutes.  82 of 210 waves calculated.
+4 1 0 (4)
+4 1 0 (5)
+40% done after 0.216667 minutes.  84 of 210 waves calculated.
+4 0 0 (0)
+4 0 0 (1)
+4 0 0 (2)
+41% done after 0.216667 minutes.  87 of 210 waves calculated.
+4 0 0 (3)
+4 0 0 (4)
+42% done after 0.216667 minutes.  89 of 210 waves calculated.
+4 0 0 (5)
+3 3 3 (0)
+43% done after 0.233333 minutes.  91 of 210 waves calculated.
+3 3 3 (1)
+3 3 3 (2)
+44% done after 0.233333 minutes.  93 of 210 waves calculated.
+3 3 3 (3)
+3 3 3 (4)
+45% done after 0.233333 minutes.  95 of 210 waves calculated.
+3 3 3 (5)
+3 3 2 (0)
+46% done after 0.233333 minutes.  97 of 210 waves calculated.
+3 3 2 (1)
+3 3 2 (2)
+47% done after 0.25 minutes.  99 of 210 waves calculated.
+3 3 2 (3)
+3 3 2 (4)
+48% done after 0.25 minutes.  101 of 210 waves calculated.
+3 3 2 (5)
+3 3 1 (0)
+49% done after 0.25 minutes.  103 of 210 waves calculated.
+3 3 1 (1)
+3 3 1 (2)
+50% done after 0.25 minutes.  105 of 210 waves calculated.
+3 3 1 (3)
+3 3 1 (4)
+3 3 1 (5)
+51% done after 0.266667 minutes.  108 of 210 waves calculated.
+3 3 0 (0)
+3 3 0 (1)
+52% done after 0.266667 minutes.  110 of 210 waves calculated.
+3 3 0 (2)
+3 3 0 (3)
+53% done after 0.266667 minutes.  112 of 210 waves calculated.
+3 3 0 (4)
+3 3 0 (5)
+54% done after 0.283333 minutes.  114 of 210 waves calculated.
+3 2 2 (0)
+3 2 2 (1)
+55% done after 0.283333 minutes.  116 of 210 waves calculated.
+3 2 2 (2)
+3 2 2 (3)
+56% done after 0.283333 minutes.  118 of 210 waves calculated.
+3 2 2 (4)
+3 2 2 (5)
+57% done after 0.283333 minutes.  120 of 210 waves calculated.
+3 2 1 (0)
+3 2 1 (1)
+58% done after 0.3 minutes.  122 of 210 waves calculated.
+3 2 1 (2)
+3 2 1 (3)
+59% done after 0.3 minutes.  124 of 210 waves calculated.
+3 2 1 (4)
+3 2 1 (5)
+60% done after 0.3 minutes.  126 of 210 waves calculated.
+3 2 0 (0)
+3 2 0 (1)
+3 2 0 (2)
+61% done after 0.316667 minutes.  129 of 210 waves calculated.
+3 2 0 (3)
+3 2 0 (4)
+62% done after 0.316667 minutes.  131 of 210 waves calculated.
+3 2 0 (5)
+3 1 1 (0)
+63% done after 0.316667 minutes.  133 of 210 waves calculated.
+3 1 1 (1)
+3 1 1 (2)
+64% done after 0.316667 minutes.  135 of 210 waves calculated.
+3 1 1 (3)
+3 1 1 (4)
+65% done after 0.333333 minutes.  137 of 210 waves calculated.
+3 1 1 (5)
+3 1 0 (0)
+66% done after 0.333333 minutes.  139 of 210 waves calculated.
+3 1 0 (1)
+3 1 0 (2)
+67% done after 0.333333 minutes.  141 of 210 waves calculated.
+3 1 0 (3)
+3 1 0 (4)
+68% done after 0.333333 minutes.  143 of 210 waves calculated.
+3 1 0 (5)
+3 0 0 (0)
+69% done after 0.35 minutes.  145 of 210 waves calculated.
+3 0 0 (1)
+3 0 0 (2)
+70% done after 0.35 minutes.  147 of 210 waves calculated.
+3 0 0 (3)
+3 0 0 (4)
+3 0 0 (5)
+71% done after 0.35 minutes.  150 of 210 waves calculated.
+2 2 2 (0)
+2 2 2 (1)
+72% done after 0.366667 minutes.  152 of 210 waves calculated.
+2 2 2 (2)
+2 2 2 (3)
+73% done after 0.366667 minutes.  154 of 210 waves calculated.
+2 2 2 (4)
+2 2 2 (5)
+74% done after 0.366667 minutes.  156 of 210 waves calculated.
+2 2 1 (0)
+2 2 1 (1)
+75% done after 0.383333 minutes.  158 of 210 waves calculated.
+2 2 1 (2)
+2 2 1 (3)
+76% done after 0.383333 minutes.  160 of 210 waves calculated.
+2 2 1 (4)
+2 2 1 (5)
+77% done after 0.383333 minutes.  162 of 210 waves calculated.
+2 2 0 (0)
+2 2 0 (1)
+78% done after 0.383333 minutes.  164 of 210 waves calculated.
+2 2 0 (2)
+2 2 0 (3)
+79% done after 0.4 minutes.  166 of 210 waves calculated.
+2 2 0 (4)
+2 2 0 (5)
+80% done after 0.4 minutes.  168 of 210 waves calculated.
+2 1 1 (0)
+2 1 1 (1)
+2 1 1 (2)
+81% done after 0.4 minutes.  171 of 210 waves calculated.
+2 1 1 (3)
+2 1 1 (4)
+82% done after 0.416667 minutes.  173 of 210 waves calculated.
+2 1 1 (5)
+2 1 0 (0)
+83% done after 0.416667 minutes.  175 of 210 waves calculated.
+2 1 0 (1)
+2 1 0 (2)
+84% done after 0.416667 minutes.  177 of 210 waves calculated.
+2 1 0 (3)
+2 1 0 (4)
+85% done after 0.416667 minutes.  179 of 210 waves calculated.
+2 1 0 (5)
+2 0 0 (0)
+86% done after 0.433333 minutes.  181 of 210 waves calculated.
+2 0 0 (1)
+2 0 0 (2)
+87% done after 0.433333 minutes.  183 of 210 waves calculated.
+2 0 0 (3)
+2 0 0 (4)
+88% done after 0.433333 minutes.  185 of 210 waves calculated.
+2 0 0 (5)
+1 1 1 (0)
+89% done after 0.45 minutes.  187 of 210 waves calculated.
+1 1 1 (1)
+1 1 1 (2)
+90% done after 0.45 minutes.  189 of 210 waves calculated.
+1 1 1 (3)
+1 1 1 (4)
+1 1 1 (5)
+91% done after 0.45 minutes.  192 of 210 waves calculated.
+1 1 0 (0)
+1 1 0 (1)
+92% done after 0.45 minutes.  194 of 210 waves calculated.
+1 1 0 (2)
+1 1 0 (3)
+93% done after 0.466667 minutes.  196 of 210 waves calculated.
+1 1 0 (4)
+1 1 0 (5)
+94% done after 0.466667 minutes.  198 of 210 waves calculated.
+1 0 0 (0)
+1 0 0 (1)
+95% done after 0.466667 minutes.  200 of 210 waves calculated.
+1 0 0 (2)
+1 0 0 (3)
+96% done after 0.466667 minutes.  202 of 210 waves calculated.
+1 0 0 (4)
+1 0 0 (5)
+97% done after 0.483333 minutes.  204 of 210 waves calculated.
+0 0 0 (0)
+0 0 0 (1)
+98% done after 0.483333 minutes.  206 of 210 waves calculated.
+0 0 0 (2)
+0 0 0 (3)
+99% done after 0.483333 minutes.  208 of 210 waves calculated.
+0 0 0 (4)
+0 0 0 (5)
+100% done after 0.483333 minutes.  210 of 210 waves calculated.
+
+Computing thermal conductivity (iter 4)...
+
+10% done.  21 of 210 waves calculated.
+20% done.  42 of 210 waves calculated.
+30% done.  63 of 210 waves calculated.
+40% done.  84 of 210 waves calculated.
+50% done.  105 of 210 waves calculated.
+60% done.  126 of 210 waves calculated.
+70% done.  147 of 210 waves calculated.
+80% done.  168 of 210 waves calculated.
+90% done.  189 of 210 waves calculated.
+100% done.  210 of 210 waves calculated.
+
+Computing frequency shift and linewidth (iter 5)...
+
+4 4 4 (0)
+4 4 4 (1)
+4 4 4 (2)
+1% done after 0.0166667 minutes.  3 of 210 waves calculated.
+4 4 4 (3)
+4 4 4 (4)
+2% done after 0.0166667 minutes.  5 of 210 waves calculated.
+4 4 4 (5)
+4 4 3 (0)
+3% done after 0.0166667 minutes.  7 of 210 waves calculated.
+4 4 3 (1)
+4 4 3 (2)
+4% done after 0.0166667 minutes.  9 of 210 waves calculated.
+4 4 3 (3)
+4 4 3 (4)
+5% done after 0.0333333 minutes.  11 of 210 waves calculated.
+4 4 3 (5)
+4 4 2 (0)
+6% done after 0.0333333 minutes.  13 of 210 waves calculated.
+4 4 2 (1)
+4 4 2 (2)
+7% done after 0.0333333 minutes.  15 of 210 waves calculated.
+4 4 2 (3)
+4 4 2 (4)
+8% done after 0.05 minutes.  17 of 210 waves calculated.
+4 4 2 (5)
+4 4 1 (0)
+9% done after 0.05 minutes.  19 of 210 waves calculated.
+4 4 1 (1)
+4 4 1 (2)
+10% done after 0.05 minutes.  21 of 210 waves calculated.
+4 4 1 (3)
+4 4 1 (4)
+4 4 1 (5)
+11% done after 0.0666667 minutes.  24 of 210 waves calculated.
+4 4 0 (0)
+4 4 0 (1)
+12% done after 0.0666667 minutes.  26 of 210 waves calculated.
+4 4 0 (2)
+4 4 0 (3)
+13% done after 0.0666667 minutes.  28 of 210 waves calculated.
+4 4 0 (4)
+4 4 0 (5)
+14% done after 0.0833333 minutes.  30 of 210 waves calculated.
+4 3 3 (0)
+4 3 3 (1)
+15% done after 0.0833333 minutes.  32 of 210 waves calculated.
+4 3 3 (2)
+4 3 3 (3)
+16% done after 0.0833333 minutes.  34 of 210 waves calculated.
+4 3 3 (4)
+4 3 3 (5)
+17% done after 0.0833333 minutes.  36 of 210 waves calculated.
+4 3 2 (0)
+4 3 2 (1)
+18% done after 0.1 minutes.  38 of 210 waves calculated.
+4 3 2 (2)
+4 3 2 (3)
+19% done after 0.1 minutes.  40 of 210 waves calculated.
+4 3 2 (4)
+4 3 2 (5)
+20% done after 0.1 minutes.  42 of 210 waves calculated.
+4 3 1 (0)
+4 3 1 (1)
+4 3 1 (2)
+21% done after 0.116667 minutes.  45 of 210 waves calculated.
+4 3 1 (3)
+4 3 1 (4)
+22% done after 0.116667 minutes.  47 of 210 waves calculated.
+4 3 1 (5)
+4 3 0 (0)
+23% done after 0.116667 minutes.  49 of 210 waves calculated.
+4 3 0 (1)
+4 3 0 (2)
+24% done after 0.116667 minutes.  51 of 210 waves calculated.
+4 3 0 (3)
+4 3 0 (4)
+25% done after 0.133333 minutes.  53 of 210 waves calculated.
+4 3 0 (5)
+4 2 2 (0)
+26% done after 0.133333 minutes.  55 of 210 waves calculated.
+4 2 2 (1)
+4 2 2 (2)
+27% done after 0.133333 minutes.  57 of 210 waves calculated.
+4 2 2 (3)
+4 2 2 (4)
+28% done after 0.15 minutes.  59 of 210 waves calculated.
+4 2 2 (5)
+4 2 1 (0)
+29% done after 0.15 minutes.  61 of 210 waves calculated.
+4 2 1 (1)
+4 2 1 (2)
+30% done after 0.15 minutes.  63 of 210 waves calculated.
+4 2 1 (3)
+4 2 1 (4)
+4 2 1 (5)
+31% done after 0.166667 minutes.  66 of 210 waves calculated.
+4 2 0 (0)
+4 2 0 (1)
+32% done after 0.166667 minutes.  68 of 210 waves calculated.
+4 2 0 (2)
+4 2 0 (3)
+33% done after 0.166667 minutes.  70 of 210 waves calculated.
+4 2 0 (4)
+4 2 0 (5)
+34% done after 0.183333 minutes.  72 of 210 waves calculated.
+4 1 1 (0)
+4 1 1 (1)
+35% done after 0.183333 minutes.  74 of 210 waves calculated.
+4 1 1 (2)
+4 1 1 (3)
+36% done after 0.183333 minutes.  76 of 210 waves calculated.
+4 1 1 (4)
+4 1 1 (5)
+37% done after 0.183333 minutes.  78 of 210 waves calculated.
+4 1 0 (0)
+4 1 0 (1)
+38% done after 0.2 minutes.  80 of 210 waves calculated.
+4 1 0 (2)
+4 1 0 (3)
+39% done after 0.2 minutes.  82 of 210 waves calculated.
+4 1 0 (4)
+4 1 0 (5)
+40% done after 0.2 minutes.  84 of 210 waves calculated.
+4 0 0 (0)
+4 0 0 (1)
+4 0 0 (2)
+41% done after 0.216667 minutes.  87 of 210 waves calculated.
+4 0 0 (3)
+4 0 0 (4)
+42% done after 0.216667 minutes.  89 of 210 waves calculated.
+4 0 0 (5)
+3 3 3 (0)
+43% done after 0.216667 minutes.  91 of 210 waves calculated.
+3 3 3 (1)
+3 3 3 (2)
+44% done after 0.216667 minutes.  93 of 210 waves calculated.
+3 3 3 (3)
+3 3 3 (4)
+45% done after 0.233333 minutes.  95 of 210 waves calculated.
+3 3 3 (5)
+3 3 2 (0)
+46% done after 0.233333 minutes.  97 of 210 waves calculated.
+3 3 2 (1)
+3 3 2 (2)
+47% done after 0.233333 minutes.  99 of 210 waves calculated.
+3 3 2 (3)
+3 3 2 (4)
+48% done after 0.233333 minutes.  101 of 210 waves calculated.
+3 3 2 (5)
+3 3 1 (0)
+49% done after 0.25 minutes.  103 of 210 waves calculated.
+3 3 1 (1)
+3 3 1 (2)
+50% done after 0.25 minutes.  105 of 210 waves calculated.
+3 3 1 (3)
+3 3 1 (4)
+3 3 1 (5)
+51% done after 0.25 minutes.  108 of 210 waves calculated.
+3 3 0 (0)
+3 3 0 (1)
+52% done after 0.266667 minutes.  110 of 210 waves calculated.
+3 3 0 (2)
+3 3 0 (3)
+53% done after 0.266667 minutes.  112 of 210 waves calculated.
+3 3 0 (4)
+3 3 0 (5)
+54% done after 0.266667 minutes.  114 of 210 waves calculated.
+3 2 2 (0)
+3 2 2 (1)
+55% done after 0.266667 minutes.  116 of 210 waves calculated.
+3 2 2 (2)
+3 2 2 (3)
+56% done after 0.283333 minutes.  118 of 210 waves calculated.
+3 2 2 (4)
+3 2 2 (5)
+57% done after 0.283333 minutes.  120 of 210 waves calculated.
+3 2 1 (0)
+3 2 1 (1)
+58% done after 0.283333 minutes.  122 of 210 waves calculated.
+3 2 1 (2)
+3 2 1 (3)
+59% done after 0.3 minutes.  124 of 210 waves calculated.
+3 2 1 (4)
+3 2 1 (5)
+60% done after 0.3 minutes.  126 of 210 waves calculated.
+3 2 0 (0)
+3 2 0 (1)
+3 2 0 (2)
+61% done after 0.3 minutes.  129 of 210 waves calculated.
+3 2 0 (3)
+3 2 0 (4)
+62% done after 0.316667 minutes.  131 of 210 waves calculated.
+3 2 0 (5)
+3 1 1 (0)
+63% done after 0.316667 minutes.  133 of 210 waves calculated.
+3 1 1 (1)
+3 1 1 (2)
+64% done after 0.316667 minutes.  135 of 210 waves calculated.
+3 1 1 (3)
+3 1 1 (4)
+65% done after 0.316667 minutes.  137 of 210 waves calculated.
+3 1 1 (5)
+3 1 0 (0)
+66% done after 0.333333 minutes.  139 of 210 waves calculated.
+3 1 0 (1)
+3 1 0 (2)
+67% done after 0.333333 minutes.  141 of 210 waves calculated.
+3 1 0 (3)
+3 1 0 (4)
+68% done after 0.333333 minutes.  143 of 210 waves calculated.
+3 1 0 (5)
+3 0 0 (0)
+69% done after 0.333333 minutes.  145 of 210 waves calculated.
+3 0 0 (1)
+3 0 0 (2)
+70% done after 0.35 minutes.  147 of 210 waves calculated.
+3 0 0 (3)
+3 0 0 (4)
+3 0 0 (5)
+71% done after 0.35 minutes.  150 of 210 waves calculated.
+2 2 2 (0)
+2 2 2 (1)
+72% done after 0.35 minutes.  152 of 210 waves calculated.
+2 2 2 (2)
+2 2 2 (3)
+73% done after 0.366667 minutes.  154 of 210 waves calculated.
+2 2 2 (4)
+2 2 2 (5)
+74% done after 0.366667 minutes.  156 of 210 waves calculated.
+2 2 1 (0)
+2 2 1 (1)
+75% done after 0.366667 minutes.  158 of 210 waves calculated.
+2 2 1 (2)
+2 2 1 (3)
+76% done after 0.366667 minutes.  160 of 210 waves calculated.
+2 2 1 (4)
+2 2 1 (5)
+77% done after 0.383333 minutes.  162 of 210 waves calculated.
+2 2 0 (0)
+2 2 0 (1)
+78% done after 0.383333 minutes.  164 of 210 waves calculated.
+2 2 0 (2)
+2 2 0 (3)
+79% done after 0.383333 minutes.  166 of 210 waves calculated.
+2 2 0 (4)
+2 2 0 (5)
+80% done after 0.4 minutes.  168 of 210 waves calculated.
+2 1 1 (0)
+2 1 1 (1)
+2 1 1 (2)
+81% done after 0.4 minutes.  171 of 210 waves calculated.
+2 1 1 (3)
+2 1 1 (4)
+82% done after 0.4 minutes.  173 of 210 waves calculated.
+2 1 1 (5)
+2 1 0 (0)
+83% done after 0.4 minutes.  175 of 210 waves calculated.
+2 1 0 (1)
+2 1 0 (2)
+84% done after 0.416667 minutes.  177 of 210 waves calculated.
+2 1 0 (3)
+2 1 0 (4)
+85% done after 0.416667 minutes.  179 of 210 waves calculated.
+2 1 0 (5)
+2 0 0 (0)
+86% done after 0.416667 minutes.  181 of 210 waves calculated.
+2 0 0 (1)
+2 0 0 (2)
+87% done after 0.433333 minutes.  183 of 210 waves calculated.
+2 0 0 (3)
+2 0 0 (4)
+88% done after 0.433333 minutes.  185 of 210 waves calculated.
+2 0 0 (5)
+1 1 1 (0)
+89% done after 0.433333 minutes.  187 of 210 waves calculated.
+1 1 1 (1)
+1 1 1 (2)
+90% done after 0.433333 minutes.  189 of 210 waves calculated.
+1 1 1 (3)
+1 1 1 (4)
+1 1 1 (5)
+91% done after 0.45 minutes.  192 of 210 waves calculated.
+1 1 0 (0)
+1 1 0 (1)
+92% done after 0.45 minutes.  194 of 210 waves calculated.
+1 1 0 (2)
+1 1 0 (3)
+93% done after 0.45 minutes.  196 of 210 waves calculated.
+1 1 0 (4)
+1 1 0 (5)
+94% done after 0.466667 minutes.  198 of 210 waves calculated.
+1 0 0 (0)
+1 0 0 (1)
+95% done after 0.466667 minutes.  200 of 210 waves calculated.
+1 0 0 (2)
+1 0 0 (3)
+96% done after 0.466667 minutes.  202 of 210 waves calculated.
+1 0 0 (4)
+1 0 0 (5)
+97% done after 0.466667 minutes.  204 of 210 waves calculated.
+0 0 0 (0)
+0 0 0 (1)
+98% done after 0.483333 minutes.  206 of 210 waves calculated.
+0 0 0 (2)
+0 0 0 (3)
+99% done after 0.483333 minutes.  208 of 210 waves calculated.
+0 0 0 (4)
+0 0 0 (5)
+100% done after 0.483333 minutes.  210 of 210 waves calculated.
+
+Computing thermal conductivity (iter 5)...
+
+10% done.  21 of 210 waves calculated.
+20% done.  42 of 210 waves calculated.
+30% done.  63 of 210 waves calculated.
+40% done.  84 of 210 waves calculated.
+50% done.  105 of 210 waves calculated.
+60% done.  126 of 210 waves calculated.
+70% done.  147 of 210 waves calculated.
+80% done.  168 of 210 waves calculated.
+90% done.  189 of 210 waves calculated.
+100% done.  210 of 210 waves calculated.
+
+# PE = 1
+Total Run Time = 0 d  0 h  2 m  25 s.

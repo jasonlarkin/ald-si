@@ -1,0 +1,146 @@
+INITIALIZED AND RUNNING 'JOE_SERIAL'.
+
+
+Parsing File 'LD_Input_Si2.txt' For Input Data...
+
+
+Done reading input file.  Outputing stored data to log file for error checking...
+
+VARIABLES
+  $eV_J = 1.60218e-19
+  $a = 5.43e-10
+  $Si_mass = 4.66428e-26
+  $Si_epsilon = 3.47393e-19
+  $Si_sigma = 2.0951e-10
+
+LATTICE = 3
+  a1 = 2.715e-10 2.715e-10 0
+  a2 = 0 2.715e-10 2.715e-10
+  a3 = 2.715e-10 0 2.715e-10
+  BC1 = 0
+  BC2 = 0
+  BC3 = 0
+  N1  = 4
+  N2  = 4
+  N3  = 4
+  Volume = 4.00258e-29
+  b1 = 1.84162e+09 1.84162e+09 -1.84162e+09
+  b2 = -1.84162e+09 1.84162e+09 1.84162e+09
+  b3 = 1.84162e+09 -1.84162e+09 1.84162e+09
+
+MATERIAL = 1
+  Si = 4.66428e-26
+
+UNIT_CELL = 2
+  Si  0 0 0
+  Si  1.3575e-10 1.3575e-10 1.3575e-10
+
+SYMMETRY = 0
+  wave_vector = true
+
+PREPROCESS = false
+
+DISPERSION = 1
+  Begin = 1.38122e+09 0 0
+  End = 1.38122e+09 0 0
+
+HARMONIC = true
+  frequency = true
+  velocity  = true
+  evect     = true
+  DOS       = true
+
+ANHARMONIC = 0
+  continue     = 0
+  temperature  = 300
+  fs_guess     = -0.0015
+  lw_guess     = 0.001
+
+POSTPROCESS = false
+
+POTENTIAL SW2 1 Si
+  epsilon = 3.47393e-19 J
+  sigma   = 2.0951e-10 m
+  a       = 1.8  
+  A       = 7.04956  
+  B       = 0.602225  
+  p       = 4  
+  q       = 0
+
+POTENTIAL SW3 1 Si
+  epsilon = 3.47393e-19 J  %for Si at center
+  sigma   = 2.0951e-10 m
+  a       = 1.8  
+  gamma   = 1.2 
+  lambda  = 21  %for Si at center
+
+
+Computing Harmonic Force Constants...
+
+Harmonic force constants for atom 0: N1, N2 = 1, 16
+Harmonic force constants for atom 1: N1, N2 = 1, 16
+
+
+Begining Dispersion Relation Calculation.
+
+Dispersion is 100% complete. k* = < 0.375001 0 0.375001 >, |k*| = 0.530332
+
+
+Beginning Harmonic Calculation of Frequency, Velocity, Eigenvector.
+
+Harmonic Calculation is 1 % Complete.  6 of 306 waves calculated.
+Harmonic Calculation is 3 % Complete.  12 of 306 waves calculated.
+Harmonic Calculation is 5 % Complete.  18 of 306 waves calculated.
+Harmonic Calculation is 7 % Complete.  24 of 306 waves calculated.
+Harmonic Calculation is 9 % Complete.  30 of 306 waves calculated.
+Harmonic Calculation is 11 % Complete.  36 of 306 waves calculated.
+Harmonic Calculation is 13 % Complete.  42 of 306 waves calculated.
+Harmonic Calculation is 15 % Complete.  48 of 306 waves calculated.
+Harmonic Calculation is 17 % Complete.  54 of 306 waves calculated.
+Harmonic Calculation is 19 % Complete.  60 of 306 waves calculated.
+Harmonic Calculation is 21 % Complete.  66 of 306 waves calculated.
+Harmonic Calculation is 23 % Complete.  72 of 306 waves calculated.
+Harmonic Calculation is 25 % Complete.  78 of 306 waves calculated.
+Harmonic Calculation is 27 % Complete.  84 of 306 waves calculated.
+Harmonic Calculation is 29 % Complete.  90 of 306 waves calculated.
+Harmonic Calculation is 31 % Complete.  96 of 306 waves calculated.
+Harmonic Calculation is 33 % Complete.  102 of 306 waves calculated.
+Harmonic Calculation is 35 % Complete.  108 of 306 waves calculated.
+Harmonic Calculation is 37 % Complete.  114 of 306 waves calculated.
+Harmonic Calculation is 39 % Complete.  120 of 306 waves calculated.
+Harmonic Calculation is 41 % Complete.  126 of 306 waves calculated.
+Harmonic Calculation is 43 % Complete.  132 of 306 waves calculated.
+Harmonic Calculation is 45 % Complete.  138 of 306 waves calculated.
+Harmonic Calculation is 47 % Complete.  144 of 306 waves calculated.
+Harmonic Calculation is 49 % Complete.  150 of 306 waves calculated.
+Harmonic Calculation is 50 % Complete.  156 of 306 waves calculated.
+Harmonic Calculation is 52 % Complete.  162 of 306 waves calculated.
+Harmonic Calculation is 54 % Complete.  168 of 306 waves calculated.
+Harmonic Calculation is 56 % Complete.  174 of 306 waves calculated.
+Harmonic Calculation is 58 % Complete.  180 of 306 waves calculated.
+Harmonic Calculation is 60 % Complete.  186 of 306 waves calculated.
+Harmonic Calculation is 62 % Complete.  192 of 306 waves calculated.
+Harmonic Calculation is 64 % Complete.  198 of 306 waves calculated.
+Harmonic Calculation is 66 % Complete.  204 of 306 waves calculated.
+Harmonic Calculation is 68 % Complete.  210 of 306 waves calculated.
+Harmonic Calculation is 70 % Complete.  216 of 306 waves calculated.
+Harmonic Calculation is 72 % Complete.  222 of 306 waves calculated.
+Harmonic Calculation is 74 % Complete.  228 of 306 waves calculated.
+Harmonic Calculation is 76 % Complete.  234 of 306 waves calculated.
+Harmonic Calculation is 78 % Complete.  240 of 306 waves calculated.
+Harmonic Calculation is 80 % Complete.  246 of 306 waves calculated.
+Harmonic Calculation is 82 % Complete.  252 of 306 waves calculated.
+Harmonic Calculation is 84 % Complete.  258 of 306 waves calculated.
+Harmonic Calculation is 86 % Complete.  264 of 306 waves calculated.
+Harmonic Calculation is 88 % Complete.  270 of 306 waves calculated.
+Harmonic Calculation is 90 % Complete.  276 of 306 waves calculated.
+Harmonic Calculation is 92 % Complete.  282 of 306 waves calculated.
+Harmonic Calculation is 94 % Complete.  288 of 306 waves calculated.
+Harmonic Calculation is 96 % Complete.  294 of 306 waves calculated.
+Harmonic Calculation is 98 % Complete.  300 of 306 waves calculated.
+Harmonic Calculation is 100 % Complete.  306 of 306 waves calculated.
+
+Computing phonon density of states.
+
+# PE = 1
+Total Run Time = 0 d  0 h  0 m  0 s.
