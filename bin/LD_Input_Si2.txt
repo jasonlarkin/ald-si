@@ -15,9 +15,9 @@ LATTICE = 3
   BC1 = Periodic
   BC2 = Periodic
   BC3 = Periodic
-  N1 = 15
-  N2 = 15
-  N3 = 15
+  N1 = 150
+  N2 = 150
+  N3 = 150
 
 UNIT_CELL = 2
   Coordinate = Direct
@@ -42,33 +42,33 @@ POTENTIAL = SW3 1 Si
   lambda  = 21.0
   gamma   = 1.20
 
-PREPROCESS = true
-  optimization = -100
+PREPROCESS = false
+  optimization = false
   structure    = true
   energy       = true
 
-DISPERSION = 500
+DISPERSION = -1
   Coordinate = Cartesian
   Begin      = 0,0,0
-  End        = 1/$a,0,0
+  End        = 1.0/$a,0,0
 
 HARMONIC = true
-  frequency = true
-  velocity  = true
-  evector   = true
+  frequency = false
+  velocity  = false
+  evector   = false
   DOS       = true
 
-ANHARMONIC = 10
+ANHARMONIC = 0
   temperature = 300
-  fs_guess    = -0.0015
-  lw_guess    =  0.001
-  continue    = 0
+  fs_guess     = -0.0015
+  lw_guess     =  0.001
+  continue     = 0
 
-POSTPROCESS = true
-  TC_beg   = 3		%Begining iteration to re-compute thermal conductivity
-  TC_end   = 10		%Ending iteration
-  data_itr = 10		%Iteration to extract phonon data
-  data_beg = 0 0 0	%Begining wave vector (integers)
-  data_inc = 0 0 1	%Wave vector increment (integers)
-  data_num = 10
+POSTPROCESS = false
+  TC_beg   = 0
+  TC_end   = 0
+  data_itr = 1
+  data_beg = 0 0 -3
+  data_inc = 0 0 1
+  data_num = 6
   data_fBZ = no_sym

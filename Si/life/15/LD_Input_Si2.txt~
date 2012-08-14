@@ -24,7 +24,8 @@ UNIT_CELL = 2
   Si 0.00 0.00 0.00
   Si 0.25 0.25 0.25
 
-SYMMETRY = 1
+SYMMETRY = 123
+  wave_vector = true
 
 POTENTIAL = SW2 1 Si
   epsilon = $Si_epsilon

@@ -1,0 +1,79 @@
+VARIABLES  %%From Laradji et. al.
+  $eV_J       = 1.60217646e-19
+  $a          = 5.533232661e-10 %5.535
+  $Si_mass    = 4.66428e-26
+  $Si_epsilon = 2.17*$eV_J
+  $Si_sigma   = 2.34779e-10/2^(1/6)
+  $Ge_mass    = 2.586382532*$Si_mass %1.20618e-25
+  $Ge_epsilon = 1.93*$eV_J
+  $Ge_sigma   = 2.44598e-10/2^(1/6)
+  $Si_Ge_epsilon = 2.0427*$eV_J
+  $Si_Ge_sigma   = 2.396885e-10/2^(1/6)
+
+MATERIAL = 2
+  Ge = $Ge_mass
+  Si = $Si_mass
+
+LATTICE = 3
+  a1 = $a/2,$a/2,0
+  a2 = 0,$a/2,$a/2
+  a3 = $a/2,0,$a/2
+  BC1 = Periodic
+  BC2 = Periodic
+  BC3 = Periodic
+  N1 = 5
+  N2 = 5
+  N3 = 5
+
+UNIT_CELL = 2
+  Coordinate = Direct
+  Si 0.00 0.00 0.00
+  Ge 0.25 0.25 0.25
+
+SYMMETRY = 1
+
+POTENTIAL = SW2 2 Si Ge
+  epsilon = $Si_epsilon  $Si_epsilon  $Si_epsilon  %$Si_epsilon  $Si_Ge_epsilon $Ge_epsilon
+  sigma   = $Si_sigma    $Si_sigma    $Si_sigma    %$Si_sigma    $Si_Ge_sigma   $Ge_sigma
+  a       = 1.8          1.8            1.8
+  A       = 7.049556277  7.049556277    7.049556277
+  B       = 0.6022245584 0.6022245584   0.6022245584
+  p       = 4.0          4.0            4.0
+  q       = 0.0          0.0            0.0
+
+POTENTIAL = SW3 2 Si Ge
+  epsilon = $Si_epsilon    ($Si_epsilon*$Si_Ge_epsilon)^0.5 $Si_Ge_epsilon
+  epsilon = $Si_Ge_epsilon ($Ge_epsilon*$Si_Ge_epsilon)^0.5 $Ge_epsilon
+  sigma   = $Si_sigma   $Si_sigma   $Si_sigma   %$Si_sigma   $Si_Ge_sigma   $Ge_sigma
+  a       = 1.8         1.8            1.8
+  lambda  = 21          21^.75*31^.25  21^.5*31^.5
+  lambda  = 21^.5*31^.5 21^.25*31^.75  31
+  gamma   = 1.20        1.20           1.20
+
+PREPROCESS = false
+  optimization = false
+  structure    = true
+  energy       = true
+
+DISPERSION = 100
+  Coordinate = Cartesian
+  Begin      = 0,0,0
+  End        = 1.0/$a,0,0
+
+HARMONIC = true
+
+ANHARMONIC = 1
+  temperature = 500
+  fs_guess     = -0.0015
+  lw_guess     =  0.001
+  conductivity = true
+  continue     = 0
+
+POSTPROCESS = true
+  TC_beg   = 0
+  TC_end   = 0
+  data_itr = 1
+  data_beg = 0 0 -3
+  data_inc = 0 0 1
+  data_num = 6
+  data_fBZ = no_sym

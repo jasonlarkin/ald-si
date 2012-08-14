@@ -9,22 +9,28 @@ MATERIAL = 1
   Si = $Si_mass
 
 LATTICE = 3
-  a1 = $a/2,$a/2,0
-  a2 = 0,$a/2,$a/2
-  a3 = $a/2,0,$a/2
+  a1 = $a,0,0
+  a2 = 0,$a,0
+  a3 = 0,0,$a
   BC1 = Periodic
   BC2 = Periodic
-  BC3 = Periodic
-  N1 = 15
-  N2 = 15
-  N3 = 15
+  BC3 = Free
+  N1 = 35
+  N2 = 35
+  N3 = 1
 
-UNIT_CELL = 2
+UNIT_CELL = 8
   Coordinate = Direct
   Si 0.00 0.00 0.00
+  Si 0.50 0.50 0.00
   Si 0.25 0.25 0.25
+  Si 0.75 0.75 0.25
+  Si 0.50 0.00 0.50
+  Si 0.00 0.50 0.50
+  Si 0.75 0.25 0.75
+  Si 0.25 0.75 0.75
 
-SYMMETRY = 1
+SYMMETRY = 123
 
 POTENTIAL = SW2 1 Si
   epsilon = $Si_epsilon
@@ -42,33 +48,33 @@ POTENTIAL = SW3 1 Si
   lambda  = 21.0
   gamma   = 1.20
 
-PREPROCESS = true
-  optimization = -100
+PREPROCESS = false
+  optimization = 0
   structure    = true
   energy       = true
 
-DISPERSION = 500
+DISPERSION = -1
   Coordinate = Cartesian
   Begin      = 0,0,0
-  End        = 1/$a,0,0
+  End        = 1.0/$a,0,0
 
 HARMONIC = true
   frequency = true
   velocity  = true
   evector   = true
   DOS       = true
+  
+ANHARMONIC = 1
+  temperature  = 500
+  fs_guess     = -0.0015
+  lw_guess     =  0.001
+  continue     = 0
 
-ANHARMONIC = 10
-  temperature = 300
-  fs_guess    = -0.0015
-  lw_guess    =  0.001
-  continue    = 0
-
-POSTPROCESS = true
-  TC_beg   = 3		%Begining iteration to re-compute thermal conductivity
-  TC_end   = 10		%Ending iteration
-  data_itr = 10		%Iteration to extract phonon data
-  data_beg = 0 0 0	%Begining wave vector (integers)
-  data_inc = 0 0 1	%Wave vector increment (integers)
-  data_num = 10
+POSTPROCESS = false
+  TC_beg   = 0
+  TC_end   = 0
+  data_itr = 1
+  data_beg = 0 0 -3
+  data_inc = 0 0 1
+  data_num = 6
   data_fBZ = no_sym
