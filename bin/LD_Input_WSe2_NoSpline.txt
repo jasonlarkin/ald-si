@@ -1,0 +1,134 @@
+VARIABLES
+  $N_A    = 6.0221415e23                    %Avogadro's number
+  $A      = 1e-10                           %conversion from angstroms to meters
+  $kC_J   = 4184.0                          %conversion from kCal to J
+  $amu_kg = 1.66053886e-27                  %conversion from amu to kg
+  $m_Se   = 78.960000*$amu_kg               %mass of Se atom
+  $m_W    = 183.980000*$amu_kg              %mass of W atom
+  $sigma1 = 2.59360007360564e-10            %Se1-Se1, Se2-Se2, W1-W1, W2-W2
+  $sigma2 = 2.59360007366605e-10            %Se1-W1, Se1-W2, Se2-W1, Se2-W2, W1-W2
+  $sigma3 = 3.79700015097858e-10            %Se1-Se2
+  $eps1   = 41.9999000000000*$kC_J/$N_A     %All but Se1-Se2
+  $eps2   = 3.69230769200000*$kC_J/$N_A     %Se1-Se2
+  $spline = 6.5e-10%4.4e-10
+  $cutoff = 7.5e-10%5.4e-10
+
+LATTICE = 3 %Comment
+  a1 = 5.06439e-10,0,0
+  a2 = 0,4.38586e-10,0
+  a3 = 0,0,14.73248e-10
+  BC1 = Periodic
+  BC2 = Periodic
+  BC3 = Periodic
+  N1 = 4
+  N2 = 4
+  N3 = 2
+
+MATERIAL = 4
+  Se1 = $m_Se
+  Se2 = $m_Se
+  W1  = $m_W
+  W2  = $m_W
+
+POTENTIAL = LJ_SPLINE 1 Se1
+  epsilon = $eps1
+  sigma   = $sigma1
+  cutoff  = $cutoff
+  rspline = $spline
+
+POTENTIAL = LJ_SPLINE 1 Se2
+  epsilon = $eps1
+  sigma   = $sigma1
+  cutoff  = $cutoff
+  rspline = $spline
+
+POTENTIAL = LJ_SPLINE 1 W1
+  epsilon = $eps1
+  sigma   = $sigma1
+  cutoff  = $cutoff
+  rspline = $spline
+
+POTENTIAL = LJ_SPLINE 1 W2
+  epsilon = $eps1
+  sigma   = $sigma1
+  cutoff  = $cutoff
+  rspline = $spline
+
+POTENTIAL = LJ_SPLINE 2 Se1 Se2
+  epsilon = $eps2
+  sigma   = $sigma3
+  cutoff  = $cutoff
+  rspline = $spline
+
+POTENTIAL = LJ_SPLINE 2 Se1 W1
+  epsilon = $eps1
+  sigma   = $sigma2
+  cutoff  = $cutoff
+  rspline = $spline
+
+POTENTIAL = LJ_SPLINE 2 Se1 W2
+  epsilon = $eps1
+  sigma   = $sigma2
+  cutoff  = $cutoff
+  rspline = $spline
+
+POTENTIAL = LJ_SPLINE 2 Se2 W1
+  epsilon = $eps1
+  sigma   = $sigma2
+  cutoff  = $cutoff
+  rspline = $spline
+
+POTENTIAL = LJ_SPLINE 2 Se2 W2
+  epsilon = $eps1
+  sigma   = $sigma2
+  cutoff  = $cutoff
+  rspline = $spline
+
+POTENTIAL = LJ_SPLINE 2 W1 W2
+  epsilon = $eps1
+  sigma   = $sigma2
+  cutoff  = $cutoff
+  rspline = $spline
+
+SYMMETRY = 1
+
+DISPERSION = 100
+  Coordinate = Cartesian
+  Begin      = 0,0,0
+  End        = 0,0,0.5/14.73248e-10
+
+UNIT_CELL = 24
+  Coordinate = Cartesian
+  Se2 -5.25162514217495e-11 -8.37829961278735e-11 -5.78616395493381e-10
+  Se2  2.00703191160302e-10 -8.37830551852207e-11 -5.78616601584614e-10
+  Se2 -1.79126000000000e-10  1.35510000000000e-10 -5.78616583153364e-10
+  Se2  7.40935118228492e-11  1.35510000000000e-10 -5.78616559583724e-10
+  W2 -1.79126000000000e-10 -1.56879958771420e-10 -3.71188808986312e-10
+  W2  7.40935558431379e-11 -1.56880000000000e-10 -3.71188736794634e-10
+  W2 -5.25162000000000e-11  6.24130653153698e-11 -3.71188746220793e-10
+  W2  2.00703322598676e-10  6.24129667072786e-11 -3.71188845377171e-10
+  Se2 -5.25163668938463e-11 -8.37830935502131e-11 -1.63760996999324e-10
+  Se2  2.00703185116147e-10 -8.37830822770823e-11 -1.63760980158992e-10
+  Se2 -1.79126068991121e-10  1.35509956812056e-10 -1.63761017249765e-10
+  Se2  7.40934066842610e-11  1.35509940198143e-10 -1.63761117714920e-10
+  Se1 -1.79130340269495e-10 -1.56881000000000e-10  1.58007619078392e-10
+  Se1  7.40891200461339e-11 -1.56881000000000e-10  1.58007609464141e-10
+  Se1 -5.25205595647853e-11  6.24120000000000e-11  1.58007435851385e-10
+  Se1  2.00698937528643e-10  6.24119551704752e-11  1.58007423423053e-10
+  W1 -5.25209000000000e-11 -8.37839702972272e-11  3.65435322512247e-10
+  W1  2.00698583559894e-10 -8.37840000000000e-11  3.65435308800925e-10
+  W1 -1.79130649246790e-10  1.35509000000000e-10  3.65435168418467e-10
+  W1  7.40888867614848e-11  1.35509000000000e-10  3.65435179395928e-10
+  Se1 -1.79130815536206e-10 -1.56881015404574e-10  5.72863041011634e-10
+  Se1  7.40886820961210e-11 -1.56881000000000e-10  5.72863050738954e-10
+  Se1 -5.25210609662462e-11  6.24120626818028e-11  5.72862880727876e-10
+  Se1  2.00698440476836e-10  6.24120000000000e-11  5.72862876055041e-10
+
+ANHARMONIC = 0
+  temperature  = 50
+  fs_guess     = 0.1
+  lw_guess     = 0.035
+  %Q_interpolate = 6x6x6_Shift_Width.txt
+  %C_interpolate = 6x6x6_Classical_Shift_Width.txt
+  conductivity = true
+  continue     = 0

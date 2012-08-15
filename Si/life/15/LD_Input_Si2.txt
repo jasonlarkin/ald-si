@@ -24,8 +24,7 @@ UNIT_CELL = 2
   Si 0.00 0.00 0.00
   Si 0.25 0.25 0.25
 
-SYMMETRY = 123
-  wave_vector = true
+SYMMETRY = 1
 
 POTENTIAL = SW2 1 Si
   epsilon = $Si_epsilon
@@ -59,21 +58,17 @@ HARMONIC = true
   evector   = true
   DOS       = true
 
-ANHARMONIC = 5
+ANHARMONIC = 10
   temperature = 300
-  TC_beg   = 5
-  TC_end   = 5
-  data_itr = 5
-  data_beg = 0 0 0
-  data_inc = 0 0 1
-  data_num = 4
-  data_fBZ = no_sym
+  fs_guess    = -0.0015
+  lw_guess    =  0.001
+  continue    = 0
 
-POSTPROCESS = false
-  TC_beg   = 0
-  TC_end   = 0
-  data_itr = 1
-  data_beg = 0 0 -3
-  data_inc = 0 0 1
-  data_num = 6
+POSTPROCESS = true
+  TC_beg   = 3		%Begining iteration to re-compute thermal conductivity
+  TC_end   = 10		%Ending iteration
+  data_itr = 10		%Iteration to extract phonon data
+  data_beg = 0 0 0	%Begining wave vector (integers)
+  data_inc = 0 0 1	%Wave vector increment (integers)
+  data_num = 10
   data_fBZ = no_sym
