@@ -1,0 +1,56 @@
+VARIABLES
+  $eV_J       = 1.60217646e-19
+  $a          = 5.43e-10
+  $Si_mass    = 4.66428e-26
+
+LATTICE = 3
+  a1 = $a,0,0
+  a2 = 0,$a,0
+  a3 = 0,0,$a
+  BC1 = Periodic
+  BC2 = Periodic
+  BC3 = Periodic
+  N1 = 5
+  N2 = 5
+  N3 = 5
+
+MATERIAL = 1
+  Si = $Si_mass
+
+POTENTIAL = TERSOFF 1 Si 
+  A       = 1830.8*$eV_J
+  B       = 471.18*$eV_J
+  lambda  = 2.4799e10
+  mu      = 1.7322e10
+  beta    = 1.1000e-6
+  n       = 0.78734
+  c       = 1.0039e5
+  d       = 16.217
+  h       = -0.59825
+  R       = 2.7e-10
+  cutoff  = 3.0e-10
+
+SYMMETRY = 123
+
+DISPERSION = 100
+  Coordinate = Cartesian
+  Begin      = 0,0,0
+  End        = 1.0/$a,0,0
+
+UNIT_CELL = 8
+  Coordinate = Direct
+  Si 0.00 0.00 0.00
+  Si 0.50 0.50 0.00
+  Si 0.25 0.25 0.25
+  Si 0.75 0.75 0.25
+  Si 0.50 0.00 0.50
+  Si 0.00 0.50 0.50
+  Si 0.75 0.25 0.75
+  Si 0.25 0.75 0.75
+
+ANHARMONIC = 1
+  temperature  = 300
+  fs_guess     = -0.0015
+  lw_guess     =  0.001
+  conductivity = true
+  continue     = 0

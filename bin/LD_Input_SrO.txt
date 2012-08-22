@@ -1,0 +1,79 @@
+VARIABLES
+  $eV_J = 1.60217646e-19
+  $a    = 5.15e-10
+
+LATTICE = 3 %Comment
+  a1 = $a/2,$a/2,0
+  a2 = 0,$a/2,$a/2
+  a3 = $a/2,0,$a/2
+  BC1 = Periodic
+  BC2 = Periodic
+  BC3 = Periodic
+  N1 = 14
+  N2 = 14
+  N3 = 14
+
+MATERIAL = 2
+  Sr = 87.62*1.660539e-27
+  O  = 16.00*1.660539e-27
+
+POTENTIAL = BUCK 2 Sr O
+  A       = 0.0 1400.0*$eV_J 22764.3*$eV_J
+  rho     = 1.0e-10 0.35e-10 0.149e-10
+  C       = 0.0 0.0 43.0e-60*$eV_J
+  cutoff  = 1.95*$a 1.95*$a 1.95*$a
+  Acutoff = 1.95*$a 1.95*$a 1.95*$a
+
+POTENTIAL = COULOMB 2 Sr O
+  q       = 2.0*$eV_J -2.0*$eV_J
+
+SYMMETRY = 1
+
+DISPERSION = 100
+  Coordinate = Cartesian
+  Begin      = 0,0,0
+  End        = 1/$a,0,0
+
+UNIT_CELL = 2
+  Coordinate = Cartesian
+Sr	0.0*$a	0.0*$a	0.0*$a
+O	0.5*$a	0.0*$a	0.0*$a
+
+%UNIT_CELL = 8
+%  Coordinate = Cartesian
+%Sr	0.0*$a	0.0*$a	0.0*$a
+%Sr	0.5*$a	0.5*$a	0.0*$a
+%Sr	0.5*$a	0.0*$a	0.5*$a
+%Sr	0.0*$a	0.5*$a	0.5*$a
+%O	0.5*$a	0.5*$a	0.5*$a
+%O	0.0*$a	0.0*$a	0.5*$a
+%O	0.0*$a	0.5*$a	0.0*$a
+%O	0.5*$a	0.0*$a	0.0*$a
+
+PREPROCESS = true
+  optimization = -100
+  structure    = true
+  energy       = true
+
+HARMONIC = true
+  frequency = true
+  velocity  = true
+  evector   = true
+  DOS       = true
+
+ANHARMONIC = 3
+  temperature  = 500
+  fs_guess     = 0.02
+  lw_guess     = 0.03
+  %Q_interpolate = Shift_Width5.txt
+  %C_interpolate = Classical_Shift_Width5.txt
+  continue     = 0
+
+POSTPROCESS = false
+  TC_beg   = 0
+  TC_end   = 0
+  data_itr = 1
+  data_beg = 0 0 -3
+  data_inc = 0 0 1
+  data_num = 6
+  data_fBZ = no_sym

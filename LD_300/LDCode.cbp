@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="LDCode" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Option virtualFolders="Anharmonic\;Harmonic\;Matrix-EigenRoutines\;ReadData\;Potentials\;Structure\;" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin\LDCode" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option projectCompilerOptionsRelation="0" />
+				<Compiler>
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-Os" />
+					<Add option="-O3" />
+					<Add option="-O2" />
+					<Add option="-O1" />
+					<Add option="-O" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="AddPotential.cpp">
+			<Option virtualFolder="Potentials\" />
+		</Unit>
+		<Unit filename="Anharmonic.cpp">
+			<Option virtualFolder="Anharmonic\" />
+		</Unit>
+		<Unit filename="Anharmonic.h">
+			<Option virtualFolder="Anharmonic\" />
+		</Unit>
+		<Unit filename="BuildNeighborList.cpp" />
+		<Unit filename="Dispersion.cpp">
+			<Option virtualFolder="Harmonic\" />
+		</Unit>
+		<Unit filename="Dispersion.h">
+			<Option virtualFolder="Harmonic\" />
+		</Unit>
+		<Unit filename="Dynamical_Matrix.cpp">
+			<Option virtualFolder="Harmonic\" />
+		</Unit>
+		<Unit filename="Eigen.cpp">
+			<Option virtualFolder="Matrix-EigenRoutines\" />
+		</Unit>
+		<Unit filename="Harmonic.cpp">
+			<Option virtualFolder="Harmonic\" />
+		</Unit>
+		<Unit filename="Harmonic.h">
+			<Option virtualFolder="Harmonic\" />
+		</Unit>
+		<Unit filename="Householder.cpp">
+			<Option virtualFolder="Matrix-EigenRoutines\" />
+		</Unit>
+		<Unit filename="Inverse_Twelfth_Power.cpp">
+			<Option virtualFolder="Potentials\" />
+		</Unit>
+		<Unit filename="Inverse_Twelfth_Power.h">
+			<Option virtualFolder="Potentials\" />
+		</Unit>
+		<Unit filename="LDCode.cpp" />
+		<Unit filename="LDCode.h" />
+		<Unit filename="LDConductivity.cpp">
+			<Option virtualFolder="Anharmonic\" />
+		</Unit>
+		<Unit filename="LDGuess.cpp">
+			<Option virtualFolder="Anharmonic\" />
+		</Unit>
+		<Unit filename="LU.cpp">
+			<Option virtualFolder="Matrix-EigenRoutines\" />
+		</Unit>
+		<Unit filename="Lattice.cpp">
+			<Option virtualFolder="Structure\" />
+		</Unit>
+		<Unit filename="Lattice.h">
+			<Option virtualFolder="Structure\" />
+		</Unit>
+		<Unit filename="Lennard_Jones.cpp">
+			<Option virtualFolder="Potentials\" />
+		</Unit>
+		<Unit filename="Lennard_Jones.h">
+			<Option virtualFolder="Potentials\" />
+		</Unit>
+		<Unit filename="Lennard_Jones_Spline.cpp">
+			<Option virtualFolder="Potentials\" />
+		</Unit>
+		<Unit filename="Lennard_Jones_Spline.h">
+			<Option virtualFolder="Potentials\" />
+		</Unit>
+		<Unit filename="Material.cpp">
+			<Option virtualFolder="Structure\" />
+		</Unit>
+		<Unit filename="Material.h">
+			<Option virtualFolder="Structure\" />
+		</Unit>
+		<Unit filename="Neighbor_Force.h" />
+		<Unit filename="Neighbor_List.cpp" />
+		<Unit filename="Neighbor_List.h" />
+		<Unit filename="Parameter.cpp" />
+		<Unit filename="Parameter.h" />
+		<Unit filename="PostProcess.cpp" />
+		<Unit filename="PostProcess.h" />
+		<Unit filename="Potential.cpp">
+			<Option virtualFolder="Potentials\" />
+		</Unit>
+		<Unit filename="Potential.h">
+			<Option virtualFolder="Potentials\" />
+		</Unit>
+		<Unit filename="Potential_Derivative.cpp" />
+		<Unit filename="Potential_Derivative.h" />
+		<Unit filename="PreProcess.cpp" />
+		<Unit filename="PreProcess.h" />
+		<Unit filename="QC_Temperature.cpp">
+			<Option virtualFolder="Anharmonic\" />
+		</Unit>
+		<Unit filename="QL.cpp">
+			<Option virtualFolder="Matrix-EigenRoutines\" />
+		</Unit>
+		<Unit filename="REBO.cpp">
+			<Option virtualFolder="Potentials\" />
+		</Unit>
+		<Unit filename="REBO.h">
+			<Option virtualFolder="Potentials\" />
+		</Unit>
+		<Unit filename="Read_Input.cpp">
+			<Option virtualFolder="ReadData\" />
+		</Unit>
+		<Unit filename="Stillinger_Weber.cpp">
+			<Option virtualFolder="Potentials\" />
+		</Unit>
+		<Unit filename="Stillinger_Weber.h">
+			<Option virtualFolder="Potentials\" />
+		</Unit>
+		<Unit filename="Symmetry.cpp">
+			<Option virtualFolder="Structure\" />
+		</Unit>
+		<Unit filename="Symmetry.h">
+			<Option virtualFolder="Structure\" />
+		</Unit>
+		<Unit filename="Tersoff.cpp">
+			<Option virtualFolder="Potentials\" />
+		</Unit>
+		<Unit filename="Tersoff.h">
+			<Option virtualFolder="Potentials\" />
+		</Unit>
+		<Unit filename="Transform.cpp">
+			<Option virtualFolder="Anharmonic\" />
+		</Unit>
+		<Unit filename="Transform.h">
+			<Option virtualFolder="Anharmonic\" />
+		</Unit>
+		<Unit filename="Unit_Cell.cpp">
+			<Option virtualFolder="Structure\" />
+		</Unit>
+		<Unit filename="Unit_Cell.h">
+			<Option virtualFolder="Structure\" />
+		</Unit>
+		<Unit filename="Variables.cpp">
+			<Option virtualFolder="ReadData\" />
+		</Unit>
+		<Unit filename="Variables.h">
+			<Option virtualFolder="ReadData\" />
+		</Unit>
+		<Unit filename="Velocity.cpp">
+			<Option virtualFolder="Harmonic\" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
