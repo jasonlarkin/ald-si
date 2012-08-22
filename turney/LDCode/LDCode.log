@@ -1,0 +1,220 @@
+INITIALIZED AND RUNNING '/home/ankit/Desktop/turney/LDCode/bin/Release/LDCode'.
+
+
+Parsing File 'LD_Input.txt' For Input Data...
+
+
+Done reading input file.  Outputing stored data to log file for error checking...
+
+VARIABLES
+  $eV_J = 1.60218e-19
+  $a = 5.43e-10
+  $Si_mass = 4.66428e-26
+  $Si_epsilon = 3.47393e-19
+  $Si_sigma = 2.0951e-10
+
+LATTICE = 3
+  a1 = 2.715e-10 2.715e-10 0
+  a2 = 0 2.715e-10 2.715e-10
+  a3 = 2.715e-10 0 2.715e-10
+  BC1 = 0
+  BC2 = 0
+  BC3 = 0
+  N1  = 10
+  N2  = 10
+  N3  = 10
+  Volume = 4.00258e-29
+  b1 = 1.84162e+09 1.84162e+09 -1.84162e+09
+  b2 = -1.84162e+09 1.84162e+09 1.84162e+09
+  b3 = 1.84162e+09 -1.84162e+09 1.84162e+09
+
+MATERIAL = 1
+  Si = 4.66428e-26
+
+UNIT_CELL = 2
+  Si  0 0 0
+  Si  1.3575e-10 1.3575e-10 1.3575e-10
+
+SYMMETRY = 123
+  wave_vector = true
+
+PREPROCESS = false
+
+DISPERSION = 1
+  Begin = 0 0 0
+  End = 1.84162e+09 0 0
+
+HARMONIC = true
+  % Flag 'frequency' set to true to fulfill dependencies.
+  frequency = true
+  velocity  = false
+  evect     = false
+  DOS       = true
+
+ANHARMONIC = 1
+  continue     = 0
+  temperature  = 300
+  fs_guess     = -0.0015
+  lw_guess     = 0.005
+
+POSTPROCESS = false
+
+POTENTIAL SW2 1 Si
+  epsilon = 3.47393e-19 J
+  sigma   = 2.0951e-10 m
+  a       = 1.8  
+  A       = 7.04956  
+  B       = 0.602225  
+  p       = 4  
+  q       = 0
+
+POTENTIAL SW3 1 Si
+  epsilon = 3.47393e-19 J  %for Si at center
+  sigma   = 2.0951e-10 m
+  a       = 1.8  
+  gamma   = 1.2 
+  lambda  = 21  %for Si at center
+
+
+Computing Harmonic Force Constants...
+
+Harmonic force constants for atom 0: N1, N2 = 1, 16
+Harmonic force constants for atom 1: N1, N2 = 1, 16
+
+
+Begining Dispersion Relation Calculation.
+
+Dispersion is 100% complete. k* = < 0.5 0 0.5 >, |k*| = 0.707107
+
+
+Beginning Harmonic Calculation of Frequency.
+
+Harmonic Calculation is 1 % Complete.  6 of 336 waves calculated.
+Harmonic Calculation is 3 % Complete.  12 of 336 waves calculated.
+Harmonic Calculation is 5 % Complete.  18 of 336 waves calculated.
+Harmonic Calculation is 7 % Complete.  24 of 336 waves calculated.
+Harmonic Calculation is 8 % Complete.  30 of 336 waves calculated.
+Harmonic Calculation is 10 % Complete.  36 of 336 waves calculated.
+Harmonic Calculation is 12 % Complete.  42 of 336 waves calculated.
+Harmonic Calculation is 14 % Complete.  48 of 336 waves calculated.
+Harmonic Calculation is 16 % Complete.  54 of 336 waves calculated.
+Harmonic Calculation is 17 % Complete.  60 of 336 waves calculated.
+Harmonic Calculation is 19 % Complete.  66 of 336 waves calculated.
+Harmonic Calculation is 21 % Complete.  72 of 336 waves calculated.
+Harmonic Calculation is 23 % Complete.  78 of 336 waves calculated.
+Harmonic Calculation is 25 % Complete.  84 of 336 waves calculated.
+Harmonic Calculation is 26 % Complete.  90 of 336 waves calculated.
+Harmonic Calculation is 28 % Complete.  96 of 336 waves calculated.
+Harmonic Calculation is 30 % Complete.  102 of 336 waves calculated.
+Harmonic Calculation is 32 % Complete.  108 of 336 waves calculated.
+Harmonic Calculation is 33 % Complete.  114 of 336 waves calculated.
+Harmonic Calculation is 35 % Complete.  120 of 336 waves calculated.
+Harmonic Calculation is 37 % Complete.  126 of 336 waves calculated.
+Harmonic Calculation is 39 % Complete.  132 of 336 waves calculated.
+Harmonic Calculation is 41 % Complete.  138 of 336 waves calculated.
+Harmonic Calculation is 42 % Complete.  144 of 336 waves calculated.
+Harmonic Calculation is 44 % Complete.  150 of 336 waves calculated.
+Harmonic Calculation is 46 % Complete.  156 of 336 waves calculated.
+Harmonic Calculation is 48 % Complete.  162 of 336 waves calculated.
+Harmonic Calculation is 50 % Complete.  168 of 336 waves calculated.
+Harmonic Calculation is 51 % Complete.  174 of 336 waves calculated.
+Harmonic Calculation is 53 % Complete.  180 of 336 waves calculated.
+Harmonic Calculation is 55 % Complete.  186 of 336 waves calculated.
+Harmonic Calculation is 57 % Complete.  192 of 336 waves calculated.
+Harmonic Calculation is 58 % Complete.  198 of 336 waves calculated.
+Harmonic Calculation is 60 % Complete.  204 of 336 waves calculated.
+Harmonic Calculation is 62 % Complete.  210 of 336 waves calculated.
+Harmonic Calculation is 64 % Complete.  216 of 336 waves calculated.
+Harmonic Calculation is 66 % Complete.  222 of 336 waves calculated.
+Harmonic Calculation is 67 % Complete.  228 of 336 waves calculated.
+Harmonic Calculation is 69 % Complete.  234 of 336 waves calculated.
+Harmonic Calculation is 71 % Complete.  240 of 336 waves calculated.
+Harmonic Calculation is 73 % Complete.  246 of 336 waves calculated.
+Harmonic Calculation is 75 % Complete.  252 of 336 waves calculated.
+Harmonic Calculation is 76 % Complete.  258 of 336 waves calculated.
+Harmonic Calculation is 78 % Complete.  264 of 336 waves calculated.
+Harmonic Calculation is 80 % Complete.  270 of 336 waves calculated.
+Harmonic Calculation is 82 % Complete.  276 of 336 waves calculated.
+Harmonic Calculation is 83 % Complete.  282 of 336 waves calculated.
+Harmonic Calculation is 85 % Complete.  288 of 336 waves calculated.
+Harmonic Calculation is 87 % Complete.  294 of 336 waves calculated.
+Harmonic Calculation is 89 % Complete.  300 of 336 waves calculated.
+Harmonic Calculation is 91 % Complete.  306 of 336 waves calculated.
+Harmonic Calculation is 92 % Complete.  312 of 336 waves calculated.
+Harmonic Calculation is 94 % Complete.  318 of 336 waves calculated.
+Harmonic Calculation is 96 % Complete.  324 of 336 waves calculated.
+Harmonic Calculation is 98 % Complete.  330 of 336 waves calculated.
+Harmonic Calculation is 100 % Complete.  336 of 336 waves calculated.
+
+Computing phonon density of states.
+
+
+Computing Anharmonic Force Constants...
+
+Anharmonic force constants for atom 0: N1, N2, N3, N4 = 1, 16, 18, 0
+Anharmonic force constants for atom 1: N1, N2, N3, N4 = 1, 16, 18, 0
+
+Building Files of Initial Guesses...
+  For quantum system from harmonic frequencies.
+  For classical system from harmonic frequencies.
+
+
+Computing frequency shift and linewidth (iter 1)...
+
+Anharmonic calculation is 1% complete after 0 minutes.  4 of 336 waves calculated.
+Anharmonic calculation is 2% complete after 0 minutes.  7 of 336 waves calculated.
+Anharmonic calculation is 3% complete after 0.0166667 minutes.  11 of 336 waves calculated.
+Anharmonic calculation is 4% complete after 0.0166667 minutes.  14 of 336 waves calculated.
+Anharmonic calculation is 5% complete after 0.0166667 minutes.  17 of 336 waves calculated.
+Anharmonic calculation is 6% complete after 0.0166667 minutes.  21 of 336 waves calculated.
+Anharmonic calculation is 7% complete after 0.0333333 minutes.  24 of 336 waves calculated.
+Anharmonic calculation is 8% complete after 0.0333333 minutes.  27 of 336 waves calculated.
+Anharmonic calculation is 9% complete after 0.0333333 minutes.  31 of 336 waves calculated.
+Anharmonic calculation is 10% complete after 0.05 minutes.  34 of 336 waves calculated.
+Anharmonic calculation is 11% complete after 0.05 minutes.  37 of 336 waves calculated.
+Anharmonic calculation is 12% complete after 0.05 minutes.  41 of 336 waves calculated.
+Anharmonic calculation is 13% complete after 0.05 minutes.  44 of 336 waves calculated.
+Anharmonic calculation is 14% complete after 0.0666667 minutes.  48 of 336 waves calculated.
+Anharmonic calculation is 15% complete after 0.0666667 minutes.  51 of 336 waves calculated.
+Anharmonic calculation is 16% complete after 0.0666667 minutes.  54 of 336 waves calculated.
+Anharmonic calculation is 17% complete after 0.0833333 minutes.  58 of 336 waves calculated.
+Anharmonic calculation is 18% complete after 0.0833333 minutes.  61 of 336 waves calculated.
+Anharmonic calculation is 19% complete after 0.0833333 minutes.  64 of 336 waves calculated.
+Anharmonic calculation is 20% complete after 0.1 minutes.  68 of 336 waves calculated.
+Anharmonic calculation is 21% complete after 0.1 minutes.  71 of 336 waves calculated.
+Anharmonic calculation is 22% complete after 0.1 minutes.  74 of 336 waves calculated.
+Anharmonic calculation is 23% complete after 0.1 minutes.  78 of 336 waves calculated.
+Anharmonic calculation is 24% complete after 0.116667 minutes.  81 of 336 waves calculated.
+Anharmonic calculation is 25% complete after 0.116667 minutes.  84 of 336 waves calculated.
+Anharmonic calculation is 26% complete after 0.116667 minutes.  88 of 336 waves calculated.
+Anharmonic calculation is 27% complete after 0.133333 minutes.  91 of 336 waves calculated.
+Anharmonic calculation is 28% complete after 0.133333 minutes.  95 of 336 waves calculated.
+Anharmonic calculation is 29% complete after 0.133333 minutes.  98 of 336 waves calculated.
+Anharmonic calculation is 30% complete after 0.133333 minutes.  101 of 336 waves calculated.
+Anharmonic calculation is 31% complete after 0.15 minutes.  105 of 336 waves calculated.
+Anharmonic calculation is 32% complete after 0.15 minutes.  108 of 336 waves calculated.
+Anharmonic calculation is 33% complete after 0.15 minutes.  111 of 336 waves calculated.
+Anharmonic calculation is 34% complete after 0.166667 minutes.  115 of 336 waves calculated.
+Anharmonic calculation is 35% complete after 0.166667 minutes.  118 of 336 waves calculated.
+Anharmonic calculation is 36% complete after 0.166667 minutes.  121 of 336 waves calculated.
+Anharmonic calculation is 37% complete after 0.183333 minutes.  125 of 336 waves calculated.
+Anharmonic calculation is 38% complete after 0.183333 minutes.  128 of 336 waves calculated.
+Anharmonic calculation is 39% complete after 0.183333 minutes.  132 of 336 waves calculated.
+Anharmonic calculation is 40% complete after 0.183333 minutes.  135 of 336 waves calculated.
+Anharmonic calculation is 41% complete after 0.2 minutes.  138 of 336 waves calculated.
+Anharmonic calculation is 42% complete after 0.2 minutes.  142 of 336 waves calculated.
+Anharmonic calculation is 43% complete after 0.2 minutes.  145 of 336 waves calculated.
+Anharmonic calculation is 44% complete after 0.216667 minutes.  148 of 336 waves calculated.
+Anharmonic calculation is 45% complete after 0.216667 minutes.  152 of 336 waves calculated.
+Anharmonic calculation is 46% complete after 0.216667 minutes.  155 of 336 waves calculated.
+Anharmonic calculation is 47% complete after 0.216667 minutes.  158 of 336 waves calculated.
+Anharmonic calculation is 48% complete after 0.233333 minutes.  162 of 336 waves calculated.
+Anharmonic calculation is 49% complete after 0.233333 minutes.  165 of 336 waves calculated.
+Anharmonic calculation is 50% complete after 0.233333 minutes.  168 of 336 waves calculated.
+Anharmonic calculation is 51% complete after 0.25 minutes.  172 of 336 waves calculated.
+Anharmonic calculation is 52% complete after 0.25 minutes.  175 of 336 waves calculated.
+Anharmonic calculation is 53% complete after 0.266667 minutes.  179 of 336 waves calculated.
+Anharmonic calculation is 54% complete after 0.266667 minutes.  182 of 336 waves calculated.
+Anharmonic calculation is 55% complete after 0.266667 minutes.  185 of 336 waves calculated.
+Anharmonic calculation is 56% complete after 0.266667 minutes.  189 of 336 waves calculated.
+Anharmonic calculation is 57% complete after 0.283333 minutes.  192 of 336 waves calculated.

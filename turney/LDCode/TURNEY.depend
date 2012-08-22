@@ -1,0 +1,291 @@
+# depslib dependency file v1.0
+1345564386 source:/home/ankit/Desktop/turney/AddPotential.cpp
+	"LDCode.h"
+	<cstring>
+
+1345564970 /home/ankit/Desktop/turney/LDCode.h
+	<mpi.h>
+	<cstdlib>
+	<iostream>
+	<fstream>
+	"Neighbor_List.h"
+	"Potential_Derivative.h"
+	"Material.h"
+	"Lattice.h"
+	"Unit_Cell.h"
+	"Parameter.h"
+	"Symmetry.h"
+	"Potential.h"
+	"Lennard_Jones.h"
+	"Lennard_Jones_Spline.h"
+	"Inverse_Twelfth_Power.h"
+	"Buckingham.h"
+	"Stillinger_Weber.h"
+	"REBO.h"
+	"Tersoff.h"
+	"Coulomb.h"
+
+1345564387 /home/ankit/Desktop/turney/Neighbor_List.h
+
+1345564388 /home/ankit/Desktop/turney/Potential_Derivative.h
+	"LDCode.h"
+
+1345564387 /home/ankit/Desktop/turney/Material.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+	"Potential.h"
+
+1345564388 /home/ankit/Desktop/turney/Potential.h
+	<cstring>
+	<typeinfo>
+	"Potential_Derivative.h"
+
+1345564387 /home/ankit/Desktop/turney/Lattice.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1345564388 /home/ankit/Desktop/turney/Unit_Cell.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1345564387 /home/ankit/Desktop/turney/Parameter.h
+	"Potential.h"
+	"Dispersion.h"
+	"Anharmonic.h"
+
+1345564386 /home/ankit/Desktop/turney/Dispersion.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1345564386 /home/ankit/Desktop/turney/Anharmonic.h
+	"LDCode.h"
+	"Transform.h"
+
+1345564388 /home/ankit/Desktop/turney/Transform.h
+	"LDCode.h"
+
+1345564388 /home/ankit/Desktop/turney/Symmetry.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1345564387 /home/ankit/Desktop/turney/Lennard_Jones.h
+	"LDCode.h"
+
+1345564387 /home/ankit/Desktop/turney/Lennard_Jones_Spline.h
+	"LDCode.h"
+
+1345564387 /home/ankit/Desktop/turney/Inverse_Twelfth_Power.h
+	"LDCode.h"
+
+1345564386 /home/ankit/Desktop/turney/Buckingham.h
+	"LDCode.h"
+
+1345564388 /home/ankit/Desktop/turney/Stillinger_Weber.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1345564388 /home/ankit/Desktop/turney/REBO.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1345564388 /home/ankit/Desktop/turney/Tersoff.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1345564386 /home/ankit/Desktop/turney/Coulomb.h
+	"LDCode.h"
+
+1345564635 source:/home/ankit/Desktop/turney/Anharmonic.cpp
+	"LDCode.h"
+	"Transform.h"
+	"Anharmonic.h"
+	<cmath>
+	<ctime>
+
+1345564386 source:/home/ankit/Desktop/turney/Buckingham.cpp
+	"Buckingham.h"
+	<cmath>
+
+1345564386 source:/home/ankit/Desktop/turney/BuildNeighborList.cpp
+	"LDCode.h"
+	<cmath>
+
+1345564386 source:/home/ankit/Desktop/turney/Coulomb.cpp
+	"Coulomb.h"
+	<cmath>
+
+1345564386 source:/home/ankit/Desktop/turney/Dispersion.cpp
+	"LDCode.h"
+	"Dispersion.h"
+	<cmath>
+
+1345564386 source:/home/ankit/Desktop/turney/Dynamical_Matrix.cpp
+	"LDCode.h"
+	<cmath>
+
+1345564386 source:/home/ankit/Desktop/turney/Eigen.cpp
+	<cstdlib>
+
+1345564386 source:/home/ankit/Desktop/turney/Harmonic.cpp
+	"LDCode.h"
+	"Harmonic.h"
+	<cmath>
+
+1345564386 /home/ankit/Desktop/turney/Harmonic.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1345564387 source:/home/ankit/Desktop/turney/Householder.cpp
+	<cmath>
+
+1345564387 source:/home/ankit/Desktop/turney/Inverse_Twelfth_Power.cpp
+	"Inverse_Twelfth_Power.h"
+
+1345564387 source:/home/ankit/Desktop/turney/LDCode.cpp
+	"LDCode.h"
+	"PreProcess.h"
+	"Dispersion.h"
+	"Harmonic.h"
+	"Anharmonic.h"
+	"PostProcess.h"
+	"Neighbor_Force.h"
+	<ctime>
+
+1345564388 /home/ankit/Desktop/turney/PreProcess.h
+	<cstring>
+
+1345564387 /home/ankit/Desktop/turney/PostProcess.h
+	<cstring>
+
+1345564387 /home/ankit/Desktop/turney/Neighbor_Force.h
+	"LDCode.h"
+
+1345564387 source:/home/ankit/Desktop/turney/LDConductivity.cpp
+	"LDCode.h"
+	<cmath>
+
+1345564387 source:/home/ankit/Desktop/turney/LDGuess.cpp
+	"LDCode.h"
+	"Anharmonic.h"
+	<cmath>
+
+1345564387 source:/home/ankit/Desktop/turney/LU.cpp
+	<cstdlib>
+	<cmath>
+
+1345564387 source:/home/ankit/Desktop/turney/Lattice.cpp
+	"LDCode.h"
+	"Lattice.h"
+	<cmath>
+
+1345564387 source:/home/ankit/Desktop/turney/Lennard_Jones.cpp
+	"Lennard_Jones.h"
+
+1345564387 source:/home/ankit/Desktop/turney/Lennard_Jones_Spline.cpp
+	"Lennard_Jones_Spline.h"
+	<cmath>
+
+1345564387 source:/home/ankit/Desktop/turney/Material.cpp
+	"LDCode.h"
+	"Material.h"
+
+1345564387 source:/home/ankit/Desktop/turney/Neighbor_List.cpp
+	"LDCode.h"
+
+1345564387 source:/home/ankit/Desktop/turney/Parameter.cpp
+	"LDCode.h"
+	<cmath>
+
+1345564387 source:/home/ankit/Desktop/turney/PostProcess.cpp
+	"LDCode.h"
+	"PostProcess.h"
+
+1345564387 source:/home/ankit/Desktop/turney/Potential.cpp
+	"LDCode.h"
+
+1345564388 source:/home/ankit/Desktop/turney/Potential_Derivative.cpp
+	"LDCode.h"
+	"Potential_Derivative.h"
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/PreProcess.cpp
+	"LDCode.h"
+	"PreProcess.h"
+	"Neighbor_Force.h"
+	<iomanip>
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/QC_Temperature.cpp
+	"LDCode.h"
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/QL.cpp
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/REBO.cpp
+	"REBO.h"
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/Read_Input.cpp
+	"LDCode.h"
+	"Variables.h"
+	"PreProcess.h"
+	"Dispersion.h"
+	"Harmonic.h"
+	"Anharmonic.h"
+	"PostProcess.h"
+	<cstdio>
+	<cstring>
+	<cmath>
+
+1345564388 /home/ankit/Desktop/turney/Variables.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1345564388 source:/home/ankit/Desktop/turney/Stillinger_Weber.cpp
+	"Stillinger_Weber.h"
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/Symmetry.cpp
+	"LDCode.h"
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/Tersoff.cpp
+	"Tersoff.h"
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/Transform.cpp
+	"LDCode.h"
+	"Transform.h"
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/Unit_Cell.cpp
+	"LDCode.h"
+	"Unit_Cell.h"
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/Variables.cpp
+	"LDCode.h"
+	"Variables.h"
+	<cmath>
+
+1345564389 source:/home/ankit/Desktop/turney/Velocity.cpp
+	"LDCode.h"
+	<cmath>
+
+1345564788 source:/home/ankit/Desktop/turney/TURNEY/main.cpp
+
