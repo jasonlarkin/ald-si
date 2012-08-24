@@ -12,5 +12,5 @@ pair_coeff      * * Si.sw Si
 #------DUMP FORCES---------------------------------------------------------------------------
 	fix			1 all nve
 	dump 			force all custom 1 dump.force fx fy fz
-	dump_modify 		force sort id format "%0.15g %0.15g %0.15g"
+	dump_modify 		force sort id format "%g %g %g"
 	run	1

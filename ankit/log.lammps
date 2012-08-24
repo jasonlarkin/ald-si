@@ -16,19 +16,19 @@ pair_coeff      * * Si.sw Si
 #------DUMP FORCES---------------------------------------------------------------------------
 	fix			1 all nve
 	dump 			force all custom 1 dump.force fx fy fz
-	dump_modify 		force sort id
+	dump_modify 		force sort id format "%0.15g %0.15g %0.15g"
 	run	1
 Memory usage per processor = 1.43743 Mbytes
 Step Temp E_pair E_mol TotEng Press 
        0            0   -277.54229            0   -277.54229    532.56803 
        1 3.8998998e-09   -277.54229            0   -277.54229    532.56803 
-Loop time of 0.000550032 on 1 procs for 1 steps with 64 atoms
+Loop time of 0.00165105 on 1 procs for 1 steps with 64 atoms
 
-Pair  time (%) = 0.000323772 (58.8643)
+Pair  time (%) = 0.000883102 (53.4874)
 Neigh time (%) = 0 (0)
-Comm  time (%) = 8.10623e-06 (1.47378)
-Outpt time (%) = 0.000211 (38.3615)
-Other time (%) = 7.15256e-06 (1.30039)
+Comm  time (%) = 2.88486e-05 (1.74729)
+Outpt time (%) = 0.00071907 (43.5523)
+Other time (%) = 2.00272e-05 (1.213)
 
 Nlocal:    64 ave 64 max 64 min
 Histogram: 1 0 0 0 0 0 0 0 0 0
