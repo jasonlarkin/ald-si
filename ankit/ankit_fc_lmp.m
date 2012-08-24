@@ -15,11 +15,11 @@ format long
 %-------------------------READ---------------------------------------------
 %--------------------------------------------------------------------------
 
-LD.FC2.id = load('./2nn/FULLorder2.dat');
-LD.FC3.id = load('./2nn/FULLorder3.dat');
+LD.FC2.id = load('./2x/FULLorder2.dat');
+LD.FC3.id = load('./2x/FULLorder3.dat');
 %LD.FC4.id = load('./2nn/FULLorder4.dat');
 
-LD.pos = load('./2nn/FULLpos.dat');
+LD.pos = load('./2x/FULLpos.dat');
 
 %--------------------------------------------------------------------------
 %LD Input
@@ -75,7 +75,7 @@ lammps.lz = sqrt( LD.cell(3)^2 - lammps.xz^2 - lammps.yz^2 );
     LD.id(1:size(LD.pos,1),1) = 1:size(LD.pos,1); 
     LD.type(1:size(LD.pos,1),1) = 1;
 %initialize  
-    LD.dx = 0.001;
+    LD.dx = 0.00001;
     LD.precision = int2str(log10(ceil(1/LD.dx))+1);
     
     LD.pos_tmp = LD.pos(:,:);    
