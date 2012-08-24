@@ -75,7 +75,7 @@ lammps.lz = sqrt( LD.cell(3)^2 - lammps.xz^2 - lammps.yz^2 );
     LD.id(1:size(LD.pos,1),1) = 1:size(LD.pos,1); 
     LD.type(1:size(LD.pos,1),1) = 1;
 %initialize  
-    LD.dx = 0.0000001;
+    LD.dx = 0.00001;
     LD.precision = int2str(log10(ceil(1/LD.dx))+1);
     
     LD.pos_tmp = LD.pos(:,:);    
@@ -296,8 +296,8 @@ plot(LD.FC3.phi)
 %-------------------------------------------------------------------------- 
 
 
-dlmwrite('./PHI2.dat',LD.FC2.phi','delimiter',' ','precision', '%10.5f');
-dlmwrite('./PHI3.dat',LD.FC3.phi','delimiter',' ','precision', '%10.5f');
-dlmwrite('./PHI4.dat',LD.FC4.phi','delimiter',' ','precision', '%10.5f');
+dlmwrite('./PHI2.dat',LD.FC2.phi','delimiter',' ','precision', '%15.10f');
+dlmwrite('./PHI3.dat',LD.FC3.phi','delimiter',' ','precision', '%15.10f');
+dlmwrite('./PHI4.dat',LD.FC4.phi','delimiter',' ','precision', '%15.10f');
 
 
