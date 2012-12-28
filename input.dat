@@ -1,0 +1,30 @@
+#--------------------------------------------------------------------------
+
+units			metal
+atom_style		atomic
+read_data		disp_0.dat
+
+#--------------------------------------------------------------------------
+
+pair_style		sw
+pair_coeff		* * Si.sw Si
+
+#--------------------------------------------------------------------------
+
+dump min all custom 10000 relax.pos x y z
+dump_modify min sort id
+minimize 0 1e-6 1000 10000
+#fix 1 all box/relax iso 0.0 vmax 0.001
+#unfix 1
+
+#--------------------------------------------------------------------------
+	fix			1 all nve
+	dump 			force all custom 1 lmp.dump_0.force fx fy fz
+	dump_modify 		force sort id
+	dump 			pos all custom 1 lmp.dump_0.pos x y z
+	dump_modify 		pos sort id
+	dump 			upos all custom 1 lmp.dump_0.posu xu yu zu
+	dump_modify 		upos sort id
+	run	1
+
+
