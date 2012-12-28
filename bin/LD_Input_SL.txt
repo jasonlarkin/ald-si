@@ -1,0 +1,49 @@
+VARIABLES
+  $a          = 5.370e-10
+  $Ar_mass    = 6.63e-26
+  $Ar_epsilon = 1.67e-21
+  $Ar_sigma   = 3.40e-10
+
+LATTICE = 3
+  a1 = $a,0,0
+  a2 = 0,$a,0
+  a3 = 0,0,1*$a
+  BC1 = Periodic
+  BC2 = Periodic
+  BC3 = Periodic
+  N1 = 6
+  N2 = 6
+  N3 = 6
+
+MATERIAL = 2
+  A = $Ar_mass
+  B = $Ar_mass*2
+
+POTENTIAL = LJ 2 A B
+  epsilon = $Ar_epsilon $Ar_epsilon $Ar_epsilon
+  sigma   = $Ar_sigma $Ar_sigma $Ar_sigma
+  cutoff  = 2.5*$Ar_sigma 2.5*$Ar_sigma 2.5*$Ar_sigma
+  Acutoff = 0.8*$a 0.8*$a 0.8*$a
+
+SYMMETRY = 12
+
+DISPERSION = 100
+  Coordinate = Cartesian
+  Begin      = 0,0,0
+  End        = 0,0,0.5/$a
+
+UNIT_CELL = 4
+  Coordinate = Cartesian
+  A 0    0    0
+  A $a/2 $a/2 0
+  B $a/2 0    $a/2
+  B 0    $a/2 $a/2
+
+ANHARMONIC = 3
+  temperature  = 40
+  fs_guess     = 0.07
+  lw_guess     = 0.03
+  %Q_interpolate = interp18x18x18_Q.txt
+  %C_interpolate = interp18x18x18_C.txt
+  conductivity = true
+  continue     = 0

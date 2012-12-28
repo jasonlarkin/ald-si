@@ -1,0 +1,2506 @@
+# depslib dependency file v1.0
+1232309028 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\addpotential.cpp
+	"LDCode.h"
+
+1247158171 
+
+1232253384 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\ldcode.h
+	"mpi.h"
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	"Potential.h"
+	"Lennard_Jones.h"
+	"Inverse_Twelfth_Power.h"
+	"Stillinger_Weber.h"
+	"Material.h"
+	"Lattice.h"
+	"Unit_Cell.h"
+	"Dispersion.h"
+	"Parameter.h"
+	"Symmetry.h"
+	"Shift_Width.h"
+
+1243964683 th.h"
+
+1232302727 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\potential.h
+	<string.h>
+
+1228357682 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\lennard_jones.h
+	"LDCode.h"
+
+1228357682 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\inverse_twelfth_power.h
+	"LDCode.h"
+
+1232303316 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\stillinger_weber.h
+	"LDCode.h"
+
+1228767240 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\material.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1228767240 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\lattice.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1228767240 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\unit_cell.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1229280066 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\dispersion.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1228356464 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\parameter.h
+
+1231726282 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\symmetry.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1232639612 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\anharmonic_ldcode.cpp
+	"LDCode.h"
+	"ALD_Neighbor.h"
+
+1229280020 bor.h"
+
+1229280874 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\ald_neighbor.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1229355376 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\dos.cpp
+	"LDCode.h"
+	<math.h>
+
+1232301306 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\dispersion.cpp
+	"LDCode.h"
+	"Dispersion.h"
+	<math.h>
+
+1229280008 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\dynamical_matrix.cpp
+	"LDCode.h"
+	"HLD_Neighbor.h"
+	<math.h>
+
+1229280874 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\hld_neighbor.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1227637226 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\eigen.cpp
+	<stdlib.h>
+
+1229280020 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\harmonic_ldcode.cpp
+	"LDCode.h"
+	"HLD_Neighbor.h"
+
+1227637110 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\householder.cpp
+	<math.h>
+
+1232308732 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\inverse_twelfth_power.cpp
+	"Inverse_Twelfth_Power.h"
+
+1261061268 welfth_Power.h"
+
+1232253384 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\ldcode.cpp
+	"LDCode.h"
+
+1228767064 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\lu.cpp
+	<stdlib.h>
+	<math.h>
+
+1232253384 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\lattice.cpp
+	"LDCode.h"
+	"Lattice.h"
+	<math.h>
+
+1232308732 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\lennard_jones.cpp
+	"Lennard_Jones.h"
+
+1245469626 ones.h"
+
+1228767240 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\material.cpp
+	"LDCode.h"
+	"Material.h"
+
+1280705384 h"
+
+1228596338 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\parameter.cpp
+	"LDCode.h"
+	<math.h>
+
+1232309224 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\potential.cpp
+	"LDCode.h"
+
+1227637110 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\ql.cpp
+	<math.h>
+
+1232309225 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\read_input.cpp
+	<stdio.h>
+	<string.h>
+	<math.h>
+	"LDCode.h"
+	"Variables.h"
+
+1248704774 .h"
+
+1228357656 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\variables.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1232634506 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\shift_width.cpp
+	"LDCode.h"
+	"Transform.h"
+	"Shift_Width.h"
+	<math.h>
+	<time.h>
+
+1229279250 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\transform.h
+	"LDCode.h"
+	"ALD_Neighbor.h"
+	<math.h>
+
+1232308760 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\stillinger_weber.cpp
+	"Stillinger_Weber.h"
+	<math.h>
+
+1228614372 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\structure.cpp
+	"LDCode.h"
+
+1231726282 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\symmetry.cpp
+	"LDCode.h"
+	<math.h>
+
+1229275082 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\trans_2body.cpp
+	"LDCode.h"
+	"Transform.h"
+	<math.h>
+
+1229275082 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\trans_3body.cpp
+	"LDCode.h"
+	"Transform.h"
+	<math.h>
+
+1229275082 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\transform.cpp
+	"LDCode.h"
+	"Transform.h"
+	<math.h>
+
+1228767240 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\unit_cell.cpp
+	"LDCode.h"
+	"Unit_Cell.h"
+	<math.h>
+
+1228357656 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\variables.cpp
+	"LDCode.h"
+	"Variables.h"
+	<math.h>
+
+1228614306 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\velocity.cpp
+	"LDCode.h"
+	<math.h>
+
+1232302727 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\ald_neighbor.cpp
+	"LDCode.h"
+	"ALD_Neighbor.h"
+	"List.h"
+	<math.h>
+
+1229280988 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\list.h
+
+1229474470 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\hld_neighbor.cpp
+	"LDCode.h"
+	"HLD_Neighbor.h"
+	"List.h"
+	<math.h>
+
+1232634611 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\ldguess.cpp
+	"LDCode.h"
+	"Shift_Width.h"
+
+1229564464 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\ldconductivity.cpp
+	"LDCode.h"
+	<math.h>
+
+1232403096 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\shift_width.h
+	"LDCode.h"
+	"Transform.h"
+
+1230671328 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode\qc_temperature.cpp
+	"LDCode.h"
+	<math.h>
+
+1232306328 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\ald_neighbor.cpp
+	"LDCode.h"
+	"ALD_Neighbor.h"
+	"List.h"
+	<math.h>
+
+1239565001 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\ldcode.h
+	"mpi.h"
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	"Potential.h"
+	"Lennard_Jones.h"
+	"Inverse_Twelfth_Power.h"
+	"Stillinger_Weber.h"
+	"REBO.h"
+	"Tersoff.h"
+	"Material.h"
+	"Lattice.h"
+	"Unit_Cell.h"
+	"Dispersion.h"
+	"Parameter.h"
+	"Symmetry.h"
+	"Shift_Width.h"
+	"FC_ARRAY.h"
+
+1239107322 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\potential.h
+	<string.h>
+	"Force_Constants.h"
+
+1244220698 stants.h"
+
+1239107305 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\lennard_jones.h
+	"LDCode.h"
+
+1239107304 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\inverse_twelfth_power.h
+	"LDCode.h"
+
+1239107305 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\stillinger_weber.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1228770840 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\material.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1238528911 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\lattice.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1235154120 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\unit_cell.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1229283666 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\dispersion.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1228360064 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\parameter.h
+
+1231729884 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\symmetry.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1238547705 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\shift_width.h
+	"LDCode.h"
+	"Transform.h"
+
+1238115717 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\transform.h
+	"LDCode.h"
+	<math.h>
+
+1229284474 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\ald_neighbor.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1235933110 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\list.h
+
+1239887270 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\addpotential.cpp
+	"LDCode.h"
+
+1241203387 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\dispersion.cpp
+	"LDCode.h"
+	"Dispersion.h"
+	<math.h>
+
+1241211064 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\dynamical_matrix.cpp
+	"LDCode.h"
+	<math.h>
+
+1233977558 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\hld_neighbor.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1241211064 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\eigen.cpp
+	<stdlib.h>
+
+1236012656 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\hld_neighbor.cpp
+	"LDCode.h"
+	"HLD_Neighbor.h"
+	"List.h"
+	<math.h>
+
+1239131042 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\harmonic_ldcode.cpp
+	"LDCode.h"
+
+1241203855 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\householder.cpp
+	<math.h>
+
+1239107304 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\inverse_twelfth_power.cpp
+	"Inverse_Twelfth_Power.h"
+
+1228770664 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\lu.cpp
+	<stdlib.h>
+	<math.h>
+
+1239129559 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\lattice.cpp
+	"LDCode.h"
+	"Lattice.h"
+	<math.h>
+
+1239107305 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\lennard_jones.cpp
+	"Lennard_Jones.h"
+
+1228770840 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\material.cpp
+	"LDCode.h"
+	"Material.h"
+
+1239909990 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\potential.cpp
+	"LDCode.h"
+
+1238528911 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\qc_temperature.cpp
+	"LDCode.h"
+	<math.h>
+
+1241203708 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\ql.cpp
+	<math.h>
+
+1239821034 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\stillinger_weber.cpp
+	"Stillinger_Weber.h"
+	<math.h>
+
+1238513005 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\structure.cpp
+	"LDCode.h"
+
+1229275082 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\trans_2body.cpp
+	"LDCode.h"
+	"Transform.h"
+	<math.h>
+
+1236382671 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\trans_3body.cpp
+	"LDCode.h"
+	"Transform.h"
+	<math.h>
+
+1238676887 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\transform.cpp
+	"LDCode.h"
+	"Transform.h"
+	<math.h>
+
+1238529074 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\unit_cell.cpp
+	"LDCode.h"
+	"Unit_Cell.h"
+	<math.h>
+
+1236888396 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\variables.cpp
+	"LDCode.h"
+	"Variables.h"
+	<math.h>
+
+1236888536 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\variables.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1239153098 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\velocity.cpp
+	"LDCode.h"
+	<math.h>
+
+1238544825 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\anharmonic_ldcode.cpp
+	"LDCode.h"
+
+1241226130 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\dos.cpp
+	"LDCode.h"
+	<math.h>
+
+1241205721 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\ldcode.cpp
+	"LDCode.h"
+	<time.h>
+
+1239287690 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\ldconductivity.cpp
+	"LDCode.h"
+	<math.h>
+
+1238591264 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\ldguess.cpp
+	"LDCode.h"
+	"Shift_Width.h"
+
+1239129559 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\parameter.cpp
+	"LDCode.h"
+	<math.h>
+
+1238528911 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\read_input.cpp
+	<stdio.h>
+	<string.h>
+	<math.h>
+	"LDCode.h"
+	"Variables.h"
+
+1238610589 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\shift_width.cpp
+	"LDCode.h"
+	"Transform.h"
+	"Shift_Width.h"
+	<math.h>
+	<time.h>
+
+1233938664 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\symmetry.cpp
+	"LDCode.h"
+	<math.h>
+
+1238512872 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\buildneighborlist.cpp
+	"LDCode.h"
+	<math.h>
+
+1239107410 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\rebo.cpp
+	"REBO.h"
+	<math.h>
+
+1239107410 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\rebo.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1235160428 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\neighbor_list.h
+
+1238676310 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\force_constants.h
+	"LDCode.h"
+	"FC_ARRAY.h"
+
+1239916332 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\force_constants.cpp
+	"LDCode.h"
+	"FC_ARRAY.h"
+
+1236202501 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\neighbor_list.cpp
+	"LDCode.h"
+
+1238676517 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\fc_array.h
+	"LDCode.h"
+
+1238695182 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\fc_array.cpp
+	"LDCode.h"
+
+1239904215 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\neighbor_force.cpp
+	"LDCode.h"
+	"Force_Constants.h"
+
+1232302728 source:c:\documents and settings\jturney\desktop\ldcode_rebo\ald_neighbor.cpp
+	"LDCode.h"
+	"ALD_Neighbor.h"
+	"List.h"
+	<math.h>
+
+1235672734 c:\documents and settings\jturney\desktop\ldcode_rebo\ldcode.h
+	"mpi.h"
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	"Potential.h"
+	"Lennard_Jones.h"
+	"Inverse_Twelfth_Power.h"
+	"Stillinger_Weber.h"
+	"Material.h"
+	"Lattice.h"
+	"Unit_Cell.h"
+	"Dispersion.h"
+	"Parameter.h"
+	"Symmetry.h"
+	"Shift_Width.h"
+	"FC_ARRAY.h"
+
+1235760944 c:\documents and settings\jturney\desktop\ldcode_rebo\potential.h
+	<string.h>
+	"Force_Constants.h"
+
+1235941290 c:\documents and settings\jturney\desktop\ldcode_rebo\force_constants.h
+	"LDCode.h"
+	"FC_ARRAY.h"
+
+1235932850 c:\documents and settings\jturney\desktop\ldcode_rebo\fc_array.h
+	"LDCode.h"
+
+1235760944 c:\documents and settings\jturney\desktop\ldcode_rebo\lennard_jones.h
+	"LDCode.h"
+
+1228357682 c:\documents and settings\jturney\desktop\ldcode_rebo\inverse_twelfth_power.h
+	"LDCode.h"
+
+1235331830 c:\documents and settings\jturney\desktop\ldcode_rebo\stillinger_weber.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1235156828 c:\documents and settings\jturney\desktop\ldcode_rebo\neighbor_list.h
+
+1228767240 c:\documents and settings\jturney\desktop\ldcode_rebo\material.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1228767240 c:\documents and settings\jturney\desktop\ldcode_rebo\lattice.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1235150520 c:\documents and settings\jturney\desktop\ldcode_rebo\unit_cell.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1229280066 c:\documents and settings\jturney\desktop\ldcode_rebo\dispersion.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1228356464 c:\documents and settings\jturney\desktop\ldcode_rebo\parameter.h
+
+1231726284 c:\documents and settings\jturney\desktop\ldcode_rebo\symmetry.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1232403098 c:\documents and settings\jturney\desktop\ldcode_rebo\shift_width.h
+	"LDCode.h"
+	"Transform.h"
+
+1229279250 c:\documents and settings\jturney\desktop\ldcode_rebo\transform.h
+	"LDCode.h"
+	"ALD_Neighbor.h"
+	<math.h>
+
+1229280874 c:\documents and settings\jturney\desktop\ldcode_rebo\ald_neighbor.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1235929510 c:\documents and settings\jturney\desktop\ldcode_rebo\list.h
+
+1232309030 source:c:\documents and settings\jturney\desktop\ldcode_rebo\addpotential.cpp
+	"LDCode.h"
+
+1233956784 source:c:\documents and settings\jturney\desktop\ldcode_rebo\anharmonic_ldcode.cpp
+	"LDCode.h"
+	"ALD_Neighbor.h"
+
+1235929114 source:c:\documents and settings\jturney\desktop\ldcode_rebo\buildneighborlist.cpp
+	"LDCode.h"
+	<math.h>
+
+1233952040 source:c:\documents and settings\jturney\desktop\ldcode_rebo\dos.cpp
+	"LDCode.h"
+	<math.h>
+
+1232301308 source:c:\documents and settings\jturney\desktop\ldcode_rebo\dispersion.cpp
+	"LDCode.h"
+	"Dispersion.h"
+	<math.h>
+
+1236010097 source:c:\documents and settings\jturney\desktop\ldcode_rebo\dynamical_matrix.cpp
+	"LDCode.h"
+	"HLD_Neighbor.h"
+	<math.h>
+
+1233973958 c:\documents and settings\jturney\desktop\ldcode_rebo\hld_neighbor.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1227637226 source:c:\documents and settings\jturney\desktop\ldcode_rebo\eigen.cpp
+	<stdlib.h>
+
+1236008885 source:c:\documents and settings\jturney\desktop\ldcode_rebo\fc_array.cpp
+	"LDCode.h"
+
+1236009055 source:c:\documents and settings\jturney\desktop\ldcode_rebo\hld_neighbor.cpp
+	"LDCode.h"
+	"HLD_Neighbor.h"
+	"List.h"
+	<math.h>
+
+1229280020 source:c:\documents and settings\jturney\desktop\ldcode_rebo\harmonic_ldcode.cpp
+	"LDCode.h"
+	"HLD_Neighbor.h"
+
+1227637110 source:c:\documents and settings\jturney\desktop\ldcode_rebo\householder.cpp
+	<math.h>
+
+1232308734 source:c:\documents and settings\jturney\desktop\ldcode_rebo\inverse_twelfth_power.cpp
+	"Inverse_Twelfth_Power.h"
+
+1235930164 source:c:\documents and settings\jturney\desktop\ldcode_rebo\ldcode.cpp
+	"LDCode.h"
+	<time.h>
+
+1235878548 source:c:\documents and settings\jturney\desktop\ldcode_rebo\ldconductivity.cpp
+	"LDCode.h"
+	<math.h>
+
+1233957260 source:c:\documents and settings\jturney\desktop\ldcode_rebo\ldguess.cpp
+	"LDCode.h"
+	"Shift_Width.h"
+
+1228767064 source:c:\documents and settings\jturney\desktop\ldcode_rebo\lu.cpp
+	<stdlib.h>
+	<math.h>
+
+1232253386 source:c:\documents and settings\jturney\desktop\ldcode_rebo\lattice.cpp
+	"LDCode.h"
+	"Lattice.h"
+	<math.h>
+
+1236008885 source:c:\documents and settings\jturney\desktop\ldcode_rebo\lennard_jones.cpp
+	"Lennard_Jones.h"
+
+1228767240 source:c:\documents and settings\jturney\desktop\ldcode_rebo\material.cpp
+	"LDCode.h"
+	"Material.h"
+
+1235156828 source:c:\documents and settings\jturney\desktop\ldcode_rebo\neighbor_list.cpp
+	"LDCode.h"
+
+1233956784 source:c:\documents and settings\jturney\desktop\ldcode_rebo\parameter.cpp
+	"LDCode.h"
+	<math.h>
+
+1235930776 source:c:\documents and settings\jturney\desktop\ldcode_rebo\potential.cpp
+	"LDCode.h"
+
+1230671328 source:c:\documents and settings\jturney\desktop\ldcode_rebo\qc_temperature.cpp
+	"LDCode.h"
+	<math.h>
+
+1227637110 source:c:\documents and settings\jturney\desktop\ldcode_rebo\ql.cpp
+	<math.h>
+
+1233956784 source:c:\documents and settings\jturney\desktop\ldcode_rebo\read_input.cpp
+	<stdio.h>
+	<string.h>
+	<math.h>
+	"LDCode.h"
+	"Variables.h"
+
+1228357656 c:\documents and settings\jturney\desktop\ldcode_rebo\variables.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1236012602 source:c:\documents and settings\jturney\desktop\ldcode_rebo\shift_width.cpp
+	"LDCode.h"
+	"Transform.h"
+	"Shift_Width.h"
+	<math.h>
+	<time.h>
+
+1235332282 source:c:\documents and settings\jturney\desktop\ldcode_rebo\stillinger_weber.cpp
+	"Stillinger_Weber.h"
+	<math.h>
+
+1228614372 source:c:\documents and settings\jturney\desktop\ldcode_rebo\structure.cpp
+	"LDCode.h"
+
+1233935064 source:c:\documents and settings\jturney\desktop\ldcode_rebo\symmetry.cpp
+	"LDCode.h"
+	<math.h>
+
+1229275082 source:c:\documents and settings\jturney\desktop\ldcode_rebo\trans_2body.cpp
+	"LDCode.h"
+	"Transform.h"
+	<math.h>
+
+1236012611 source:c:\documents and settings\jturney\desktop\ldcode_rebo\trans_3body.cpp
+	"LDCode.h"
+	"Transform.h"
+	<math.h>
+
+1229275082 source:c:\documents and settings\jturney\desktop\ldcode_rebo\transform.cpp
+	"LDCode.h"
+	"Transform.h"
+	<math.h>
+
+1228767240 source:c:\documents and settings\jturney\desktop\ldcode_rebo\unit_cell.cpp
+	"LDCode.h"
+	"Unit_Cell.h"
+	<math.h>
+
+1228357656 source:c:\documents and settings\jturney\desktop\ldcode_rebo\variables.cpp
+	"LDCode.h"
+	"Variables.h"
+	<math.h>
+
+1228614306 source:c:\documents and settings\jturney\desktop\ldcode_rebo\velocity.cpp
+	"LDCode.h"
+	<math.h>
+
+1235941370 source:c:\documents and settings\jturney\desktop\ldcode_rebo\force_constants.cpp
+	"LDCode.h"
+	"FC_ARRAY.h"
+
+1236008885 source:c:\documents and settings\jturney\desktop\ldcode_rebo\neighbor_force.cpp
+	"LDCode.h"
+	"Force_Constants.h"
+
+1241192726 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\optimizestructure.cpp
+	"LDCode.h"
+	<iomanip>
+
+1239886306 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\tersoff.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1239917333 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldcode_rebo\tersoff.cpp
+	"Tersoff.h"
+	<math.h>
+
+1241454932 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\addpotential.cpp
+	"LDCode.h"
+
+1241454932 c:\documents and settings\jturney\desktop\ldcode_rebo_new\ldcode.h
+	"mpi.h"
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	"Potential.h"
+	"Lennard_Jones.h"
+	"Lennard_Jones_Spline.h"
+	"Inverse_Twelfth_Power.h"
+	"Stillinger_Weber.h"
+	"REBO.h"
+	"Tersoff.h"
+	"Material.h"
+	"Lattice.h"
+	"Unit_Cell.h"
+	"Dispersion.h"
+	"Parameter.h"
+	"Symmetry.h"
+	"Shift_Width.h"
+	"FC_ARRAY.h"
+
+1239103722 c:\documents and settings\jturney\desktop\ldcode_rebo_new\potential.h
+	<string.h>
+	"Force_Constants.h"
+
+1238672710 c:\documents and settings\jturney\desktop\ldcode_rebo_new\force_constants.h
+	"LDCode.h"
+	"FC_ARRAY.h"
+
+1238672917 c:\documents and settings\jturney\desktop\ldcode_rebo_new\fc_array.h
+	"LDCode.h"
+
+1239103705 c:\documents and settings\jturney\desktop\ldcode_rebo_new\lennard_jones.h
+	"LDCode.h"
+
+1239103704 c:\documents and settings\jturney\desktop\ldcode_rebo_new\inverse_twelfth_power.h
+	"LDCode.h"
+
+1239103705 c:\documents and settings\jturney\desktop\ldcode_rebo_new\stillinger_weber.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1235156828 c:\documents and settings\jturney\desktop\ldcode_rebo_new\neighbor_list.h
+
+1239103810 c:\documents and settings\jturney\desktop\ldcode_rebo_new\rebo.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1239882706 c:\documents and settings\jturney\desktop\ldcode_rebo_new\tersoff.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1228767240 c:\documents and settings\jturney\desktop\ldcode_rebo_new\material.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1238525311 c:\documents and settings\jturney\desktop\ldcode_rebo_new\lattice.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1235150520 c:\documents and settings\jturney\desktop\ldcode_rebo_new\unit_cell.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1229280066 c:\documents and settings\jturney\desktop\ldcode_rebo_new\dispersion.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1228356464 c:\documents and settings\jturney\desktop\ldcode_rebo_new\parameter.h
+
+1231726284 c:\documents and settings\jturney\desktop\ldcode_rebo_new\symmetry.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1238544105 c:\documents and settings\jturney\desktop\ldcode_rebo_new\shift_width.h
+	"LDCode.h"
+	"Transform.h"
+
+1238112117 c:\documents and settings\jturney\desktop\ldcode_rebo_new\transform.h
+	"LDCode.h"
+	<math.h>
+
+1238541225 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\anharmonic_ldcode.cpp
+	"LDCode.h"
+
+1238509272 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\buildneighborlist.cpp
+	"LDCode.h"
+	<math.h>
+
+1241550901 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\dos.cpp
+	"LDCode.h"
+	<math.h>
+
+1241791456 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\dispersion.cpp
+	"LDCode.h"
+	"Dispersion.h"
+	<math.h>
+
+1241720207 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\dynamical_matrix.cpp
+	"LDCode.h"
+	<math.h>
+
+1241207464 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\eigen.cpp
+	<stdlib.h>
+
+1241560475 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\fc_array.cpp
+	"LDCode.h"
+
+1241559559 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\force_constants.cpp
+	"LDCode.h"
+	"FC_ARRAY.h"
+
+1239127442 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\harmonic_ldcode.cpp
+	"LDCode.h"
+
+1241792314 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\householder.cpp
+	<math.h>
+
+1239103704 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\inverse_twelfth_power.cpp
+	"Inverse_Twelfth_Power.h"
+
+1242056339 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\ldcode.cpp
+	"LDCode.h"
+	<time.h>
+
+1241558925 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\ldconductivity.cpp
+	"LDCode.h"
+	<math.h>
+
+1238587664 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\ldguess.cpp
+	"LDCode.h"
+	"Shift_Width.h"
+
+1228767064 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\lu.cpp
+	<stdlib.h>
+	<math.h>
+
+1239125959 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\lattice.cpp
+	"LDCode.h"
+	"Lattice.h"
+	<math.h>
+
+1239103705 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\lennard_jones.cpp
+	"Lennard_Jones.h"
+
+1228767240 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\material.cpp
+	"LDCode.h"
+	"Material.h"
+
+1239900615 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\neighbor_force.cpp
+	"LDCode.h"
+	"Force_Constants.h"
+
+1236198901 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\neighbor_list.cpp
+	"LDCode.h"
+
+1241189126 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\optimizestructure.cpp
+	"LDCode.h"
+	<iomanip>
+
+1239125959 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\parameter.cpp
+	"LDCode.h"
+	<math.h>
+
+1239906390 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\potential.cpp
+	"LDCode.h"
+
+1238525311 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\qc_temperature.cpp
+	"LDCode.h"
+	<math.h>
+
+1241791442 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\ql.cpp
+	<math.h>
+
+1239103810 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\rebo.cpp
+	"REBO.h"
+	<math.h>
+
+1238525311 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\read_input.cpp
+	<stdio.h>
+	<string.h>
+	<math.h>
+	"LDCode.h"
+	"Variables.h"
+
+1236884936 c:\documents and settings\jturney\desktop\ldcode_rebo_new\variables.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1239817434 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\stillinger_weber.cpp
+	"Stillinger_Weber.h"
+	<math.h>
+
+1238509405 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\structure.cpp
+	"LDCode.h"
+
+1233935064 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\symmetry.cpp
+	"LDCode.h"
+	<math.h>
+
+1239913733 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\tersoff.cpp
+	"Tersoff.h"
+	<math.h>
+
+1238673287 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\transform.cpp
+	"LDCode.h"
+	"Transform.h"
+	<math.h>
+
+1238525474 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\unit_cell.cpp
+	"LDCode.h"
+	"Unit_Cell.h"
+	<math.h>
+
+1236884796 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\variables.cpp
+	"LDCode.h"
+	"Variables.h"
+	<math.h>
+
+1239149498 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\velocity.cpp
+	"LDCode.h"
+	<math.h>
+
+1241463357 c:\documents and settings\jturney\desktop\ldcode_rebo_new\lennard_jones_spline.h
+	"LDCode.h"
+
+1241550902 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\shift_width.cpp
+	"LDCode.h"
+	"Transform.h"
+	"Shift_Width.h"
+	<math.h>
+	<time.h>
+
+1241706538 source:c:\documents and settings\jturney\desktop\ldcode_rebo_new\lennard_jones_spline.cpp
+	"Lennard_Jones_Spline.h"
+
+1261061269 ones_Spline.h"
+
+1241458532 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\addpotential.cpp
+	"LDCode.h"
+
+1241458532 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\ldcode.h
+	"mpi.h"
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	"Potential.h"
+	"Lennard_Jones.h"
+	"Lennard_Jones_Spline.h"
+	"Inverse_Twelfth_Power.h"
+	"Stillinger_Weber.h"
+	"REBO.h"
+	"Tersoff.h"
+	"Material.h"
+	"Lattice.h"
+	"Unit_Cell.h"
+	"Dispersion.h"
+	"Parameter.h"
+	"Symmetry.h"
+	"Shift_Width.h"
+	"FC_ARRAY.h"
+
+1239107322 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\potential.h
+	<string.h>
+	"Force_Constants.h"
+
+1238676310 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\force_constants.h
+	"LDCode.h"
+	"FC_ARRAY.h"
+
+1243811584 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\fc_array.h
+	"LDCode.h"
+
+1239107305 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\lennard_jones.h
+	"LDCode.h"
+
+1241466957 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\lennard_jones_spline.h
+	"LDCode.h"
+
+1239107304 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\inverse_twelfth_power.h
+	"LDCode.h"
+
+1239107305 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\stillinger_weber.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1235156828 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\neighbor_list.h
+
+1239107410 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\rebo.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1239886306 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\tersoff.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1228767240 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\material.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1238528911 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\lattice.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1235150520 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\unit_cell.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1229280066 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\dispersion.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1228356464 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\parameter.h
+
+1231726284 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\symmetry.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1238547705 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\shift_width.h
+	"LDCode.h"
+	"Transform.h"
+
+1238115717 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\transform.h
+	"LDCode.h"
+	<math.h>
+
+1238544825 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\anharmonic_ldcode.cpp
+	"LDCode.h"
+
+1243626071 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\buildneighborlist.cpp
+	"LDCode.h"
+	<math.h>
+
+1241554501 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\dos.cpp
+	"LDCode.h"
+	<math.h>
+
+1243622809 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\dispersion.cpp
+	"LDCode.h"
+	"Dispersion.h"
+	<math.h>
+
+1241723807 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\dynamical_matrix.cpp
+	"LDCode.h"
+	<math.h>
+
+1241211064 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\eigen.cpp
+	<stdlib.h>
+
+1243811209 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\fc_array.cpp
+	"LDCode.h"
+
+1243627802 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\force_constants.cpp
+	"LDCode.h"
+	"FC_ARRAY.h"
+
+1239131042 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\harmonic_ldcode.cpp
+	"LDCode.h"
+
+1241795914 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\householder.cpp
+	<math.h>
+
+1239107304 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\inverse_twelfth_power.cpp
+	"Inverse_Twelfth_Power.h"
+
+1243623109 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\ldcode.cpp
+	"LDCode.h"
+	<time.h>
+
+1241562525 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\ldconductivity.cpp
+	"LDCode.h"
+	<math.h>
+
+1238591264 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\ldguess.cpp
+	"LDCode.h"
+	"Shift_Width.h"
+
+1228767064 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\lu.cpp
+	<stdlib.h>
+	<math.h>
+
+1239129559 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\lattice.cpp
+	"LDCode.h"
+	"Lattice.h"
+	<math.h>
+
+1239107305 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\lennard_jones.cpp
+	"Lennard_Jones.h"
+
+1228767240 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\material.cpp
+	"LDCode.h"
+	"Material.h"
+
+1243813285 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\neighbor_force.cpp
+	"LDCode.h"
+	"Force_Constants.h"
+
+1236198901 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\neighbor_list.cpp
+	"LDCode.h"
+
+1241192726 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\optimizestructure.cpp
+	"LDCode.h"
+	<iomanip>
+
+1239129559 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\parameter.cpp
+	"LDCode.h"
+	<math.h>
+
+1239909990 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\potential.cpp
+	"LDCode.h"
+
+1238528911 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\qc_temperature.cpp
+	"LDCode.h"
+	<math.h>
+
+1241795042 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\ql.cpp
+	<math.h>
+
+1239107410 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\rebo.cpp
+	"REBO.h"
+	<math.h>
+
+1238528911 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\read_input.cpp
+	<stdio.h>
+	<string.h>
+	<math.h>
+	"LDCode.h"
+	"Variables.h"
+
+1236888536 c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\variables.h
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<string.h>
+
+1241554502 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\shift_width.cpp
+	"LDCode.h"
+	"Transform.h"
+	"Shift_Width.h"
+	<math.h>
+	<time.h>
+
+1239821034 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\stillinger_weber.cpp
+	"Stillinger_Weber.h"
+	<math.h>
+
+1238513005 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\structure.cpp
+	"LDCode.h"
+
+1233935064 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\symmetry.cpp
+	"LDCode.h"
+	<math.h>
+
+1239917333 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\tersoff.cpp
+	"Tersoff.h"
+	<math.h>
+
+1238676887 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\transform.cpp
+	"LDCode.h"
+	"Transform.h"
+	<math.h>
+
+1238529074 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\unit_cell.cpp
+	"LDCode.h"
+	"Unit_Cell.h"
+	<math.h>
+
+1236888396 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\variables.cpp
+	"LDCode.h"
+	"Variables.h"
+	<math.h>
+
+1239153098 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\velocity.cpp
+	"LDCode.h"
+	<math.h>
+
+1243356263 source:c:\documents and settings\joseph turney\desktop\phd_work\programs\ldcode\ldactive\lennard_jones_spline.cpp
+	"Lennard_Jones_Spline.h"
+
+1261619449 source:c:\documents and settings\jturney\desktop\ldactive\addpotential.cpp
+	"LDCode.h"
+	<cstring>
+
+1282061947 c:\documents and settings\jturney\desktop\ldactive\ldcode.h
+	<mpi.h>
+	<cstdlib>
+	<iostream>
+	<fstream>
+	"Neighbor_List.h"
+	"Potential_Derivative.h"
+	"Material.h"
+	"Lattice.h"
+	"Unit_Cell.h"
+	"Parameter.h"
+	"Symmetry.h"
+	"Potential.h"
+	"Lennard_Jones.h"
+	"Lennard_Jones_Spline.h"
+	"Inverse_Twelfth_Power.h"
+	"Buckingham.h"
+	"Stillinger_Weber.h"
+	"REBO.h"
+	"Tersoff.h"
+	"Coulomb.h"
+
+1282065547 "
+
+1279897971 _Derivative.h"
+
+1279894371 c:\documents and settings\jturney\desktop\ldactive\potential.h
+	<cstring>
+	<typeinfo>
+	"Potential_Derivative.h"
+
+1238676310 c:\documents and settings\jturney\desktop\ldactive\force_constants.h
+	"LDCode.h"
+	"FC_ARRAY.h"
+
+1244220698 c:\documents and settings\jturney\desktop\ldactive\fc_array.h
+	"LDCode.h"
+
+1246902482 c:\documents and settings\jturney\desktop\ldactive\lennard_jones.h
+	"LDCode.h"
+
+1247182048 c:\documents and settings\jturney\desktop\ldactive\lennard_jones_spline.h
+	"LDCode.h"
+
+1247181003 c:\documents and settings\jturney\desktop\ldactive\inverse_twelfth_power.h
+	"LDCode.h"
+
+1246902482 c:\documents and settings\jturney\desktop\ldactive\stillinger_weber.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1235171228 c:\documents and settings\jturney\desktop\ldactive\neighbor_list.h
+
+1247090065 c:\documents and settings\jturney\desktop\ldactive\rebo.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1247495913 c:\documents and settings\jturney\desktop\ldactive\tersoff.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1246390048 c:\documents and settings\jturney\desktop\ldactive\material.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+	"Potential.h"
+
+1246390048 c:\documents and settings\jturney\desktop\ldactive\lattice.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1246388738 c:\documents and settings\jturney\desktop\ldactive\unit_cell.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1246466417 c:\documents and settings\jturney\desktop\ldactive\dispersion.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1245397050 c:\documents and settings\jturney\desktop\ldactive\parameter.h
+	"Potential.h"
+	"Dispersion.h"
+	"Anharmonic.h"
+
+1260978960 c.h"
+
+1245206186 n.h"
+
+1247154571 c:\documents and settings\jturney\desktop\ldactive\symmetry.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1244310898 c:\documents and settings\jturney\desktop\ldactive\shift_width.h
+	"LDCode.h"
+	"Transform.h"
+
+1245034242 c:\documents and settings\jturney\desktop\ldactive\transform.h
+	"LDCode.h"
+
+1244419672 source:c:\documents and settings\jturney\desktop\ldactive\anharmonic_ldcode.cpp
+	"LDCode.h"
+
+1263135347 source:c:\documents and settings\jturney\desktop\ldactive\buildneighborlist.cpp
+	"LDCode.h"
+	<cmath>
+
+1260987121 source:c:\documents and settings\jturney\desktop\ldactive\dispersion.cpp
+	"LDCode.h"
+	"Dispersion.h"
+	<cmath>
+
+1260991898 source:c:\documents and settings\jturney\desktop\ldactive\dynamical_matrix.cpp
+	"LDCode.h"
+	<cmath>
+
+1243892452 source:c:\documents and settings\jturney\desktop\ldactive\eigen.cpp
+	<cstdlib>
+
+1244419737 source:c:\documents and settings\jturney\desktop\ldactive\fc_array.cpp
+	"LDCode.h"
+	<cmath>
+
+1244419759 source:c:\documents and settings\jturney\desktop\ldactive\force_constants.cpp
+	"LDCode.h"
+	"FC_ARRAY.h"
+	<cmath>
+
+1244076877 source:c:\documents and settings\jturney\desktop\ldactive\harmonic_ldcode.cpp
+	"LDCode.h"
+
+1243892604 source:c:\documents and settings\jturney\desktop\ldactive\householder.cpp
+	<cmath>
+
+1261061268 source:c:\documents and settings\jturney\desktop\ldactive\inverse_twelfth_power.cpp
+	"Inverse_Twelfth_Power.h"
+
+1261616264 source:c:\documents and settings\jturney\desktop\ldactive\ldcode.cpp
+	"LDCode.h"
+	"PreProcess.h"
+	"Dispersion.h"
+	"Harmonic.h"
+	"Anharmonic.h"
+	"PostProcess.h"
+	"Neighbor_Force.h"
+	<ctime>
+
+1245447912 Force.h"
+
+1252441307 source:c:\documents and settings\jturney\desktop\ldactive\ldconductivity.cpp
+	"LDCode.h"
+	<cmath>
+
+1244758676 source:c:\documents and settings\jturney\desktop\ldactive\ldguess.cpp
+	"LDCode.h"
+	"Anharmonic.h"
+	<cmath>
+
+1243892452 source:c:\documents and settings\jturney\desktop\ldactive\lu.cpp
+	<cstdlib>
+	<cmath>
+
+1246540889 source:c:\documents and settings\jturney\desktop\ldactive\lattice.cpp
+	"LDCode.h"
+	"Lattice.h"
+	<cmath>
+
+1261061269 source:c:\documents and settings\jturney\desktop\ldactive\lennard_jones.cpp
+	"Lennard_Jones.h"
+
+1261061269 source:c:\documents and settings\jturney\desktop\ldactive\lennard_jones_spline.cpp
+	"Lennard_Jones_Spline.h"
+	<cmath>
+
+1246452978 source:c:\documents and settings\jturney\desktop\ldactive\material.cpp
+	"LDCode.h"
+	"Material.h"
+
+1244220698 source:c:\documents and settings\jturney\desktop\ldactive\neighbor_force.cpp
+	"LDCode.h"
+	"Force_Constants.h"
+
+1236213302 source:c:\documents and settings\jturney\desktop\ldactive\neighbor_list.cpp
+	"LDCode.h"
+
+1245397994 source:c:\documents and settings\jturney\desktop\ldactive\optimizestructure.cpp
+	"LDCode.h"
+	"Neighbor_Force.h"
+	<iomanip>
+	<cmath>
+
+1246981980 source:c:\documents and settings\jturney\desktop\ldactive\parameter.cpp
+	"LDCode.h"
+	<cmath>
+
+1247147283 source:c:\documents and settings\jturney\desktop\ldactive\potential.cpp
+	"LDCode.h"
+
+1243892604 source:c:\documents and settings\jturney\desktop\ldactive\qc_temperature.cpp
+	"LDCode.h"
+	<cmath>
+
+1243966400 source:c:\documents and settings\jturney\desktop\ldactive\ql.cpp
+	<cmath>
+
+1261061270 source:c:\documents and settings\jturney\desktop\ldactive\rebo.cpp
+	"REBO.h"
+	<cmath>
+
+1247238852 source:c:\documents and settings\jturney\desktop\ldactive\read_input.cpp
+	"LDCode.h"
+	"Variables.h"
+	"PreProcess.h"
+	"Dispersion.h"
+	"Harmonic.h"
+	"Anharmonic.h"
+	"PostProcess.h"
+	<cstdio>
+	<cstring>
+	<cmath>
+
+1243892452 c:\documents and settings\jturney\desktop\ldactive\variables.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1243964683 source:c:\documents and settings\jturney\desktop\ldactive\shift_width.cpp
+	"LDCode.h"
+	"Transform.h"
+	"Shift_Width.h"
+	<cmath>
+	<ctime>
+
+1261061270 source:c:\documents and settings\jturney\desktop\ldactive\stillinger_weber.cpp
+	"Stillinger_Weber.h"
+	<cmath>
+
+1243874606 r_Weber.h"
+
+1245397420 source:c:\documents and settings\jturney\desktop\ldactive\structure.cpp
+	"LDCode.h"
+
+1250388107 source:c:\documents and settings\jturney\desktop\ldactive\symmetry.cpp
+	"LDCode.h"
+	<cmath>
+
+1261061270 source:c:\documents and settings\jturney\desktop\ldactive\tersoff.cpp
+	"Tersoff.h"
+	<cmath>
+
+1245193142 source:c:\documents and settings\jturney\desktop\ldactive\transform.cpp
+	"LDCode.h"
+	"Transform.h"
+	<cmath>
+
+1246452774 source:c:\documents and settings\jturney\desktop\ldactive\unit_cell.cpp
+	"LDCode.h"
+	"Unit_Cell.h"
+	<cmath>
+
+1243892606 source:c:\documents and settings\jturney\desktop\ldactive\variables.cpp
+	"LDCode.h"
+	"Variables.h"
+	<cmath>
+
+1245026432 source:c:\documents and settings\jturney\desktop\ldactive\velocity.cpp
+	"LDCode.h"
+	<cmath>
+
+1244312733 source:c:\documents and settings\jturney\desktop\ldactive\dos.cpp
+	"LDCode.h"
+	<cmath>
+
+1260987121 source:c:\documents and settings\jturney\desktop\ldactive\harmonic.cpp
+	"LDCode.h"
+	"Harmonic.h"
+	<cmath>
+
+1252441808 c:\documents and settings\jturney\desktop\ldactive\harmonic.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1248701174 c:\documents and settings\jturney\desktop\ldactive\anharmonic.h
+	"LDCode.h"
+	"Transform.h"
+
+1260978960 source:c:\documents and settings\jturney\desktop\ldactive\anharmonic.cpp
+	"LDCode.h"
+	"Transform.h"
+	"Anharmonic.h"
+	<cmath>
+	<ctime>
+
+1247230175 c:\documents and settings\jturney\desktop\ldactive\potential_derivative.h
+	"LDCode.h"
+
+1245452981 source:/home/jackie/Joe_Documents/LDActive/AddPotential.cpp
+	"LDCode.h"
+	<cstring>
+
+1245376196 /home/jackie/Joe_Documents/LDActive/LDCode.h
+	<mpi.h>
+	<cstdlib>
+	<iostream>
+	<fstream>
+	"Neighbor_List.h"
+	"Potential_Derivative.h"
+	"Material.h"
+	"Lattice.h"
+	"Unit_Cell.h"
+	"Parameter.h"
+	"Symmetry.h"
+	"Potential.h"
+	"Lennard_Jones.h"
+
+1235153228 /home/jackie/Joe_Documents/LDActive/Neighbor_List.h
+
+1245174631 /home/jackie/Joe_Documents/LDActive/Potential_Derivative.h
+	"LDCode.h"
+
+1245350345 /home/jackie/Joe_Documents/LDActive/Material.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+	"Potential.h"
+
+1243878053 /home/jackie/Joe_Documents/LDActive/Lattice.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1243878053 /home/jackie/Joe_Documents/LDActive/Unit_Cell.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1245382651 /home/jackie/Joe_Documents/LDActive/Parameter.h
+	"Potential.h"
+	"Dispersion.h"
+	"Anharmonic.h"
+
+1245016498 /home/jackie/Joe_Documents/LDActive/Anharmonic.h
+	"LDCode.h"
+	"Transform.h"
+
+1245019843 /home/jackie/Joe_Documents/LDActive/Transform.h
+	"LDCode.h"
+
+1245016333 /home/jackie/Joe_Documents/LDActive/Dispersion.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1244410451 /home/jackie/Joe_Documents/LDActive/Symmetry.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1245452968 /home/jackie/Joe_Documents/LDActive/Potential.h
+	<cstring>
+	<typeinfo>
+	"Potential_Derivative.h"
+
+1245435414 /home/jackie/Joe_Documents/LDActive/Lennard_Jones.h
+	"LDCode.h"
+
+1243878205 source:/home/jackie/Joe_Documents/LDActive/BuildNeighborList.cpp
+	"LDCode.h"
+	<cmath>
+
+1245191786 source:/home/jackie/Joe_Documents/LDActive/Dispersion.cpp
+	"LDCode.h"
+	"Dispersion.h"
+	<cmath>
+
+1245184784 source:/home/jackie/Joe_Documents/LDActive/Dynamical_Matrix.cpp
+	"LDCode.h"
+	<cmath>
+
+1243878053 source:/home/jackie/Joe_Documents/LDActive/Eigen.cpp
+	<cstdlib>
+
+1243878205 source:/home/jackie/Joe_Documents/LDActive/Householder.cpp
+	<cmath>
+
+1245433512 source:/home/jackie/Joe_Documents/LDActive/LDCode.cpp
+	"LDCode.h"
+	"Dispersion.h"
+	"Harmonic.h"
+	"Anharmonic.h"
+	"Neighbor_Force.h"
+	<ctime>
+
+1245016333 /home/jackie/Joe_Documents/LDActive/Harmonic.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1245380959 /home/jackie/Joe_Documents/LDActive/Neighbor_Force.h
+	"LDCode.h"
+
+1245382694 source:/home/jackie/Joe_Documents/LDActive/LDConductivity.cpp
+	"LDCode.h"
+	<cmath>
+
+1244744276 source:/home/jackie/Joe_Documents/LDActive/LDGuess.cpp
+	"LDCode.h"
+	"Anharmonic.h"
+	<cmath>
+
+1243878053 source:/home/jackie/Joe_Documents/LDActive/LU.cpp
+	<cstdlib>
+	<cmath>
+
+1243878205 source:/home/jackie/Joe_Documents/LDActive/Lattice.cpp
+	"LDCode.h"
+	"Lattice.h"
+	<cmath>
+
+1245436054 source:/home/jackie/Joe_Documents/LDActive/Lennard_Jones.cpp
+	"Lennard_Jones.h"
+
+1245433844 source:/home/jackie/Joe_Documents/LDActive/Material.cpp
+	"LDCode.h"
+	"Material.h"
+
+1236195302 source:/home/jackie/Joe_Documents/LDActive/Neighbor_List.cpp
+	"LDCode.h"
+
+1245383594 source:/home/jackie/Joe_Documents/LDActive/OptimizeStructure.cpp
+	"LDCode.h"
+	"Neighbor_Force.h"
+	<iomanip>
+	<cmath>
+
+1245423770 source:/home/jackie/Joe_Documents/LDActive/Parameter.cpp
+	"LDCode.h"
+	<cmath>
+
+1245453105 source:/home/jackie/Joe_Documents/LDActive/Potential.cpp
+	"LDCode.h"
+
+1245382877 source:/home/jackie/Joe_Documents/LDActive/Potential_Derivative.cpp
+	"LDCode.h"
+	"Potential_Derivative.h"
+	<cmath>
+
+1243878205 source:/home/jackie/Joe_Documents/LDActive/QC_Temperature.cpp
+	"LDCode.h"
+	<cmath>
+
+1243952001 source:/home/jackie/Joe_Documents/LDActive/QL.cpp
+	<cmath>
+
+1245452968 source:/home/jackie/Joe_Documents/LDActive/Read_Input.cpp
+	"LDCode.h"
+	"Variables.h"
+	"Dispersion.h"
+	"Harmonic.h"
+	"Anharmonic.h"
+	<cstdio>
+	<cstring>
+	<cmath>
+
+1243878053 /home/jackie/Joe_Documents/LDActive/Variables.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1245383020 source:/home/jackie/Joe_Documents/LDActive/Structure.cpp
+	"LDCode.h"
+
+1245383035 source:/home/jackie/Joe_Documents/LDActive/Symmetry.cpp
+	"LDCode.h"
+	<cmath>
+
+1245178743 source:/home/jackie/Joe_Documents/LDActive/Transform.cpp
+	"LDCode.h"
+	"Transform.h"
+	<cmath>
+
+1243878206 source:/home/jackie/Joe_Documents/LDActive/Unit_Cell.cpp
+	"LDCode.h"
+	"Unit_Cell.h"
+	<cmath>
+
+1243878206 source:/home/jackie/Joe_Documents/LDActive/Variables.cpp
+	"LDCode.h"
+	"Variables.h"
+	<cmath>
+
+1245012032 source:/home/jackie/Joe_Documents/LDActive/Velocity.cpp
+	"LDCode.h"
+	<cmath>
+
+1245383381 source:/home/jackie/Joe_Documents/LDActive/Anharmonic.cpp
+	"LDCode.h"
+	"Transform.h"
+	"Anharmonic.h"
+	<cmath>
+	<ctime>
+
+1245383479 source:/home/jackie/Joe_Documents/LDActive/Harmonic.cpp
+	"LDCode.h"
+	"Harmonic.h"
+	<cmath>
+
+1245467380 source:c:\documents and settings\joseph turney\desktop\ldactive\addpotential.cpp
+	"LDCode.h"
+	<cstring>
+
+1245390596 c:\documents and settings\joseph turney\desktop\ldactive\ldcode.h
+	<mpi.h>
+	<cstdlib>
+	<iostream>
+	<fstream>
+	"Neighbor_List.h"
+	"Potential_Derivative.h"
+	"Material.h"
+	"Lattice.h"
+	"Unit_Cell.h"
+	"Parameter.h"
+	"Symmetry.h"
+	"Potential.h"
+	"Lennard_Jones.h"
+
+1235171228 c:\documents and settings\joseph turney\desktop\ldactive\neighbor_list.h
+
+1245189030 c:\documents and settings\joseph turney\desktop\ldactive\potential_derivative.h
+	"LDCode.h"
+
+1245364744 c:\documents and settings\joseph turney\desktop\ldactive\material.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+	"Potential.h"
+
+1245467368 c:\documents and settings\joseph turney\desktop\ldactive\potential.h
+	<cstring>
+	<typeinfo>
+	"Potential_Derivative.h"
+
+1243892452 c:\documents and settings\joseph turney\desktop\ldactive\lattice.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1243892452 c:\documents and settings\joseph turney\desktop\ldactive\unit_cell.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1245397050 c:\documents and settings\joseph turney\desktop\ldactive\parameter.h
+	"Potential.h"
+	"Dispersion.h"
+	"Anharmonic.h"
+
+1245030732 c:\documents and settings\joseph turney\desktop\ldactive\dispersion.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1245030898 c:\documents and settings\joseph turney\desktop\ldactive\anharmonic.h
+	"LDCode.h"
+	"Transform.h"
+
+1245034242 c:\documents and settings\joseph turney\desktop\ldactive\transform.h
+	"LDCode.h"
+
+1244424850 c:\documents and settings\joseph turney\desktop\ldactive\symmetry.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1245449814 c:\documents and settings\joseph turney\desktop\ldactive\lennard_jones.h
+	"LDCode.h"
+
+1245397780 source:c:\documents and settings\joseph turney\desktop\ldactive\anharmonic.cpp
+	"LDCode.h"
+	"Transform.h"
+	"Anharmonic.h"
+	<cmath>
+	<ctime>
+
+1243892604 source:c:\documents and settings\joseph turney\desktop\ldactive\buildneighborlist.cpp
+	"LDCode.h"
+	<cmath>
+
+1245206186 source:c:\documents and settings\joseph turney\desktop\ldactive\dispersion.cpp
+	"LDCode.h"
+	"Dispersion.h"
+	<cmath>
+
+1245199184 source:c:\documents and settings\joseph turney\desktop\ldactive\dynamical_matrix.cpp
+	"LDCode.h"
+	<cmath>
+
+1243892452 source:c:\documents and settings\joseph turney\desktop\ldactive\eigen.cpp
+	<cstdlib>
+
+1245397878 source:c:\documents and settings\joseph turney\desktop\ldactive\harmonic.cpp
+	"LDCode.h"
+	"Harmonic.h"
+	<cmath>
+
+1245030732 c:\documents and settings\joseph turney\desktop\ldactive\harmonic.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1243892604 source:c:\documents and settings\joseph turney\desktop\ldactive\householder.cpp
+	<cmath>
+
+1245447912 source:c:\documents and settings\joseph turney\desktop\ldactive\ldcode.cpp
+	"LDCode.h"
+	"Dispersion.h"
+	"Harmonic.h"
+	"Anharmonic.h"
+	"Neighbor_Force.h"
+	<ctime>
+
+1245395358 c:\documents and settings\joseph turney\desktop\ldactive\neighbor_force.h
+	"LDCode.h"
+
+1245397094 source:c:\documents and settings\joseph turney\desktop\ldactive\ldconductivity.cpp
+	"LDCode.h"
+	<cmath>
+
+1244758676 source:c:\documents and settings\joseph turney\desktop\ldactive\ldguess.cpp
+	"LDCode.h"
+	"Anharmonic.h"
+	<cmath>
+
+1243892452 source:c:\documents and settings\joseph turney\desktop\ldactive\lu.cpp
+	<cstdlib>
+	<cmath>
+
+1243892604 source:c:\documents and settings\joseph turney\desktop\ldactive\lattice.cpp
+	"LDCode.h"
+	"Lattice.h"
+	<cmath>
+
+1245469626 source:c:\documents and settings\joseph turney\desktop\ldactive\lennard_jones.cpp
+	"Lennard_Jones.h"
+
+1245448244 source:c:\documents and settings\joseph turney\desktop\ldactive\material.cpp
+	"LDCode.h"
+	"Material.h"
+
+1236213302 source:c:\documents and settings\joseph turney\desktop\ldactive\neighbor_list.cpp
+	"LDCode.h"
+
+1245397994 source:c:\documents and settings\joseph turney\desktop\ldactive\optimizestructure.cpp
+	"LDCode.h"
+	"Neighbor_Force.h"
+	<iomanip>
+	<cmath>
+
+1245438170 source:c:\documents and settings\joseph turney\desktop\ldactive\parameter.cpp
+	"LDCode.h"
+	<cmath>
+
+1245467504 source:c:\documents and settings\joseph turney\desktop\ldactive\potential.cpp
+	"LDCode.h"
+
+1245397276 source:c:\documents and settings\joseph turney\desktop\ldactive\potential_derivative.cpp
+	"LDCode.h"
+	"Potential_Derivative.h"
+	<cmath>
+
+1243892604 source:c:\documents and settings\joseph turney\desktop\ldactive\qc_temperature.cpp
+	"LDCode.h"
+	<cmath>
+
+1243966400 source:c:\documents and settings\joseph turney\desktop\ldactive\ql.cpp
+	<cmath>
+
+1245467368 source:c:\documents and settings\joseph turney\desktop\ldactive\read_input.cpp
+	"LDCode.h"
+	"Variables.h"
+	"Dispersion.h"
+	"Harmonic.h"
+	"Anharmonic.h"
+	<cstdio>
+	<cstring>
+	<cmath>
+
+1243892452 c:\documents and settings\joseph turney\desktop\ldactive\variables.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1245397420 source:c:\documents and settings\joseph turney\desktop\ldactive\structure.cpp
+	"LDCode.h"
+
+1245397434 source:c:\documents and settings\joseph turney\desktop\ldactive\symmetry.cpp
+	"LDCode.h"
+	<cmath>
+
+1245193142 source:c:\documents and settings\joseph turney\desktop\ldactive\transform.cpp
+	"LDCode.h"
+	"Transform.h"
+	<cmath>
+
+1243892606 source:c:\documents and settings\joseph turney\desktop\ldactive\unit_cell.cpp
+	"LDCode.h"
+	"Unit_Cell.h"
+	<cmath>
+
+1243892606 source:c:\documents and settings\joseph turney\desktop\ldactive\variables.cpp
+	"LDCode.h"
+	"Variables.h"
+	<cmath>
+
+1245026432 source:c:\documents and settings\joseph turney\desktop\ldactive\velocity.cpp
+	"LDCode.h"
+	<cmath>
+
+1247019332 c:\documents and settings\jturney\desktop\ldactive\neighbor_force.h
+	"LDCode.h"
+
+1246903251 source:c:\documents and settings\jturney\desktop\ldactive\postprocess.cpp
+	"LDCode.h"
+	"PostProcess.h"
+
+1246903251 ss.h"
+
+1246556983 c:\documents and settings\jturney\desktop\ldactive\postprocess.h
+	<cstring>
+
+1263131990 source:c:\documents and settings\jturney\desktop\ldactive\potential_derivative.cpp
+	"LDCode.h"
+	"Potential_Derivative.h"
+	<cmath>
+
+1246470880 c:\documents and settings\jturney\desktop\ldactive\preprocess.h
+	<cstring>
+
+1260994172 source:c:\documents and settings\jturney\desktop\ldactive\preprocess.cpp
+	"LDCode.h"
+	"PreProcess.h"
+	"Neighbor_Force.h"
+	<iomanip>
+	<cmath>
+
+1246380840 source:c:\documents and settings\jturney\desktop\ldactive\initialize.cpp
+	"LDCode.h"
+	"Dispersion.h"
+	"Anharmonic.h"
+	<cmath>
+
+1261619449 c:\documents and settings\jturney\desktop\ldactive\buckingham.h
+	"LDCode.h"
+
+1280695126 source:c:\documents and settings\jturney\desktop\ldactive\buckingham.cpp
+	"Buckingham.h"
+	<cmath>
+
+1280702326 m.h"
+
+1279894371 c:\documents and settings\jturney\desktop\ldactive\coulomb.h
+	"LDCode.h"
+
+1280705384 source:c:\documents and settings\jturney\desktop\ldactive\coulomb.cpp
+	"Coulomb.h"
+	<cmath>
+	"erf_erfc.h"
+
+1261620079 c:\documents and settings\jturney\desktop\ldactive\erf_erfc.h
+	<iostream>
+	<cmath>
+
+1261619449 source:c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\addpotential.cpp
+	"LDCode.h"
+	<cstring>
+
+1282065547 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\ldcode.h
+	<mpi.h>
+	<cstdlib>
+	<iostream>
+	<fstream>
+	"Neighbor_List.h"
+	"Potential_Derivative.h"
+	"Material.h"
+	"Lattice.h"
+	"Unit_Cell.h"
+	"Parameter.h"
+	"Symmetry.h"
+	"Potential.h"
+	"Lennard_Jones.h"
+	"Lennard_Jones_Spline.h"
+	"Inverse_Twelfth_Power.h"
+	"Buckingham.h"
+	"Stillinger_Weber.h"
+	"REBO.h"
+	"Tersoff.h"
+	"Coulomb.h"
+
+1235171228 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\neighbor_list.h
+
+1247233775 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\potential_derivative.h
+	"LDCode.h"
+
+1246393648 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\material.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+	"Potential.h"
+
+1279897971 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\potential.h
+	<cstring>
+	<typeinfo>
+	"Potential_Derivative.h"
+
+1246393648 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\lattice.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1246392338 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\unit_cell.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1245400650 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\parameter.h
+	"Potential.h"
+	"Dispersion.h"
+	"Anharmonic.h"
+
+1246470017 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\dispersion.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1248704774 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\anharmonic.h
+	"LDCode.h"
+	"Transform.h"
+
+1245037842 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\transform.h
+	"LDCode.h"
+
+1247158171 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\symmetry.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1246906082 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\lennard_jones.h
+	"LDCode.h"
+
+1247185648 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\lennard_jones_spline.h
+	"LDCode.h"
+
+1247184603 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\inverse_twelfth_power.h
+	"LDCode.h"
+
+1261623049 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\buckingham.h
+	"LDCode.h"
+
+1246906082 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\stillinger_weber.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1247093665 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\rebo.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1247499513 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\tersoff.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1279901571 c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\coulomb.h
+	"LDCode.h"
+
+1260978960 source:c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\anharmonic.cpp
+	"LDCode.h"
+	"Transform.h"
+	"Anharmonic.h"
+	<cmath>
+	<ctime>
+
+1280702326 source:c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\buckingham.cpp
+	"Buckingham.h"
+	<cmath>
+
+1263135347 source:c:\documents and settings\joseph turney\desktop\dataforalan\todo-programs-(purge_unneeded_files,add_documentation)\ldcode\buildneighborlist.cpp
+	"LDCode.h"
+	<cmath>
+
+1345564386 source:/home/ankit/Desktop/turney/LDCode/AddPotential.cpp
+	"LDCode.h"
+	<cstring>
+
+1345564970 /home/ankit/Desktop/turney/LDCode/LDCode.h
+	<mpi.h>
+	<cstdlib>
+	<iostream>
+	<fstream>
+	"Neighbor_List.h"
+	"Potential_Derivative.h"
+	"Material.h"
+	"Lattice.h"
+	"Unit_Cell.h"
+	"Parameter.h"
+	"Symmetry.h"
+	"Potential.h"
+	"Lennard_Jones.h"
+	"Lennard_Jones_Spline.h"
+	"Inverse_Twelfth_Power.h"
+	"Buckingham.h"
+	"Stillinger_Weber.h"
+	"REBO.h"
+	"Tersoff.h"
+	"Coulomb.h"
+
+1345564387 /home/ankit/Desktop/turney/LDCode/Neighbor_List.h
+
+1345564388 /home/ankit/Desktop/turney/LDCode/Potential_Derivative.h
+	"LDCode.h"
+
+1345564387 /home/ankit/Desktop/turney/LDCode/Material.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+	"Potential.h"
+
+1345564388 /home/ankit/Desktop/turney/LDCode/Potential.h
+	<cstring>
+	<typeinfo>
+	"Potential_Derivative.h"
+
+1345564387 /home/ankit/Desktop/turney/LDCode/Lattice.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1345564388 /home/ankit/Desktop/turney/LDCode/Unit_Cell.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1345564387 /home/ankit/Desktop/turney/LDCode/Parameter.h
+	"Potential.h"
+	"Dispersion.h"
+	"Anharmonic.h"
+
+1345564386 /home/ankit/Desktop/turney/LDCode/Dispersion.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1345564386 /home/ankit/Desktop/turney/LDCode/Anharmonic.h
+	"LDCode.h"
+	"Transform.h"
+
+1345564388 /home/ankit/Desktop/turney/LDCode/Transform.h
+	"LDCode.h"
+
+1345564388 /home/ankit/Desktop/turney/LDCode/Symmetry.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1345564387 /home/ankit/Desktop/turney/LDCode/Lennard_Jones.h
+	"LDCode.h"
+
+1345564387 /home/ankit/Desktop/turney/LDCode/Lennard_Jones_Spline.h
+	"LDCode.h"
+
+1345564387 /home/ankit/Desktop/turney/LDCode/Inverse_Twelfth_Power.h
+	"LDCode.h"
+
+1345564386 /home/ankit/Desktop/turney/LDCode/Buckingham.h
+	"LDCode.h"
+
+1345564388 /home/ankit/Desktop/turney/LDCode/Stillinger_Weber.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1345564388 /home/ankit/Desktop/turney/LDCode/REBO.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1345564388 /home/ankit/Desktop/turney/LDCode/Tersoff.h
+	"Neighbor_List.h"
+	"LDCode.h"
+
+1345564386 /home/ankit/Desktop/turney/LDCode/Coulomb.h
+	"LDCode.h"
+
+1345653992 source:/home/ankit/Desktop/turney/LDCode/Anharmonic.cpp
+	"LDCode.h"
+	"Transform.h"
+	"Anharmonic.h"
+	<cmath>
+	<ctime>
+
+1345564386 source:/home/ankit/Desktop/turney/LDCode/Buckingham.cpp
+	"Buckingham.h"
+	<cmath>
+
+1345564386 source:/home/ankit/Desktop/turney/LDCode/BuildNeighborList.cpp
+	"LDCode.h"
+	<cmath>
+
+1345564386 source:/home/ankit/Desktop/turney/LDCode/Coulomb.cpp
+	"Coulomb.h"
+	<cmath>
+
+1345564386 source:/home/ankit/Desktop/turney/LDCode/Dispersion.cpp
+	"LDCode.h"
+	"Dispersion.h"
+	<cmath>
+
+1345564386 source:/home/ankit/Desktop/turney/LDCode/Dynamical_Matrix.cpp
+	"LDCode.h"
+	<cmath>
+
+1345564386 source:/home/ankit/Desktop/turney/LDCode/Eigen.cpp
+	<cstdlib>
+
+1345564386 source:/home/ankit/Desktop/turney/LDCode/Harmonic.cpp
+	"LDCode.h"
+	"Harmonic.h"
+	<cmath>
+
+1345564386 /home/ankit/Desktop/turney/LDCode/Harmonic.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1345564387 source:/home/ankit/Desktop/turney/LDCode/Householder.cpp
+	<cmath>
+
+1345564387 source:/home/ankit/Desktop/turney/LDCode/Inverse_Twelfth_Power.cpp
+	"Inverse_Twelfth_Power.h"
+
+1345564387 source:/home/ankit/Desktop/turney/LDCode/LDCode.cpp
+	"LDCode.h"
+	"PreProcess.h"
+	"Dispersion.h"
+	"Harmonic.h"
+	"Anharmonic.h"
+	"PostProcess.h"
+	"Neighbor_Force.h"
+	<ctime>
+
+1345564388 /home/ankit/Desktop/turney/LDCode/PreProcess.h
+	<cstring>
+
+1345564387 /home/ankit/Desktop/turney/LDCode/PostProcess.h
+	<cstring>
+
+1345564387 /home/ankit/Desktop/turney/LDCode/Neighbor_Force.h
+	"LDCode.h"
+
+1345564387 source:/home/ankit/Desktop/turney/LDCode/LDConductivity.cpp
+	"LDCode.h"
+	<cmath>
+
+1345564387 source:/home/ankit/Desktop/turney/LDCode/LDGuess.cpp
+	"LDCode.h"
+	"Anharmonic.h"
+	<cmath>
+
+1345564387 source:/home/ankit/Desktop/turney/LDCode/LU.cpp
+	<cstdlib>
+	<cmath>
+
+1345564387 source:/home/ankit/Desktop/turney/LDCode/Lattice.cpp
+	"LDCode.h"
+	"Lattice.h"
+	<cmath>
+
+1345564387 source:/home/ankit/Desktop/turney/LDCode/Lennard_Jones.cpp
+	"Lennard_Jones.h"
+
+1345564387 source:/home/ankit/Desktop/turney/LDCode/Lennard_Jones_Spline.cpp
+	"Lennard_Jones_Spline.h"
+	<cmath>
+
+1345564387 source:/home/ankit/Desktop/turney/LDCode/Material.cpp
+	"LDCode.h"
+	"Material.h"
+
+1345564387 source:/home/ankit/Desktop/turney/LDCode/Neighbor_List.cpp
+	"LDCode.h"
+
+1345564387 source:/home/ankit/Desktop/turney/LDCode/Parameter.cpp
+	"LDCode.h"
+	<cmath>
+
+1345564387 source:/home/ankit/Desktop/turney/LDCode/PostProcess.cpp
+	"LDCode.h"
+	"PostProcess.h"
+
+1345564387 source:/home/ankit/Desktop/turney/LDCode/Potential.cpp
+	"LDCode.h"
+
+1345564388 source:/home/ankit/Desktop/turney/LDCode/Potential_Derivative.cpp
+	"LDCode.h"
+	"Potential_Derivative.h"
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/LDCode/PreProcess.cpp
+	"LDCode.h"
+	"PreProcess.h"
+	"Neighbor_Force.h"
+	<iomanip>
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/LDCode/QC_Temperature.cpp
+	"LDCode.h"
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/LDCode/QL.cpp
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/LDCode/REBO.cpp
+	"REBO.h"
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/LDCode/Read_Input.cpp
+	"LDCode.h"
+	"Variables.h"
+	"PreProcess.h"
+	"Dispersion.h"
+	"Harmonic.h"
+	"Anharmonic.h"
+	"PostProcess.h"
+	<cstdio>
+	<cstring>
+	<cmath>
+
+1345564388 /home/ankit/Desktop/turney/LDCode/Variables.h
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+
+1345564388 source:/home/ankit/Desktop/turney/LDCode/Stillinger_Weber.cpp
+	"Stillinger_Weber.h"
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/LDCode/Symmetry.cpp
+	"LDCode.h"
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/LDCode/Tersoff.cpp
+	"Tersoff.h"
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/LDCode/Transform.cpp
+	"LDCode.h"
+	"Transform.h"
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/LDCode/Unit_Cell.cpp
+	"LDCode.h"
+	"Unit_Cell.h"
+	<cmath>
+
+1345564388 source:/home/ankit/Desktop/turney/LDCode/Variables.cpp
+	"LDCode.h"
+	"Variables.h"
+	<cmath>
+
+1345564389 source:/home/ankit/Desktop/turney/LDCode/Velocity.cpp
+	"LDCode.h"
+	<cmath>
+
+1345564788 source:/home/ankit/Desktop/turney/LDCode/main.cpp
+

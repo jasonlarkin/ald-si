@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="LDCode" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/LDCode" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/LDCode" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="AddPotential.cpp" />
+		<Unit filename="Anharmonic.cpp" />
+		<Unit filename="Anharmonic.h" />
+		<Unit filename="Buckingham.cpp" />
+		<Unit filename="Buckingham.h" />
+		<Unit filename="BuildNeighborList.cpp" />
+		<Unit filename="Classical_Shift_Width0.txt" />
+		<Unit filename="Classical_Shift_Width1.txt" />
+		<Unit filename="Conductivity1.xls" />
+		<Unit filename="Coulomb.cpp" />
+		<Unit filename="Coulomb.h" />
+		<Unit filename="DOS.xls" />
+		<Unit filename="Dispersion.cpp" />
+		<Unit filename="Dispersion.h" />
+		<Unit filename="Dispersion.xls" />
+		<Unit filename="Dynamical_Matrix.cpp" />
+		<Unit filename="Eigen.cpp" />
+		<Unit filename="Eigenvector.txt" />
+		<Unit filename="Frequency.txt" />
+		<Unit filename="Harmonic.cpp" />
+		<Unit filename="Harmonic.h" />
+		<Unit filename="Householder.cpp" />
+		<Unit filename="Inverse_Twelfth_Power.cpp" />
+		<Unit filename="Inverse_Twelfth_Power.h" />
+		<Unit filename="LDCode.cbp" />
+		<Unit filename="LDCode.cpp" />
+		<Unit filename="LDCode.depend" />
+		<Unit filename="LDCode.h" />
+		<Unit filename="LDCode.layout" />
+		<Unit filename="LDCode.layout.cbTemp" />
+		<Unit filename="LDCode.log" />
+		<Unit filename="LDConductivity.cpp" />
+		<Unit filename="LDGuess.cpp" />
+		<Unit filename="LD_Input.txt" />
+		<Unit filename="LU.cpp" />
+		<Unit filename="Lattice.cpp" />
+		<Unit filename="Lattice.h" />
+		<Unit filename="Lennard_Jones.cpp" />
+		<Unit filename="Lennard_Jones.h" />
+		<Unit filename="Lennard_Jones_Spline.cpp" />
+		<Unit filename="Lennard_Jones_Spline.h" />
+		<Unit filename="List.h" />
+		<Unit filename="Material.cpp" />
+		<Unit filename="Material.h" />
+		<Unit filename="Neighbor_Force.h" />
+		<Unit filename="Neighbor_List.cpp" />
+		<Unit filename="Neighbor_List.h" />
+		<Unit filename="Parameter.cpp" />
+		<Unit filename="Parameter.h" />
+		<Unit filename="PostProcess.cpp" />
+		<Unit filename="PostProcess.h" />
+		<Unit filename="Potential.cpp" />
+		<Unit filename="Potential.h" />
+		<Unit filename="Potential_Derivative.cpp" />
+		<Unit filename="Potential_Derivative.h" />
+		<Unit filename="PreProcess.cpp" />
+		<Unit filename="PreProcess.h" />
+		<Unit filename="QC_Temperature.cpp" />
+		<Unit filename="QL.cpp" />
+		<Unit filename="REBO.cpp" />
+		<Unit filename="REBO.h" />
+		<Unit filename="Read_Input.cpp" />
+		<Unit filename="Shift_Width0.txt" />
+		<Unit filename="Shift_Width1.txt" />
+		<Unit filename="Stillinger_Weber.cpp" />
+		<Unit filename="Stillinger_Weber.h" />
+		<Unit filename="Symmetry.cpp" />
+		<Unit filename="Symmetry.h" />
+		<Unit filename="Symmetry.txt" />
+		<Unit filename="TURNEY.depend" />
+		<Unit filename="TURNEY.layout" />
+		<Unit filename="Tersoff.cpp" />
+		<Unit filename="Tersoff.h" />
+		<Unit filename="Transform.cpp" />
+		<Unit filename="Transform.h" />
+		<Unit filename="Unit_Cell.cpp" />
+		<Unit filename="Unit_Cell.h" />
+		<Unit filename="Variables.cpp" />
+		<Unit filename="Variables.h" />
+		<Unit filename="Velocity.cpp" />
+		<Unit filename="Velocity.txt" />
+		<Unit filename="a.out" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

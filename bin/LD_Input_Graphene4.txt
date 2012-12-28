@@ -1,0 +1,60 @@
+VARIABLES
+  $eV_J = 1.60217646e-19
+  $d    = 1.450e-10
+
+LATTICE = 3 %Comment
+  a1 = 3^0.5*$d, 0, 0
+  a2 = 0, (1+3^0.5)*$d,  0
+  a3 =  0,          0,      1
+  BC1 = Periodic
+  BC2 = Periodic
+  BC3 = Free
+  N1 = 6
+  N2 = 6
+  N3 = 1
+
+MATERIAL = 1
+  C = 1.99265e-26
+
+POTENTIAL = REBO2 1 C
+  cutoff  = 1.1*$d
+  Acutoff = 1.1*$d
+  Q       = 0.3134602960833e-10
+  A       = 10953.544162170*$eV_J
+  alpha   = 4.7465390606595e10
+
+POTENTIAL = REBO3 1 C
+  cutoff  = 1.1*$d
+  Acutoff = 1.1*$d
+  B1      = 12388.79197793*$eV_J
+  B2      = 17.56740646509*$eV_J
+  B3      = 30.71493208065*$eV_J
+  beta1   = 4.7204523127e10
+  beta2   = 1.4332132499e10
+  beta3   = 1.3826912506e10
+  Q1      = 0.238570503940174
+  Q2      = 0.416423629150846
+  Q3      = 0.201609143766977
+
+SYMMETRY = 1
+
+DISPERSION = 100
+  Coordinate = Cartesian
+  Begin      = 0 , 0, 0
+  End        = 1/3^0.5/$d ,0, 0
+
+UNIT_CELL = 4
+  Coordinate = Cartesian
+  C 0  0 0
+  C 0 -1*$d 0
+  C 3^0.5/2*$d -3/2*$d 0
+  C 3^0.5/2*$d -5/2*$d 0
+
+ANHARMONIC = 0
+  temperature  = 300
+  fs_guess     = 0.01
+  lw_guess     = 0.0035
+  %Q_interpolate = 6x6x6_Shift_Width.txt
+  %C_interpolate = 6x6x6_Classical_Shift_Width.txt
+  conductivity = true
+  continue     = 0

@@ -1,0 +1,69 @@
+VARIABLES
+  $eV_J = 1.60217646e-19
+  $d    = 1.45e-10
+
+MATERIAL = 1
+  C = 1.99265e-26
+
+LATTICE = 3 %Comment
+  a1 = 3/2*$d,  (3^0.5/2*$d), 0
+  a2 = 3/2*$d, -(3^0.5/2*$d), 0
+  a3 =  0,          0,      3.5e-10
+  BC1 = Periodic
+  BC2 = Periodic
+  BC3 = Free
+  N1 = 10
+  N2 = 10
+  N3 = 1
+
+UNIT_CELL = 2
+  Coordinate = Cartesian
+  C 0  0 0
+  C $d 0 0
+
+POTENTIAL = REBO2 1 C
+  cutoff  = 1.1*$d
+  Q       = 0.3134602960833e-10
+  A       = 10953.544162170*$eV_J
+  alpha   = 4.7465390606595e10
+
+POTENTIAL = REBO3 1 C
+  cutoff  = 1.1*$d
+  B1      = 12388.79197793*$eV_J
+  B2      = 17.56740646509*$eV_J
+  B3      = 30.71493208065*$eV_J
+  beta1   = 4.7204523127e10
+  beta2   = 1.4332132499e10
+  beta3   = 1.3826912506e10
+  Q1      = 0.238570503940174
+  Q2      = 0.416423629150846
+  Q3      = 0.201609143766977
+
+SYMMETRY = 1
+
+PREPROCESS = true
+  optimization = false
+  structure    = true
+  energy       = true
+
+DISPERSION = 100
+  Coordinate = Cartesian
+  Begin      = 0 , 0, 0
+  End        = 0.5/3/$d, 0.5/3^0.5/$d, 0
+
+HARMONIC = true
+
+ANHARMONIC = 1
+  temperature = 300
+  fs_guess    = -0.016
+  lw_guess    = 0.0026
+  continue    = 0
+
+POSTPROCESS = true
+  TC_beg   = 0
+  TC_end   = 0
+  data_itr = 1
+  data_beg = 0 0 -3
+  data_inc = 0 0 1
+  data_num = 6
+  data_fBZ = no_sym

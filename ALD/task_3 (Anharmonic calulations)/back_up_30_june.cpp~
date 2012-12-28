@@ -1,0 +1,2012 @@
+//COMPILE: g++ anharmonic.cpp -g -Wall -fopenmp -L/usr/local/lib -llapacke -llapack -lf77blas -lcblas -latlas -lgfortran -lm -lc
+//         -lgsl -lcblas -latlas
+
+
+//=================STANDARD HEADER===================
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+//#include <cmath>
+#include <math.h>
+#include <stdio.h>
+#include <ctime>    // For time()
+#include <cstdlib>  // For srand() and rand()
+#include <stdlib.h>
+#include <complex.h>
+//#include <complex>
+
+//=========================GSL HEADER=================
+//#include <gsl/gsl_matrix.h>
+//#include <gsl/gsl_vector.h>
+//#include <gsl/gsl_blas.h>
+//#include <gsl/gsl_eigen.h>
+//#include <gsl/gsl_complex.h>
+//#include <gsl/gsl_complex_math.h>
+//#include <gsl/gsl_math.h>
+//#include <gsl/gsl_cblas.h>
+
+//====================LAPACK HEADER==================
+#include <lapack/lapacke.h>
+extern "C" {
+  #include <atlas/cblas.h>
+}
+
+using namespace std;
+
+//=========================================================================================================================================================
+//==========================================================================================================================================================
+//======================INPUT/OUTPUT STREAMS=====================
+ifstream data_in("input.dat");
+ifstream phi2_in("PHI2.dat");
+ifstream phi3_in("PHI3.dat");
+ifstream phi4_in("PHI4.dat");
+ofstream data_out("data.dat");
+ofstream irorder2_out("IRBorder2.dat");
+ofstream irorder3_out("IRBorder3.dat");
+ofstream irorder4_out("IRBorder4.dat");
+ofstream fullpos_out("FULLpos.dat");
+ofstream fulldisp4_out("FULLorder4.dat");
+ofstream fulldisp3_out("FULLorder3.dat");
+ofstream fulldisp2_out("FULLorder2.dat");
+//==============================================================
+
+
+//======================STRUCTURE TYPES=========================
+  struct LATTICE{                 //carries all information about the lattice
+    double *r, *m, *R, ax, ay, az,*pos,*pR, *klist, *IBZ_klist;             // m is the mass of atoms in central unit cell, ri s position in central unit cell, pos is position of all atoms, pR is the position of primitive unit cell of that atom
+    unsigned short int natom, ncell,Nx,Ny,Nz,nNx,nNy,nNz,type,isConv,nlist,kx,ky,kz,kx_scale,ky_scale,kz_scale,nNeighbour2,nNeighbour3,nNeighbour4;
+    unsigned int *index, ninterac,IBZ_nlist;         // 1st coloumn is the atom index and 2nd is the atom type
+    unsigned short int *ikinterac, *kmap, *IBZ_kmap;
+  };
+
+  struct DYNA{                 //stores force constant and other information related with force constant like frequency, etc.
+    double *order2, *order3, *order4;                     // force constant correspoing to displament in iorder lists
+    double complex *eigvec;                                // eigen vectors of each mode
+    double *freq;                                       // frequency (sqrt(eigval)) of each mode
+    unsigned int *iorder2, *iorder3, *iorder4,norder2,norder3,norder4;        //iorder records indices and norder the number of corresponding indices in displcaement list
+    double *linewidth, *epsi;                                 // linewidth and epsilon for each mode
+    double *velocity;                                       // group velocities
+    unsigned int *info2, *info3, *info4;                  // information (atom type) in order2/oreder3/order4 list
+    double *pos2, *pos3, *pos4, *m2, *m3, *m4;               //positions and mass of atoms in order2/order3/order4 list
+  };
+/*
+  struct disp{                   // useful for creating and storing irreducible list of force constant, etc
+    double *order2, *order3, *order4;
+    unsigned long int *iorder2, *iorder3, *iorder4;
+    unsigned int norder2,norder3,norder4;
+  };
+*/
+
+struct K_INFO{
+    double complex *vec1, *exp_kr1, *exp_kr2, *exp_kr3;
+    double complex *vec2;
+    double complex *vec3;  //vec1, vec2, vec3 correspods to 3 coloumns in iorder3 list....
+    double *nbe;   //occupation of mode 1,2,3,4,5,6....bose einstein
+  };
+
+//===============================================================
+
+//=====================FUNCTION PROTOTYPES=======================
+void sub_readInput(LATTICE *lattice);
+void sub_klist(LATTICE *lattice);
+void sub_kinteraction(LATTICE *lattice);
+int sub_search(long int *sklist,int s, int e,long int tmp);
+void sub_ksymmetry(LATTICE *lattice);
+void sub_posIndex(LATTICE *lattice);
+void sub_fulldisp(LATTICE *lattice, DYNA *dynamic);
+void sub_posPrimitive(LATTICE *lattice);
+void sub_readPhi(DYNA *dynamic);
+void sub_info(LATTICE *lattice, DYNA *dynamic);
+void sub_kscale(LATTICE *lattice);
+void sub_eigen(LATTICE *lattice, DYNA *dynamic);
+void sub_prelinewidth(DYNA *dynamic, LATTICE *lattice, K_INFO *kprop);
+void sub_epsi(DYNA *dynamic,int i, LATTICE *lattice);
+void sub_linewidth(LATTICE *lattice, DYNA *dynamic, int iteration,K_INFO *kprop);
+inline double complex sub_phi(int i1,int i2,int i3,int nu1,int nu2,int nu3,K_INFO *kprop,DYNA *dynamic,LATTICE *lattice);
+double sub_delta(double w,double e);
+//void sub_irrdisList(lattice *realLattice, disp *irrdisp);
+//unsigned long int sub_Iorder4(unsigned int r1,unsigned int r2,unsigned int r3,unsigned int d1,unsigned int d2,unsigned int d3);
+//unsigned long int sub_Iorder3(unsigned int r1,unsigned int r2,unsigned int d1,unsigned int d2);
+//unsigned long int sub_Iorder2(unsigned int r1,unsigned int d1);
+//===============================================================
+
+//=============global variables=================================
+const double pi = 3.14159265;
+int numthread;
+double temperature;
+double hbar = 6.626068*(1e-34)/(2*pi);
+double Kb = 1.3806503*(1e-23);
+int FC_available;             // check whether to calculate displacement list or to do full conductivity calculation
+const double unit_length = 5.43*(1e-10);
+const double mass = 28.0855*(1.67e-27);
+const double eV = 1.6*(1e-19);
+const double non_time = 1e-12;
+//=================================================================
+
+//===========================================================================================================================================================
+//===========================================================================================================================================================
+int main(){
+  clock_t start, end,start1,end1;
+  double cpuTime;
+  start = clock();
+  start1=start;
+
+  //non dimensionalising variables
+  Kb = Kb/((mass*unit_length*unit_length)/(non_time*non_time));
+  hbar = hbar/((mass*unit_length*unit_length)/(non_time));
+
+  //============================================================================================
+  
+  //================ variable declaration=======================================================
+  LATTICE *lattice;
+  DYNA *dynamic;
+  K_INFO *kprop;
+  //disp *irrdisp;
+  //=============================================================================================
+
+  //=========READING INPUTS AND DEVELOPING STRUCTURE=============================================
+  lattice = new LATTICE;
+  sub_readInput(lattice);
+
+  end = clock();
+  cpuTime= (end-start)/ (double) (CLOCKS_PER_SEC);
+  start = clock();
+  cout<<"Structure created in "<<cpuTime<<" seconds."<<endl;
+  //================================================================================================
+
+  //======================= DEVELOPING RECIPROCAL SPACE VECTORS=====================================
+  if(FC_available==1){
+    sub_klist(lattice);
+
+    end = clock();
+    cpuTime= (end-start)/ (double) (CLOCKS_PER_SEC);
+    start = clock();
+    cout<<"Reciprocal vectors created in "<<cpuTime<<" seconds."<<endl;
+  }
+  //=================================================================================================
+
+  //======================= CREATING IRREDUCIBLE BRILLIOUN ZONE==================================
+  if(FC_available==1){
+    sub_ksymmetry(lattice);
+
+    end = clock();
+    cpuTime= (end-start)/ (double) (CLOCKS_PER_SEC);
+    start = clock();
+    cout<<"Irreducible Brillioun zone created in "<<cpuTime<<" seconds."<<endl;
+  }
+  //=================================================================================================
+
+  //============== CHECKING ALLOWED K COMBINATIONS K1 + K2 = K3 +G  ====================================
+  if(FC_available==1){
+    sub_kinteraction(lattice);
+    //cout<<lattice->ninterac<<endl;
+
+    end = clock();
+    cpuTime= (end-start)/ (double) (CLOCKS_PER_SEC);
+    start = clock();
+    cout<<"Allowed K points checked in "<<cpuTime<<" seconds."<<endl;
+  }
+  //===================================================================================================
+
+  //============ Generating and writing full force constant list and index list======================
+  dynamic = new DYNA;
+  sub_posIndex(lattice);              // writing position file in increasing distance from origin
+  sub_fulldisp(lattice,dynamic);                 // full 2nd, 3rd and 4th order displacement list
+  sub_posPrimitive(lattice);           // primitive cells for dynamic matrix
+
+
+  end = clock();
+  cpuTime= (end-start)/ (double) (CLOCKS_PER_SEC);
+  start = clock();
+  cout<<"Full displacement list created in "<<cpuTime<<" seconds."<<endl;
+  //====================================================================================================
+
+  /*
+  //======GENERATING IRREDUCIBLE NUMBER OF DISPLACEMENT LIST FOR FORCE CONSTANTS=====================
+  irrdisp = new disp;
+  sub_irrdisList(realLattice,irrdisp);                     // calculate the irreducible displacements
+
+  end = clock();
+  cpuTime= (end-start)/ (double) (CLOCKS_PER_SEC);
+  start = clock();
+  cout<<"Irreducible list created in "<<cpuTime<<" seconds."<<endl;
+  //=================================================================================================
+  */
+
+  //=========READING FORCE CONSTANTS FROM FILE=======================================================
+  if(FC_available==1){
+    sub_readPhi(dynamic);
+
+    end = clock();
+    cpuTime= (end-start)/ (double) (CLOCKS_PER_SEC);
+    start = clock();
+    cout<<"FCs read in "<<cpuTime<<" seconds."<<endl;
+  }
+  //=================================================================================================
+
+  //===============creating info list (to get rid of array of array)=================================
+  if(FC_available==1){
+    sub_info(lattice,dynamic);
+
+    end = clock();
+    cpuTime= (end-start)/ (double) (CLOCKS_PER_SEC);
+    start = clock();
+    cout<<"Info list created in "<<cpuTime<<" seconds."<<endl;
+  }
+  //===================================================================================================
+
+  //=========Scaling k values to real values=======================================================
+  if(FC_available==1){
+    sub_kscale(lattice);
+
+    end = clock();
+    cpuTime= (end-start)/ (double) (CLOCKS_PER_SEC);
+    start = clock();
+    cout<<"K values scaled in "<<cpuTime<<" seconds."<<endl;
+  }
+  //=================================================================================================
+
+  //========calculating eigen vectors and frequencies for all k points==============================
+  if(FC_available==1){
+    sub_eigen(lattice,dynamic);       //calculates eigen vectors and eigen values for all k points
+
+    /*for(int i=0;i<lattice->nlist;i++){
+      data_out<<lattice->kmap[i]<<'\t'<<dynamic->freq[6*i+0]/(1e+12)<<'\t'<<dynamic->freq[6*i+1]/(1e+12)<<'\t'<<dynamic->freq[6*i+2]/(1e+12)<<'\t'<<dynamic->freq[6*i+3]/(1e+12)<<'\t'<<dynamic->freq[6*i+4]/(1e+12)<<'\t'<<dynamic->freq[6*i+5]/(1e+12)<<endl;
+    }*/
+
+    end = clock();
+    cpuTime= (end-start)/ (double) (CLOCKS_PER_SEC);
+    start = clock();
+    cout<<"Eigen vectors and values calculated in "<<cpuTime<<" seconds."<<endl;
+  }
+  //================================================================================================
+
+  //===========preprocessing for linewidths====================================================
+  if(FC_available==1){
+    kprop = new K_INFO;
+    sub_prelinewidth(dynamic,lattice,kprop);
+
+    end = clock();
+    cpuTime= (end-start)/ (double) (CLOCKS_PER_SEC);
+    start = clock();
+    cout<<"Preprocessing for linewidths done in "<<cpuTime<<" seconds."<<endl;
+  }
+  //======================================================================================================
+
+
+  //================solving for linewidths===================
+  if(FC_available==1){
+    for(int i=0;i<5;i++){
+      cout<<i<<endl;
+      sub_epsi(dynamic,i,lattice);
+      sub_linewidth(lattice, dynamic,i,kprop);
+      for(unsigned int k=0;k<lattice->IBZ_nlist;k++){
+	for(unsigned int l=0;l<6;l++){
+	  data_out<<dynamic->freq[6*lattice->IBZ_kmap[k]+l]<<'\t'<<dynamic->linewidth[6*k+l]<<endl;
+	}
+      }
+    }
+
+    for(unsigned int k=0;k<lattice->IBZ_nlist;k++){
+      for(unsigned int l=0;l<6;l++){
+	data_out<<dynamic->freq[6*lattice->IBZ_kmap[k]+l]<<'\t'<<dynamic->linewidth[6*k+l]<<endl;
+      }
+    }
+
+    end = clock();
+    cpuTime= (end-start)/ (double) (CLOCKS_PER_SEC);
+    start = clock();
+    cout<<"linewidths for different interactions (egn 16) calculated in "<<cpuTime<<" seconds."<<endl;
+  }
+  //================================================================================================
+
+
+  end = clock();
+  end1=end;
+  cpuTime= (end1-start1)/ (double) (CLOCKS_PER_SEC);
+  cout<<"TOTAL TIME IS "<<cpuTime<<" SECONDS."<<endl;
+}
+
+
+
+//========== FUNCTIONS===========================================================================================================================
+
+/*
+//---------------------------identity of 4th order force constant (Irreducible)---------------------------------------------------------------------
+unsigned long int sub_Iorder4(unsigned int r1,unsigned int r2,unsigned int r3,unsigned int d1,unsigned int d2,unsigned int d3){
+  unsigned int r0,d0,tr1,tr2,tr3,tr0,nequal,type0,type1,type2,tmpd,t0,t1,t2,t3,tmpd2,tmpd3,type3,type4,type5;
+  unsigned long int m,mtype1,mtype2,mrep0,mtype0,mequal,norder4,tm,md,norder3,norder2,mtype3,mtype4,mtype5;
+  bool check,check1,check2;
+
+  r0 = 0; d0=1;
+  t0=11;
+  mtype0 = 10; mtype1 = 100; mtype2 = 1000; mequal = 10000; mrep0 =1000000;md = 100000;
+
+  type0=1;type1=0;type2=0;m=0;nequal=0;tr0=1;tr1=1;tr2=1;tr3=1;
+  if(r1==0) {type0++; t1=11;}
+  if(r2==0) {type0++; t2=11;}
+  if(r3==0) {type0++; t3=11;}
+  if((r1>0)&&(r1<5)) {type1++; t1=12;}
+  if((r2>0)&&(r2<5)) {type1++; t2=12;}
+  if((r3>0)&&(r3<5)) {type1++; t3=12;}
+  if(r1>4) {type2++; t1=13;}
+  if(r2>4) {type2++; t2=13;}
+  if(r3>4) {type2++; t3=13;}
+  m = mtype0*type0 + mtype1*type1 + mtype2*type2;
+
+  if(r0==r1) {nequal++; tr0++;tr1++;}
+  if(r0==r2) {nequal++; tr0++;tr2++;}
+  if(r0==r3) {nequal++; tr0++;tr3++;}
+  if(r1==r2) {nequal++; tr1++;tr2++;}
+  if(r1==r3) {nequal++; tr1++;tr3++;}
+  if(r2==r3) {nequal++; tr2++;tr3++;}
+  m = m + mequal*nequal;
+
+  tm =0;
+  tmpd=1; check1=true;check2=true;
+  if(d1==1){
+  if(d2==1){
+  if(d3!=1) d3=2;
+    }else{
+      tmpd=d2;
+      d2=2;
+      if((d3!=1)&&(d3!=tmpd)) {d3 = 3;check1=false;}
+      if((d3==tmpd)&&(check1==true)) d3=2;
+    }
+  }else{
+    tmpd=d1;
+    d1=2;
+    if((d2!=1)&&(d2!=tmpd)) {d2=3; check1=false;}
+    if((d3!=1)&&(d3!=tmpd)) {d3=3; check2=false;}
+    if((d2==tmpd)&&(check1==true)) d2=2;
+    if((d3==tmpd)&&(check2==true)) d3=2;
+  }
+  tmpd=1;
+  if(d1>tmpd) tmpd = d1;
+  if(d2>tmpd) tmpd = d2;
+  if(d3>tmpd) tmpd = d3;
+  tmpd2=0;tmpd3=0;
+  if(tmpd==3){
+    if(d1==2)tmpd2++;
+    if(d1==3)tmpd3++;
+    if(d2==2)tmpd2++;
+    if(d2==3)tmpd3++;
+    if(d3==2)tmpd2++;
+    if(d3==3)tmpd3++;
+    check=true;check1=true;check2=true;
+    if(tmpd3>tmpd2){
+      if(d1==2){d1=3;check=false;}
+      if(d2==2){d2=3;check1=false;}
+      if(d3==2){d3=3;check2=false;}
+      if(check&&(d1==3)) d1=2;
+      if(check1&&(d2==3)) d2=2;
+      if(check2&&(d3==3)) d3=2;
+    }
+  }
+  tm = tmpd*md;
+  tm = tm + (mrep0)*(((tr0*1000 + 100*t0)*d0) + ((tr1*1000 + 100*t1)*d1) + ((tr2*1000+100*t2)*d2) + ((tr3*1000+100*t3)*d3));
+  tm = m +tm;
+  return tm;
+}
+//---------------------------------------------------------------------------------------------------------------------------
+
+//---------------------------identity of 3rd order force constant (Irreducible)---------------------------------------------------------------------
+unsigned long int sub_Iorder3(unsigned int r1,unsigned int r2,unsigned int d1,unsigned int d2){
+  unsigned int r0,d0,tr1,tr2,tr3,tr0,nequal,type0,type1,type2,tmpd,t0,t1,t2,t3,tmpd2,tmpd3,type3,type4,type5;
+  unsigned long int m,mtype1,mtype2,mrep0,mtype0,mequal,norder4,tm,md,norder3,norder2,mtype3,mtype4,mtype5;
+  bool check,check1,check2;
+
+  r0 = 0; d0=1;
+  t0=11;
+  mtype0 = 10; mtype1 = 100; mtype2 = 1000; mequal = 10000; mrep0 =1000000;md = 100000;
+
+  type0=1;type1=0;type2=0;m=0;nequal=0;tr0=1;tr1=1;tr2=1;
+  if(r1==0) {type0++; t1=11;}
+  if(r2==0) {type0++; t2=11;}
+  if((r1>0)&&(r1<5)) {type1++; t1=12;}
+  if((r2>0)&&(r2<5)) {type1++; t2=12;}
+  if(r1>4) {type2++; t1=13;}
+  if(r2>4) {type2++; t2=13;}
+  m = mtype0*type0 + mtype1*type1 + mtype2*type2;
+
+  if(r0==r1) {nequal++; tr0++;tr1++;}
+  if(r0==r2) {nequal++; tr0++;tr2++;}
+  if(r1==r2) {nequal++; tr1++;tr2++;}
+  m = m + mequal*nequal;
+
+  tm =0;
+  tmpd=1; check1=true;
+  if(d1==1){
+    if(d2!=1){
+      tmpd=d2;
+      d2=2;
+    }
+  }else{
+    tmpd=d1;
+    d1=2;
+    if((d2!=1)&&(d2!=tmpd)) {d2=3; check1=false;}
+    if((d2==tmpd)&&(check1==true)) d2=2;
+  }
+  tmpd=1;
+  if(d1>tmpd) tmpd = d1;
+  if(d2>tmpd) tmpd = d2;
+  tmpd2=0;tmpd3=0;
+  if(tmpd==3){
+    if(d1==2)tmpd2++;
+    if(d1==3)tmpd3++;
+    if(d2==2)tmpd2++;
+    if(d2==3)tmpd3++;
+    check=true;check1=true;
+    if(tmpd3>tmpd2){
+      if(d1==2){d1=3;check=false;}
+      if(d2==2){d2=3;check1=false;}
+      if(check&&(d1==3)) d1=2;
+      if(check1&&(d2==3)) d2=2;
+    }
+  }
+  tm = tmpd*md;
+  tm = tm + (mrep0)*(((tr0*1000 + 100*t0)*d0) + ((tr1*1000 + 100*t1)*d1) + ((tr2*1000+100*t2)*d2) );
+  tm = m+tm;
+  return tm;
+}
+//---------------------------------------------------------------------------------------------------------------------------
+
+//---------------------------identity of 2nd order force constant (Irreducible)--------------------------------------------------------------------
+unsigned long int sub_Iorder2(unsigned int r1,unsigned int d1){
+  unsigned int r0,d0,tr1,tr2,tr3,tr0,nequal,type0,type1,type2,tmpd,t0,t1,t2,t3,tmpd2,tmpd3,type3,type4,type5;
+  unsigned long int m,mtype1,mtype2,mrep0,mtype0,mequal,norder4,tm,md,norder3,norder2,mtype3,mtype4,mtype5;
+  bool check,check1,check2;
+
+  r0 = 0; d0=1;
+  t0=11;
+  mtype0 = 10; mtype1 = 100; mtype2 = 1000;mtype3 = 10000; mtype4 = 100000;mtype5 =1000000; mequal = 10000000; mrep0 =100000000000;md = 1000000000;
+
+  type0=1;type1=0;type2=0;m=0;nequal=0;tr0=1;tr1=1;type3=0;type4=0;type5=0;
+  if(r1==0) {type0++; t1=11;}
+  if((r1>0)&&(r1<5)) {type1++; t1=12;}
+  if((r1>4)&&(r1<17)) {type2++; t1=13;}
+  if((r1>16)&&(r1<29)) {type3++; t1=14;}
+  if((r1>28)&&(r1<35)) {type4++; t1=15;}
+  if((r1>34)&&(r1<47)) {type5++; t1=16;}
+  m = mtype0*type0 + mtype1*type1 + mtype2*type2 + mtype3*type3 + mtype4*type4 + mtype5*type5;
+
+  if(r0==r1) {nequal++; tr0++;tr1++;}
+  m = m + mequal*nequal;
+  tm =0;
+  tmpd=1;
+  if(d1!=1){
+    tmpd=d1;
+    d1=2;
+  }
+  tmpd=1;
+  if(d1>tmpd) tmpd = d1;
+  tmpd2=0;tmpd3=0;
+  if(tmpd==3){
+    if(d1==2)tmpd2++;
+    if(d1==3)tmpd3++;
+    check=true;
+    if(tmpd3>tmpd2){
+      if(d1==2){d1=3;check=false;}
+      if(check&&(d1==3)) d1=2;
+    }
+  }
+  tm = tmpd*md;
+  tm = tm + (mrep0)*(((tr0*1000 + 100*t0)*d0) + ((tr1*1000 + 100*t1)*d1) );
+  tm = m+tm;
+  return tm;
+}
+//---------------------------------------------------------------------------------------------------------------------------
+
+//--------counting and CREATING  DISPLACEMENT LIST FOR 2ND, 3RD AND 4TH ORDER FORCE CONSTANTS (Irreducible)--------------------
+void sub_irrdisList(lattice *realLattice, disp *irrdisp){
+  //this subroutine assumes fcc diamond structure with same type of atoms....i.e., all atoms are identical.....
+
+  unsigned int nnbh_cutoff,r1,r2,r3,r0,d1,d2,d3,d0;
+  unsigned long int tm,norder4,norder3,norder2;
+  bool check;
+  r0 = 0; d0=1;
+
+   // forth order force constant calculation
+  //==========================================fourth order==============================================================================
+  // iorder4 have first 4 columns as atom types and 5-8 columns as displacement types and finally 9th column as its identity...
+  nnbh_cutoff = realLattice->nNeighbour4;
+  if(nnbh_cutoff==2) nnbh_cutoff = 1 + 4 + 12;       // 1 central atom + 4 1st neighbour + 12 2nd nearest neighbour
+  if(nnbh_cutoff==1) nnbh_cutoff = 1 + 4;
+  norder4=0;
+  irrdisp->iorder4 = new unsigned long int [200*9];
+
+  //atom types
+  for(int i1=0;i1<nnbh_cutoff;i1++){
+    r1 = i1;
+    for(int i2=0;i2<nnbh_cutoff;i2++){
+      r2 = i2;
+      for(int i3=0;i3<nnbh_cutoff;i3++){
+	r3 = i3;
+	for(int i4=1;i4<4;i4++){
+	  d1 = i4;
+	  for(int i5=1;i5<4;i5++){
+	    d2 = i5;
+	    for(int i6=1;i6<4;i6++){
+	      d3 = i6;
+
+	      tm = sub_Iorder4(r1,r2,r3,d1,d2,d3);
+	      check=true;
+	      for(int z=0;z<norder4;z++){
+		if(irrdisp->iorder4[9*z+8]==tm){
+		  check=false;
+		}
+	      }
+	      if(check==true){
+		irrdisp->iorder4[9*norder4+8]=tm;
+		irrdisp->iorder4[9*norder4+0]=r0;
+		irrdisp->iorder4[9*norder4+1]=r1;
+		irrdisp->iorder4[9*norder4+2]=r2;
+		irrdisp->iorder4[9*norder4+3]=r3;
+		irrdisp->iorder4[9*norder4+4]=d0;
+		irrdisp->iorder4[9*norder4+5]=d1;
+		irrdisp->iorder4[9*norder4+6]=d2;
+		irrdisp->iorder4[9*norder4+7]=d3;
+		norder4++;
+	      }
+	    }
+	  }
+	}
+      }
+    }
+  }irrdisp->norder4 = norder4;
+  //cout<<norder4<<endl;
+  //======================================================================================================================================
+
+
+  //======================== third order==================================================================================================
+  nnbh_cutoff = realLattice->nNeighbour3;
+  if(nnbh_cutoff==2) nnbh_cutoff = 1 + 4 + 12;       // 1 central atom + 4 1st neighbour + 12 2nd nearest neighbour
+  if(nnbh_cutoff==1) nnbh_cutoff = 1 + 4;
+  norder3=0;
+  irrdisp->iorder3 = new unsigned long int [200*7];
+
+  //atom types
+  for(int i1=0;i1<nnbh_cutoff;i1++){
+    r1 = i1;
+    for(int i2=0;i2<nnbh_cutoff;i2++){
+      r2 = i2;
+	for(int i4=1;i4<4;i4++){
+	  d1 = i4;
+	  for(int i5=1;i5<4;i5++){
+	    d2 = i5;
+
+	      tm = sub_Iorder3(r1,r2,d1,d2);
+	      check=true;
+	      for(int z=0;z<norder3;z++){
+		if(irrdisp->iorder3[7*z+6]==tm){
+		  check=false;
+		}
+	      }
+	      if(check==true){
+		irrdisp->iorder3[7*norder3+6]=tm;
+		irrdisp->iorder3[7*norder3+0]=r0;
+		irrdisp->iorder3[7*norder3+1]=r1;
+		irrdisp->iorder3[7*norder3+2]=r2;
+		irrdisp->iorder3[7*norder3+3]=d0;
+		irrdisp->iorder3[7*norder3+4]=d1;
+		irrdisp->iorder3[7*norder3+5]=d2;
+		norder3++;
+	      }
+	    }
+	  }
+	}
+      }irrdisp->norder3 = norder3;
+  //cout<<norder3<<endl;
+  //======================================================================================================================================
+
+
+  //======================== second order==================================================================================================
+  nnbh_cutoff = realLattice->nNeighbour2;
+  if(nnbh_cutoff==1) nnbh_cutoff = 1 + 4 ;       // 1 central atom + 4 1st neighbour + 12 2nd nearest neighbour
+  if(nnbh_cutoff==2) nnbh_cutoff = 1 + 4 + 12;
+  if(nnbh_cutoff==3) nnbh_cutoff = 1 + 4 + 12 + 12;
+  if(nnbh_cutoff==4) nnbh_cutoff = 1 + 4 +12 +12 +6;
+  if(nnbh_cutoff==5) nnbh_cutoff = 1 + 4 + 12 +12+6+12;
+  norder2=0;
+  irrdisp->iorder2 = new unsigned long int [200*5];
+
+
+  //atom types
+  for(int i1=0;i1<nnbh_cutoff;i1++){
+    r1 = i1;
+    //directions
+    for(int i4=1;i4<4;i4++){
+      d1 = i4;
+	      tm = sub_Iorder2(r1,d1);
+	      check=true;
+	      for(int z=0;z<norder2;z++){
+		if(irrdisp->iorder2[5*z+4]==tm){
+		  check=false;
+		}
+	      }
+	      if(check==true){
+		irrdisp->iorder2[5*norder2+4]=tm;
+		irrdisp->iorder2[5*norder2+0]=r0;
+		irrdisp->iorder2[5*norder2+1]=r1;
+		irrdisp->iorder2[5*norder2+2]=d0;
+		irrdisp->iorder2[5*norder2+3]=d1;
+		norder2++;
+	      }
+	    }
+	  }irrdisp->norder2 = norder2;
+  //cout<<norder2<<endl;
+  //======================================================================================================================================
+
+  //........................................................................
+  //....writing 2nd order.....
+  for(int i=0;i<irrdisp->norder2;i++){
+    irorder2_out<<irrdisp->iorder2[5*i+0]<<'\t';
+    irorder2_out<<(irrdisp->iorder2[5*i+1])<<'\t';
+    irorder2_out<<irrdisp->iorder2[5*i+2]<<'\t'<<irrdisp->iorder2[5*i+3]<<endl;
+  }
+
+  //....writing 3rd order.....
+  for(int i=0;i<irrdisp->norder3;i++){
+    irorder3_out<<(irrdisp->iorder3[7*i+0])<<'\t'<<(irrdisp->iorder3[7*i+1])<<'\t'<<(irrdisp->iorder3[7*i+2])<<'\t'<<irrdisp->iorder3[7*i+3]<<'\t'<<irrdisp->iorder3[7*i+4]<<'\t'<<irrdisp->iorder3[7*i+5]<<endl;
+  }
+
+  //....writing 4th order.....
+  for(int i=0;i<irrdisp->norder4;i++){
+    irorder4_out<<(irrdisp->iorder4[9*i+0])<<'\t';
+    irorder4_out<<(irrdisp->iorder4[9*i+1])<<'\t';
+    irorder4_out<<(irrdisp->iorder4[9*i+2])<<'\t';
+    irorder4_out<<(irrdisp->iorder4[9*i+3])<<'\t';
+    irorder4_out<<irrdisp->iorder4[9*i+4]<<'\t'<<irrdisp->iorder4[9*i+5]<<'\t'<<irrdisp->iorder4[9*i+6]<<'\t'<<irrdisp->iorder4[9*i+7]<<'\n';
+  }
+}
+//----------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+//------calculating phi for one particular combination of interaction--------------------------------------------------------
+inline double complex sub_phi( int i1,int i2,int i3,int nu1,int nu2,int nu3,K_INFO *kprop,DYNA *dynamic,LATTICE *lattice){
+  double complex phi;
+  int norder3,t1,t2,t3,t7,t8,t9;
+  norder3 = dynamic->norder3;
+  phi = 0I;
+  t1 = norder3*lattice->IBZ_kmap[i1];
+  t2 = norder3*i2;
+  t3 = norder3*i3;
+  t7 = 6*(lattice->IBZ_kmap[i1])*norder3;
+  t8 = 6*i2*norder3;
+  t9 = 6*i3*norder3;
+  for(int i=0;i<norder3;i++){
+    phi += (dynamic->order3[i]) * kprop->vec1[t7 + 6*i + nu1] * kprop->vec2[t8 + 6*i + nu2] * kprop->vec3[t9 + 6*i + nu3]    * kprop->exp_kr1[t1 + i] * kprop->exp_kr2[t2 + i] * kprop->exp_kr3[t3 + i];
+  }
+  //data_out<<i1<<'\t'<<i2<<'\t'<<i3<<'\t'<<creal(phi)<<'\t'<<cimag(phi)<<'\t'<<i1<<'\t'<<lattice->kmap[i2]<<'\t'<<lattice->kmap[i3]<<'\t';
+  return phi;
+}
+//--------------------------------------------------------------------------------------------------------------------------------------------
+
+//-----------delta function-------------------------------------------------------------------------------------------------------
+double sub_delta(double w,double e){
+  double result;
+  result = (1./pi)*(e/(w*w+e*e));
+  return result;
+}
+//---------------------------------------------------------------------------------------------------------------------------------
+
+//------calculating linewidth (eqn 16 in prb 2009) for different allowable combinations of k1,k2,k3
+void sub_linewidth(LATTICE *lattice, DYNA *dynamic, int iteration, K_INFO *kprop){
+  if(iteration==0) dynamic->linewidth = new double [6*lattice->IBZ_nlist];
+  unsigned int i,nu1,nu2,nu3,i1,i2,i3;
+  double tmp,tmp1,e,prefac;
+  double complex tmpc;
+  prefac = pi*hbar/(16.*lattice->nlist);
+  
+  for( i=0;i<lattice->IBZ_nlist;i++){
+    for(int j=0;j<6;j++){
+      dynamic->linewidth[6*i+j] = 0.;
+    }
+  }
+
+#pragma omp parallel for private(i,nu1,nu2,nu3,i1,i2,i3,tmp,e,tmpc,tmp1) num_threads(numthread)
+  for(i=0;i<lattice->ninterac;i++){
+    i1 = lattice->ikinterac[3*i+0];
+    i2 = lattice->ikinterac[3*i+1];
+    i3 = lattice->ikinterac[3*i+2];
+
+    for(nu1=0;nu1<6;nu1++){
+      for(nu2=0;nu2<6;nu2++){
+	for(nu3=0;nu3<6;nu3++){
+	  e = dynamic->epsi[6*i1+nu1] + dynamic->epsi[6*lattice->kmap[i2]+nu2] + dynamic->epsi[6*lattice->kmap[i3]+nu3];
+	  if((dynamic->freq[6*lattice->IBZ_kmap[i1]+nu1]==0)||(dynamic->freq[6*i2+nu2]==0)||(dynamic->freq[6*i3+nu3]==0)) tmp=0;
+	  else tmp = ((kprop->nbe[6*i2+nu2] + kprop->nbe[6*i3+nu3] + 1)*(sub_delta(dynamic->freq[6*lattice->IBZ_kmap[i1]+nu1]-dynamic->freq[6*i2+nu2]-dynamic->freq[6*i3+nu3],e))) + ((kprop->nbe[6*i2+nu2]-kprop->nbe[6*i3+nu3])*(sub_delta(dynamic->freq[6*lattice->IBZ_kmap[i1]+nu1]+dynamic->freq[6*i2+nu2]-dynamic->freq[6*i3+nu3],e)-sub_delta(dynamic->freq[6*lattice->IBZ_kmap[i1]+nu1]-dynamic->freq[6*i2+nu2]+dynamic->freq[6*i3+nu3],e)));
+	  if(tmp!=0){
+	    tmpc = sub_phi(i1,i2,i3,nu1,nu2,nu3,kprop,dynamic,lattice);
+	    tmp1 = cabs(tmpc);
+	    //data_out<<tmp<<'\t'<<tmp1<<'\n';
+	    dynamic->linewidth[6*i1+nu1] += prefac*tmp*tmp1*tmp1;
+	  }
+	}
+      }
+    }
+  }
+
+}
+//-----------------------------------------------------------------------------------------------------------------------------------------
+
+//----------calculating epsilon for delta function----------------------------------------------------------------------------
+void sub_epsi(DYNA *dynamic,int iteration, LATTICE *lattice){
+  double epsi0;
+  //epsi0 = 0.0005/((1e-12));
+  epsi0 = 0.005;
+
+  if(iteration==0) {
+    dynamic->epsi = new double [lattice->IBZ_nlist*6];
+    for(unsigned int k=0;k<lattice->IBZ_nlist;k++){
+      for(int i=0;i<6;i++){
+	dynamic->epsi[6*k+i] = epsi0*dynamic->freq[6*k+i];
+      }
+    }
+  }else{
+    for(unsigned int k=0;k<lattice->IBZ_nlist;k++){
+      for(int i=0;i<6;i++){
+	dynamic->epsi[6*k+i] = dynamic->linewidth[6*k+i];
+      }
+    }
+  }
+}
+//---------------------------------------------------------------------------------------------------------------------------
+
+//--------------storing all information of k points for efficient calculation of linewidth-----------------------------------------
+void sub_prelinewidth(DYNA *dynamic, LATTICE *lattice, K_INFO *kprop){
+
+
+  double complex tt;
+  tt =1I;
+  kprop->exp_kr1 = new complex double [(lattice->nlist)*dynamic->norder3];           // exp (k.r)
+  kprop->exp_kr2 = new complex double [(lattice->nlist)*dynamic->norder3];
+  kprop->exp_kr3 = new complex double [(lattice->nlist)*dynamic->norder3];
+  kprop->vec1 = new complex double [6*(lattice->nlist)*dynamic->norder3];                 // eigen vector1 of mode 1-6 divided by sqrt(mass*freq of mode1)
+  kprop->vec2 = new complex double [6*(lattice->nlist)*dynamic->norder3];                  //eigen vector2 of mode 1-6 divided by sqrt(mass*freq of mode2)
+  kprop->vec3 = new complex double [6*(lattice->nlist)*dynamic->norder3];
+  kprop->nbe= new double [6*lattice->nlist];
+
+  for(int i=0;i<lattice->nlist;i++){
+    for(int j=0;j<6;j++){
+      kprop->nbe[6*i+j] = 1./((exp((hbar*dynamic->freq[6*i+j])/(Kb*temperature)))-1);
+    }
+  }
+  
+  unsigned int *tmp;
+  tmp = new unsigned int [3*dynamic->norder3];
+
+  for (unsigned int i=0;i<dynamic->norder3;i++){
+    tmp[3*i+0] = 3*(dynamic->info3[3*i+0]) +(dynamic->iorder3[6*i+3]) -1;
+    tmp[3*i+1] = 3*(dynamic->info3[3*i+1]) +(dynamic->iorder3[6*i+4]) -1;
+    tmp[3*i+2] = 3*(dynamic->info3[3*i+2]) +(dynamic->iorder3[6*i+5]) -1;
+  }
+
+  for(unsigned int i=0;i<lattice->nlist;i++){
+    for(unsigned int j=0;j<dynamic->norder3;j++){
+      kprop->exp_kr1[(dynamic->norder3)*i+j] = cexp(tt*((((lattice->klist[3*i+0]*(dynamic->pos3[9*j + 3*0 + 0]))+(lattice->klist[3*i+1]*(dynamic->pos3[9*j + 3*0 + 1]))+(lattice->klist[3*i+2]*(dynamic->pos3[9*j + 3*0 + 2]))))));
+      kprop->exp_kr2[(dynamic->norder3)*i+j] = cexp(tt*((((lattice->klist[3*i+0]*(dynamic->pos3[9*j + 3*1 + 0]))+(lattice->klist[3*i+1]*(dynamic->pos3[9*j + 3*1 + 1]))+(lattice->klist[3*i+2]*(dynamic->pos3[9*j + 3*1 + 2]))))));
+      kprop->exp_kr3[(dynamic->norder3)*i+j] = cexp(tt*((((lattice->klist[3*i+0]*(dynamic->pos3[9*j + 3*2 + 0]))+(lattice->klist[3*i+1]*(dynamic->pos3[9*j + 3*2 + 1]))+(lattice->klist[3*i+2]*(dynamic->pos3[9*j + 3*2 + 2]))))));
+
+      for(int k=0;k<6;k++){
+	kprop->vec1[i*(6*dynamic->norder3)+6*j + k] = dynamic->eigvec[36*i + 6*(tmp[3*j+0]) + k]/(sqrt(dynamic->m3[3*j+0]*dynamic->freq[6*i+k]));
+	kprop->vec2[i*(6*dynamic->norder3)+6*j + k] = dynamic->eigvec[36*i + 6*(tmp[3*j+1]) + k]/(sqrt(dynamic->m3[3*j+1]*dynamic->freq[6*i+k]));
+	kprop->vec3[i*(6*dynamic->norder3)+6*j + k] = dynamic->eigvec[36*i + 6*(tmp[3*j+2]) + k]/(sqrt(dynamic->m3[3*j+2]*dynamic->freq[6*i+k]));
+      }
+    }
+  }
+
+  
+  delete [] tmp;
+}
+//----------------------------------------------------------------------------------------------------------------------------------
+
+//-------calculating eigen values and eigen vectors---------------------------------------------------------------------------
+void sub_eigen(LATTICE *lattice, DYNA *dynamic){
+  //specific to diamond structure only with primitive unit cell
+  double kx,ky,kz,px,py,pz;
+  int x,y,info,k;
+  unsigned int i;
+  double m1,m2;
+  double complex tt;
+  tt = 1I;
+
+  dynamic->freq = new double [6*lattice->nlist];         //6 branches for diamond structure with primitive cell
+  dynamic->eigvec = new double complex [36*lattice->nlist];
+  double complex *tmpdynax, *tmpdynay, *tmpdynaz;
+  tmpdynax = new double complex [36*lattice->nlist];
+  tmpdynay = new double complex [36*lattice->nlist];
+  tmpdynaz = new double complex [36*lattice->nlist];
+
+
+  for(k=0;k<lattice->nlist;k++){
+    for(i=0;i<36;i++){
+      dynamic->eigvec[36*k+i]=0;
+      tmpdynax[36*k+i] = 0;
+      tmpdynay[36*k+i] = 0;
+      tmpdynaz[36*k+i] = 0;
+    }
+  }
+
+  // creating dynamic matrices for all k points
+    for(i=0;i<dynamic->norder2;i++){
+      x = (3*(lattice->index[2*dynamic->iorder2[4*i+0] + 1])+dynamic->iorder2[4*i+2]-1);
+      y = (3*(lattice->index[2*dynamic->iorder2[4*i+1] + 1])+dynamic->iorder2[4*i+3]-1);
+      px = (dynamic->pos2[6*i+3*1+0] -dynamic->pos2[6*i+3*0+0]);
+      py = (dynamic->pos2[6*i+3*1+1]- dynamic->pos2[6*i+3*0+1]);
+      pz = (dynamic->pos2[6*i+3*1+2]- dynamic->pos2[6*i+3*0+2]);
+      m1 = dynamic->m2[2*i+0];
+      m2 = dynamic->m2[2*i+1];
+      m1 = 1./(sqrt(m1*m2));
+
+#pragma omp parallel for private(k,kx,ky,kz) num_threads(numthread)
+      for(k=0;k<lattice->nlist;k++){
+	kx = lattice->klist[3*k+0]; ky = lattice->klist[3*k+1]; kz = lattice->klist[3*k+2];
+	dynamic->eigvec[36*k + 6*x + y] += ((m1 * (dynamic->order2[i])))* (cexpf((tt)*(((kx*px)+(ky*py)+(kz*pz)))));
+      }
+    }
+
+
+    // solving eigen value problem
+#pragma omp parallel for private(k,info) num_threads(numthread)
+    for(k=0;k<lattice->nlist;k++){
+      info = LAPACKE_zheev(LAPACK_ROW_MAJOR, 'V', 'U',6,&dynamic->eigvec[36*k],6,&dynamic->freq[6*k]);
+      if(info!=0) cout<<"ERROR: failed to solve for eigen values and eigenvectors."<<endl;
+    }
+
+    // frequencies from eigen values
+    for(k=0;k<lattice->nlist;k++){
+      //data_out<<lattice->klist[3*k+0]<<'\t'<<lattice->klist[3*k+1]<<'\t'<<lattice->klist[3*k+2]<<'\n';
+      for(i=0;i<6;i++){
+	dynamic->freq[6*k+i] = (dynamic->freq[6*k+i]>0)?(sqrt(dynamic->freq[6*k+i])):(0);
+	//data_out<<dynamic->freq[6*k+i]<<'\t';
+      }
+     //data_out<<" "<<endl;
+    }
+
+
+    // group velocities
+    dynamic->velocity = new double [lattice->nlist*6*3];
+    for(i=0;i<dynamic->norder2;i++){
+      x = (3*(lattice->index[2*dynamic->iorder2[4*i+0] + 1])+dynamic->iorder2[4*i+2]-1);
+      y=(3*(lattice->index[2*dynamic->iorder2[4*i+1] + 1])+dynamic->iorder2[4*i+3]-1);
+      px = (dynamic->pos2[6*i+3*1+0] -dynamic->pos2[6*i+3*0+0]);
+      py = (dynamic->pos2[6*i+3*1+1] -dynamic->pos2[6*i+3*0+1]);
+      pz = (dynamic->pos2[6*i+3*1+2] -dynamic->pos2[6*i+3*0+2]);
+      m1 = dynamic->m2[2*i+0];
+      m2 = dynamic->m2[2*i+1];
+      m1 = 1./(sqrt(m1*m2));
+#pragma omp parallel for private(k,kx,ky,kz) num_threads(numthread)
+      for(k=0;k<lattice->nlist;k++){
+	kx = lattice->klist[3*k+0]; ky = lattice->klist[3*k+1]; kz = lattice->klist[3*k+2];
+	tmpdynax[36*k + 6*x + y] += (tt*px)*((m1 * (dynamic->order2[i])))* (cexpf((tt)*(((kx*px)+(ky*py)+(kz*pz)))));
+	tmpdynay[36*k + 6*x + y] += (tt*py)*((m1 * (dynamic->order2[i])))* (cexpf((tt)*(((kx*px)+(ky*py)+(kz*pz)))));
+	tmpdynaz[36*k + 6*x + y] += (tt*pz)*((m1 * (dynamic->order2[i])))* (cexpf((tt)*(((kx*px)+(ky*py)+(kz*pz)))));
+      }
+    }
+
+    double complex tmpy[6],result;
+    double alpha = 1.0;
+    double beta =0.0;
+    for (k=0;k<lattice->nlist;k++){
+      for(i=0;i<6;i++){
+	cblas_zgemv(CblasRowMajor,CblasNoTrans,6,6,&alpha,&tmpdynax[36*k],6,&dynamic->eigvec[36*k+i],6,&beta,tmpy,1);
+	cblas_zdotc_sub(6,&dynamic->eigvec[36*k+i],6,tmpy,1,&result);
+	dynamic->velocity[18*k+3*i+0] = (1./(2.0*dynamic->freq[6*k+i]))*(creal(result));
+
+
+	cblas_zgemv(CblasRowMajor,CblasNoTrans,6,6,&alpha,&tmpdynay[36*k],6,&dynamic->eigvec[36*k+i],6,&beta,tmpy,1);
+	cblas_zdotc_sub(6,&dynamic->eigvec[36*k+i],6,tmpy,1,&result);
+	dynamic->velocity[18*k+3*i+1] = (1./(2.0*dynamic->freq[6*k+i]))*(creal(result));
+
+
+	cblas_zgemv(CblasRowMajor,CblasNoTrans,6,6,&alpha,&tmpdynaz[36*k],6,&dynamic->eigvec[36*k+i],6,&beta,tmpy,1);
+	cblas_zdotc_sub(6,&dynamic->eigvec[36*k+i],6,tmpy,1,&result);
+	dynamic->velocity[18*k+3*i+2] = (1./(2.0*dynamic->freq[6*k+i]))*(creal(result));
+
+      }
+    }
+
+    /*for(k=0;k<lattice->nlist;k++){
+      data_out<<lattice->klist[3*k+0]<<'\t'<<lattice->klist[3*k+1]<<'\t'<<lattice->klist[3*k+2]<<'\n';
+      for(i=0;i<6;i++){
+	for(int j=0;j<6;j++){
+	  data_out<<cimag (dynamic->eigvec[36*k + 6*j + i])<<'\t';
+	}data_out<<endl;
+      }
+     data_out<<" "<<endl;
+    }*/
+
+    delete [] tmpdynax;
+    delete [] tmpdynay;
+    delete [] tmpdynaz;
+}
+//------------------------------------------------------------------------------------------------------------------------------------------
+
+//----------------scaling k values by 2*pi/ax--------------------------------------------------------------------------------------------------
+void sub_kscale(LATTICE *lattice){
+  for(int i=0;i<lattice->nlist;i++){
+    lattice->klist[3*i+0] *= 2.*pi/(lattice->ax);
+    lattice->klist[3*i+1] *= 2.*pi/(lattice->ay);
+    lattice->klist[3*i+2] *= 2.*pi/(lattice->az);
+  }
+  for(unsigned int i=0;i<lattice->IBZ_nlist;i++){
+    lattice->IBZ_klist[3*i+0] *= 2.*pi/(lattice->ax);
+    lattice->IBZ_klist[3*i+1] *= 2.*pi/(lattice->ay);
+    lattice->IBZ_klist[3*i+2] *= 2.*pi/(lattice->az);
+  }
+}
+//---------------------------------------------------------------------------------------------------------------------------------------------
+
+//------------full info of displacement list------------------------------------------------------------------------------------------
+void sub_info(LATTICE *lattice, DYNA *dynamic){
+  dynamic->pos2 = new double [6*dynamic->norder2];
+  dynamic->pos3 = new double [9*dynamic->norder3];
+  dynamic->pos4 = new double [12*dynamic->norder4];
+  dynamic->m2 = new double [2*dynamic->norder2];
+  dynamic->m3 = new double [3*dynamic->norder3];
+  dynamic->m4 = new double [4*dynamic->norder4];
+
+  for(unsigned int i=0;i<dynamic->norder2;i++){             // i is the index of disp list...j is the coloumn in the list...and then 3 directions for it
+    for(int j=0;j<2;j++){
+      dynamic->pos2[6*i + 3*j + 0] = (lattice->pos[3*(dynamic->iorder2[4*i+j])+0]);
+      dynamic->pos2[6*i + 3*j + 1] = (lattice->pos[3*(dynamic->iorder2[4*i+j])+1]);
+      dynamic->pos2[6*i + 3*j + 2] = (lattice->pos[3*(dynamic->iorder2[4*i+j])+2]);
+      dynamic->m2[2*i+j] = lattice->m[lattice->index[2*(dynamic->iorder2[4*i+j])+1]];
+    }
+  }
+
+  for(unsigned int i=0;i<dynamic->norder3;i++){
+    for(int j=0;j<3;j++){
+      dynamic->pos3[9*i + 3*j + 0] = (lattice->pos[3*((dynamic->iorder3[6*i+j]))+0]);
+      dynamic->pos3[9*i + 3*j + 1] = (lattice->pos[3*((dynamic->iorder3[6*i+j]))+1]);
+      dynamic->pos3[9*i + 3*j + 2] = (lattice->pos[3*((dynamic->iorder3[6*i+j]))+2]);
+      dynamic->m3[3*i+j] = lattice->m[lattice->index[2*(dynamic->iorder3[6*i+j])+1]];
+    }
+  }
+
+  for(unsigned int i=0;i<dynamic->norder4;i++){
+    for(int j=0;j<4;j++){
+      dynamic->pos4[12*i + 3*j + 0] = (lattice->pos[3*((dynamic->iorder4[8*i+j]))+0]);
+      dynamic->pos4[12*i + 3*j + 1] = (lattice->pos[3*((dynamic->iorder4[8*i+j]))+1]);
+      dynamic->pos4[12*i + 3*j + 2] = (lattice->pos[3*((dynamic->iorder4[8*i+j]))+2]);
+      dynamic->m4[4*i+j] = lattice->m[lattice->index[2*(dynamic->iorder4[8*i+j])+1]];
+    }
+  }
+
+
+
+  dynamic->info2 = new unsigned int [2*dynamic->norder2]; //1st two coloumns are atom type (0 or 1 in diamond structure)
+  dynamic->info3 = new unsigned int [3*dynamic->norder3];
+  dynamic->info4 = new unsigned int [4*dynamic->norder4];
+
+  for (unsigned int i=0;i<dynamic->norder2;i++){
+    for(int j=0;j<2;j++){
+      dynamic->info2[2*i+j] = lattice->index[2*(dynamic->iorder2[4*i+j])+1];
+    }
+  }
+
+  for (unsigned int i=0;i<dynamic->norder3;i++){
+    for(int j=0;j<3;j++){
+      dynamic->info3[3*i+j] = lattice->index[2*(dynamic->iorder3[6*i+j])+1];
+    }
+  }
+  for (unsigned int i=0;i<dynamic->norder4;i++){
+    for(int j=0;j<4;j++){
+      dynamic->info4[4*i+j] = lattice->index[2*(dynamic->iorder4[8*i+j])+1];
+    }
+  }
+
+
+}
+//---------------------------------------------------------------------------------------------------------------------------------------
+
+//------------Reading Force Constants from File-------------------------------------------------------------------------------------
+void sub_readPhi(DYNA *dynamic){
+  dynamic->order2 = new double[dynamic->norder2];
+  dynamic->order3 = new double[dynamic->norder3];
+  dynamic->order4 = new double[dynamic->norder4];
+  unsigned int i,j,k;
+  i=0; j=0;k=0;
+  while((!phi2_in.eof())&&(i<dynamic->norder2)){
+    phi2_in>>dynamic->order2[i];
+    i++;
+  }
+  while((!phi3_in.eof())&&(i<dynamic->norder3)){
+    phi3_in>>dynamic->order3[j];
+    j++;
+  }
+  while((!phi4_in.eof())&&(i<dynamic->norder4)){
+    phi4_in>>dynamic->order4[k];
+    k++;
+  }
+  if((i<dynamic->norder2)||(j<dynamic->norder3)||(k<dynamic->norder4)) cout<<"ERROR: Insufficient force constants in a file"<<endl;
+
+/*cout<<i<<'\t'<<dynamic->norder2<<endl;
+  cout<<j<<'\t'<<dynamic->norder3<<endl;
+  cout<<k<<'\t'<<dynamic->norder4<<endl;
+  */
+
+
+  for(i=0;i<dynamic->norder2;i++){
+    dynamic->order2[i] *= (eV*(1e+20))/(mass/(non_time*non_time));
+  }
+  for(i=0;i<dynamic->norder3;i++){
+    dynamic->order3[i] *= ((eV*(1e+30)))/(mass/(unit_length*non_time*non_time));
+  }
+  for(i=0;i<dynamic->norder4;i++){
+    dynamic->order4[i] *= ((eV*(1e+40)))/(mass/(unit_length*unit_length*non_time*non_time));
+  }
+
+/*
+  for(i=0;i<dynamic->norder2;i++){
+    dynamic->order2[i] *= (eV*(1e+20))/mass;
+  }
+  for(i=0;i<dynamic->norder3;i++){
+    dynamic->order3[i] *= ((eV*(1e+30)))/(pow(mass,1.5));
+  }
+  for(i=0;i<dynamic->norder4;i++){
+    dynamic->order4[i] *= ((eV*(1e+40)))/pow(mass,2);
+  }
+*/
+}
+//-------------------------------------------------------------------------------------------------------------------------------------
+
+//------------------------GENERATING PRIMITIVE STRUCTURE FOR DYNAMIC MATRIX FROM CONVENTIONAL STRUCTURE----------------------------------------------
+void sub_posPrimitive(LATTICE *lattice){
+  int count;
+  double epsi = 1e-6;
+  double tmp;
+  count =0;
+  for(int i=0;i<lattice->natom;i++){                     // CHECKING NUMBER OF ATOMS
+    for (int j=0;j<lattice->ncell;j++){
+      count++;
+    }
+  }
+
+  lattice->pR = new double [count*3];                //primitive cell locations for all atoms in supercells
+  for(int i=0;i<count;i++){
+    tmp = lattice->pos[3*i+0] - (0.5*lattice->ax)*lround((lattice->pos[3*i+0])/(0.5*lattice->ax));
+    tmp = (tmp>0)?(tmp):(-tmp);
+    if(tmp<epsi){
+      lattice->index[2*i+1] = 0;
+      lattice->pR[3*i+0] = lattice->pos[3*i+0]-0;
+      lattice->pR[3*i+1] = lattice->pos[3*i+1]-0;
+      lattice->pR[3*i+2] = lattice->pos[3*i+2]-0;
+    }else{
+      lattice->index[2*i+1] = 1;
+      lattice->pR[3*i+0] = lattice->pos[3*i+0]-0.25*lattice->ax;
+      lattice->pR[3*i+1] = lattice->pos[3*i+1]-0.25*lattice->ay;
+      lattice->pR[3*i+2] = lattice->pos[3*i+2]-0.25*lattice->az;
+    }
+  }
+}
+//-----------------------------------------------------------------------------------------------------------------------------------------
+
+//--------------Creating full displacement list for 2nd,3rd and 4th order-----------------------------------------------------------------------
+void sub_fulldisp(LATTICE *lattice, DYNA *dynamic){
+  unsigned int i0[8], index1[5000],neighbour,count1,count2,index2[5000];
+  double cutoff;
+
+  //----checking indices for all atoms in central cell-----------------------------------------------------------------
+  for(int i=0;i<((lattice->natom)*(lattice->ncell));i++){
+    if((lattice->pos[3*i+0]==lattice->r[3*0+0]) && (lattice->pos[3*i+1]==lattice->r[3*0+1])  && (lattice->pos[3*i+2]==lattice->r[3*0+2])) i0[0] = lattice->index[2*i+0];
+    if((lattice->pos[3*i+0]==lattice->r[3*1+0]) && (lattice->pos[3*i+1]==lattice->r[3*1+1])  && (lattice->pos[3*i+2]==lattice->r[3*1+2])) i0[1] = lattice->index[2*i+0];
+    if((lattice->pos[3*i+0]==lattice->r[3*2+0]) && (lattice->pos[3*i+1]==lattice->r[3*2+1])  && (lattice->pos[3*i+2]==lattice->r[3*2+2])) i0[2] = lattice->index[2*i+0];
+    if((lattice->pos[3*i+0]==lattice->r[3*3+0]) && (lattice->pos[3*i+1]==lattice->r[3*3+1])  && (lattice->pos[3*i+2]==lattice->r[3*3+2])) i0[3] = lattice->index[2*i+0];
+    if((lattice->pos[3*i+0]==lattice->r[3*4+0]) && (lattice->pos[3*i+1]==lattice->r[3*4+1])  && (lattice->pos[3*i+2]==lattice->r[3*4+2])) i0[4] = lattice->index[2*i+0];
+    if((lattice->pos[3*i+0]==lattice->r[3*5+0]) && (lattice->pos[3*i+1]==lattice->r[3*5+1])  && (lattice->pos[3*i+2]==lattice->r[3*5+2])) i0[5] = lattice->index[2*i+0];
+    if((lattice->pos[3*i+0]==lattice->r[3*6+0]) && (lattice->pos[3*i+1]==lattice->r[3*6+1])  && (lattice->pos[3*i+2]==lattice->r[3*6+2])) i0[6] = lattice->index[2*i+0];
+    if((lattice->pos[3*i+0]==lattice->r[3*7+0]) && (lattice->pos[3*i+1]==lattice->r[3*7+1])  && (lattice->pos[3*i+2]==lattice->r[3*7+2])) i0[7] = lattice->index[2*i+0];
+  }
+  //for(int i=0;i<8;i++){
+  //  cout<<lattice->pos[3*(i0[i])+0]<<'\t'<<lattice->pos[3*(i0[i])+1]<<'\t'<<lattice->pos[3*(i0[i])+2]<<endl;
+  //}
+  //------------------------------------------------------------------
+
+
+  //======================================================================================================================================
+  //-------------creating 4th order force constant list for 2 atoms of unit cell-----------------------------------------
+  int tmp1,tmp2;
+  neighbour = lattice->nNeighbour4;
+  if(neighbour==1) cutoff=0.1876;
+  if(neighbour==2) cutoff=0.5001;
+  if(neighbour==3) cutoff=0.6876;
+  if(neighbour==4) cutoff=1.0001;
+  if(neighbour==5) cutoff=1.1876;
+  count1 =0; count2=0;
+  for(int i=0;i<((lattice->natom)*(lattice->ncell));i++){
+
+    if(((lattice->pos[3*i0[0]+0]-lattice->pos[3*i+0])*(lattice->pos[3*i0[0]+0]-lattice->pos[3*i+0]) + (lattice->pos[3*i0[0]+1]-lattice->pos[3*i+1])*(lattice->pos[3*i0[0]+1]-lattice->pos[3*i+1]) + (lattice->pos[3*i0[0]+2]-lattice->pos[3*i+2])*(lattice->pos[3*i0[0]+2]-lattice->pos[3*i+2])) < cutoff){
+      index1[count1] = lattice->index[2*i+0];
+      count1++;
+    }
+
+    if(((lattice->pos[3*i0[1]+0]-lattice->pos[3*i+0])*(lattice->pos[3*i0[1]+0]-lattice->pos[3*i+0]) + (lattice->pos[3*i0[1]+1]-lattice->pos[3*i+1])*(lattice->pos[3*i0[1]+1]-lattice->pos[3*i+1]) + (lattice->pos[3*i0[1]+2]-lattice->pos[3*i+2])*(lattice->pos[3*i0[1]+2]-lattice->pos[3*i+2])) < cutoff){
+      index2[count2] = lattice->index[2*i+0];
+      count2++;
+    }
+  }
+
+
+  tmp1=0; tmp2=0;
+  for(unsigned int i1 =0; i1<count1;i1++){
+    for(unsigned int i2=0;i2<count1;i2++){
+      for(unsigned int i3=0; i3<count1;i3++){
+	for(int a=1;a<4;a++){
+	  for(int b=1;b<4;b++){
+	    for(int c=1;c<4;c++){
+	      for(int d=1;d<4;d++){
+		fulldisp4_out<<i0[0]<<'\t'<<index1[i1]<<'\t'<<index1[i2]<<'\t'<<index1[i3]<<'\t'<<a<<'\t'<<b<<'\t'<<c<<'\t'<<d<<endl;
+		tmp1++;
+	      }
+	    }
+	  }
+	}
+      }
+    }
+  }
+  for(unsigned int i1 =0; i1<count2;i1++){
+    for(unsigned int i2=0;i2<count2;i2++){
+      for(unsigned int i3=0; i3<count2;i3++){
+	for(int a=1;a<4;a++){
+	  for(int b=1;b<4;b++){
+	    for(int c=1;c<4;c++){
+	      for(int d=1;d<4;d++){
+		fulldisp4_out<<i0[1]<<'\t'<<index2[i1]<<'\t'<<index2[i2]<<'\t'<<index2[i3]<<'\t'<<a<<'\t'<<b<<'\t'<<c<<'\t'<<d<<endl;
+		tmp2++;
+	      }
+	    }
+	  }
+	}
+      }
+    }
+  }
+
+  //------writing same interactions in array------------------------------------------
+  dynamic->iorder4 = new unsigned int [8*(tmp1+tmp2)];
+  dynamic->norder4 = tmp1+tmp2;
+  tmp1=0;
+  for(unsigned int i1 =0; i1<count1;i1++){
+    for(unsigned int i2=0;i2<count1;i2++){
+      for(unsigned int i3=0; i3<count1;i3++){
+	for(int a=1;a<4;a++){
+	  for(int b=1;b<4;b++){
+	    for(int c=1;c<4;c++){
+	      for(int d=1;d<4;d++){
+		dynamic->iorder4[tmp1*8+0] = i0[0];
+		dynamic->iorder4[tmp1*8+1] = index1[i1];
+		dynamic->iorder4[tmp1*8+2] = index1[i2];
+		dynamic->iorder4[tmp1*8+3] = index1[i3];
+		dynamic->iorder4[tmp1*8+4] = a;
+		dynamic->iorder4[tmp1*8+5] = b;
+		dynamic->iorder4[tmp1*8+6] = c;
+		dynamic->iorder4[tmp1*8+7] = d;
+		tmp1++;
+	      }
+	    }
+	  }
+	}
+      }
+    }
+  }
+  for(unsigned int i1 =0; i1<count2;i1++){
+    for(unsigned int i2=0;i2<count2;i2++){
+      for(unsigned int i3=0; i3<count2;i3++){
+	for(int a=1;a<4;a++){
+	  for(int b=1;b<4;b++){
+	    for(int c=1;c<4;c++){
+	      for(int d=1;d<4;d++){
+		dynamic->iorder4[tmp1*8+0] = i0[1];
+		dynamic->iorder4[tmp1*8+1] = index2[i1];
+		dynamic->iorder4[tmp1*8+2] = index2[i2];
+		dynamic->iorder4[tmp1*8+3] = index2[i3];
+		dynamic->iorder4[tmp1*8+4] = a;
+		dynamic->iorder4[tmp1*8+5] = b;
+		dynamic->iorder4[tmp1*8+6] = c;
+		dynamic->iorder4[tmp1*8+7] = d;
+		tmp1++;
+	      }
+	    }
+	  }
+	}
+      }
+    }
+  }
+  //--------------------------------------------------------------------------------------------------------------------
+  //===================================================================================================================================
+
+  //======================================================================================================================================
+  //-------------creating 3rd order force constant list for 2 atoms of unit cell-----------------------------------------
+  neighbour = lattice->nNeighbour3;
+  if(neighbour==1) cutoff=0.1876;
+  if(neighbour==2) cutoff=0.5001;
+  if(neighbour==3) cutoff=0.6876;
+  if(neighbour==4) cutoff=1.0001;
+  if(neighbour==5) cutoff=1.1876;
+  count1 =0; count2=0;
+  for(int i=0;i<((lattice->natom)*(lattice->ncell));i++){
+
+    if(((lattice->pos[3*i0[0]+0]-lattice->pos[3*i+0])*(lattice->pos[3*i0[0]+0]-lattice->pos[3*i+0]) + (lattice->pos[3*i0[0]+1]-lattice->pos[3*i+1])*(lattice->pos[3*i0[0]+1]-lattice->pos[3*i+1]) + (lattice->pos[3*i0[0]+2]-lattice->pos[3*i+2])*(lattice->pos[3*i0[0]+2]-lattice->pos[3*i+2])) < cutoff){
+      index1[count1] = lattice->index[2*i+0];
+      count1++;
+    }
+
+    if(((lattice->pos[3*i0[1]+0]-lattice->pos[3*i+0])*(lattice->pos[3*i0[1]+0]-lattice->pos[3*i+0]) + (lattice->pos[3*i0[1]+1]-lattice->pos[3*i+1])*(lattice->pos[3*i0[1]+1]-lattice->pos[3*i+1]) + (lattice->pos[3*i0[1]+2]-lattice->pos[3*i+2])*(lattice->pos[3*i0[1]+2]-lattice->pos[3*i+2])) < cutoff){
+      index2[count2] = lattice->index[2*i+0];
+      count2++;
+    }
+  }
+  tmp1=0;tmp2=0;
+  for(unsigned int i1 =0; i1<count1;i1++){
+    for(unsigned int i2=0;i2<count1;i2++){
+      for(int a=1;a<4;a++){
+	for(int b=1;b<4;b++){
+	  for(int c=1;c<4;c++){
+	    fulldisp3_out<<i0[0]<<'\t'<<index1[i1]<<'\t'<<index1[i2]<<'\t'<<a<<'\t'<<b<<'\t'<<c<<endl;
+	    tmp1++;
+	  }
+	}
+      }
+    }
+  }
+  for(unsigned int i1 =0; i1<count2;i1++){
+    for(unsigned int i2=0;i2<count2;i2++){
+	for(int a=1;a<4;a++){
+	  for(int b=1;b<4;b++){
+	    for(int c=1;c<4;c++){
+		fulldisp3_out<<i0[1]<<'\t'<<index2[i1]<<'\t'<<index2[i2]<<'\t'<<a<<'\t'<<b<<'\t'<<c<<endl;
+		tmp2++;
+	      }
+	    }
+	  }
+	}
+  }
+
+  // writing the same output in array
+  dynamic->iorder3 = new unsigned int [6*(tmp1+tmp2)];
+  dynamic->norder3 = tmp1+tmp2;
+  tmp1=0;
+  for(unsigned int i1 =0; i1<count1;i1++){
+    for(unsigned int i2=0;i2<count1;i2++){
+      for(int a=1;a<4;a++){
+	for(int b=1;b<4;b++){
+	  for(int c=1;c<4;c++){
+	    dynamic->iorder3[tmp1*6+0] = i0[0];
+	    dynamic->iorder3[tmp1*6+1] = index1[i1];
+	    dynamic->iorder3[tmp1*6+2] = index1[i2];
+	    dynamic->iorder3[tmp1*6+3] = a;
+	    dynamic->iorder3[tmp1*6+4] = b;
+	    dynamic->iorder3[tmp1*6+5] = c;
+	    tmp1++;
+	  }
+	}
+      }
+    }
+  }
+  for(unsigned int i1 =0; i1<count2;i1++){
+    for(unsigned int i2=0;i2<count2;i2++){
+	for(int a=1;a<4;a++){
+	  for(int b=1;b<4;b++){
+	    for(int c=1;c<4;c++){
+	      dynamic->iorder3[tmp1*6+0] = i0[1];
+	      dynamic->iorder3[tmp1*6+1] = index2[i1];
+	      dynamic->iorder3[tmp1*6+2] = index2[i2];
+	      dynamic->iorder3[tmp1*6+3] = a;
+	      dynamic->iorder3[tmp1*6+4] = b;
+	      dynamic->iorder3[tmp1*6+5] = c;
+	      tmp1++;
+	      }
+	    }
+	  }
+	}
+  }
+  //--------------------------------------------------------------------------------------------------------------------
+  //===================================================================================================================================
+
+  //======================================================================================================================================
+  //-------------creating 2nd order force constant list for 2 atoms of unit cell-----------------------------------------
+  neighbour = lattice->nNeighbour2;
+  if(neighbour==1) cutoff=0.1876;
+  if(neighbour==2) cutoff=0.5001;
+  if(neighbour==3) cutoff=0.6876;
+  if(neighbour==4) cutoff=1.0001;
+  if(neighbour==5) cutoff=1.1876;
+  count1 =0; count2=0;
+  for(int i=0;i<((lattice->natom)*(lattice->ncell));i++){
+
+    if(((lattice->pos[3*i0[0]+0]-lattice->pos[3*i+0])*(lattice->pos[3*i0[0]+0]-lattice->pos[3*i+0]) + (lattice->pos[3*i0[0]+1]-lattice->pos[3*i+1])*(lattice->pos[3*i0[0]+1]-lattice->pos[3*i+1]) + (lattice->pos[3*i0[0]+2]-lattice->pos[3*i+2])*(lattice->pos[3*i0[0]+2]-lattice->pos[3*i+2])) < cutoff){
+      index1[count1] = lattice->index[2*i+0];
+      count1++;
+    }
+
+    if(((lattice->pos[3*i0[1]+0]-lattice->pos[3*i+0])*(lattice->pos[3*i0[1]+0]-lattice->pos[3*i+0]) + (lattice->pos[3*i0[1]+1]-lattice->pos[3*i+1])*(lattice->pos[3*i0[1]+1]-lattice->pos[3*i+1]) + (lattice->pos[3*i0[1]+2]-lattice->pos[3*i+2])*(lattice->pos[3*i0[1]+2]-lattice->pos[3*i+2])) < cutoff){
+      index2[count2] = lattice->index[2*i+0];
+      count2++;
+    }
+  }
+  tmp1=0;tmp2=0;
+  for(unsigned int i1 =0; i1<count1;i1++){
+    for(int a=1;a<4;a++){
+      for(int b=1;b<4;b++){
+	fulldisp2_out<<i0[0]<<'\t'<<index1[i1]<<'\t'<<a<<'\t'<<b<<endl;
+	tmp1++;
+      }
+    }
+  }
+  for(unsigned int i1 =0; i1<count2;i1++){
+    for(int a=1;a<4;a++){
+      for(int b=1;b<4;b++){
+	fulldisp2_out<<i0[1]<<'\t'<<index2[i1]<<'\t'<<a<<'\t'<<b<<endl;
+	tmp2++;
+      }
+    }
+  }
+
+  //writing the same thing in array
+  dynamic->iorder2 = new unsigned int [4*(tmp1+tmp2)];
+  dynamic->norder2 = tmp1+tmp2;
+  tmp1=0;
+  for(unsigned int i1 =0; i1<count1;i1++){
+    for(int a=1;a<4;a++){
+      for(int b=1;b<4;b++){
+	dynamic->iorder2[4*tmp1+0] = i0[0];
+	dynamic->iorder2[4*tmp1+1] = index1[i1];
+	dynamic->iorder2[4*tmp1+2] = a;
+	dynamic->iorder2[4*tmp1+3] = b;
+	tmp1++;
+      }
+    }
+  }
+  for(unsigned int i1 =0; i1<count2;i1++){
+    for(int a=1;a<4;a++){
+      for(int b=1;b<4;b++){
+	dynamic->iorder2[4*tmp1+0] = i0[1];
+	dynamic->iorder2[4*tmp1+1] = index2[i1];
+	dynamic->iorder2[4*tmp1+2] = a;
+	dynamic->iorder2[4*tmp1+3] = b;
+	tmp1++;
+      }
+    }
+  }
+  //--------------------------------------------------------------------------------------------------------------------
+  //===================================================================================================================================
+
+}
+//-----------------------------------------------------------------------------------------------------------------------------
+
+//-----------------------writing position for full list sorted in order of distance from center--------------------------------------
+void sub_posIndex(LATTICE *lattice){
+  //SPECIFIC FOR DIAMOND STRUCTURE WITH SAME ATOMS ONLY
+
+  unsigned int count;
+  double *tmp;
+
+  //=======creating position file================================================
+  count =0;
+  for(int i=0;i<lattice->natom;i++){
+    for (int j=0;j<lattice->ncell;j++){
+      count++;
+    }
+  }
+  lattice->pos = new double [count*3];                       //positions of all atoms arranged as their distance from origin....
+  lattice->index = new unsigned int [2*count];              // 1st column as index
+  tmp = new double [count];
+
+  count=0;
+  for(int i=0;i<lattice->natom;i++){
+    for (int j=0;j<lattice->ncell;j++){
+      lattice->pos[3*count+0] = lattice->R[3*j+0]+lattice->r[3*i+0];
+      lattice->pos[3*count+1] = lattice->R[3*j+1]+lattice->r[3*i+1];
+      lattice->pos[3*count+2] = lattice->R[3*j+2]+lattice->r[3*i+2];
+      tmp[count] = lattice->pos[3*count+0]*lattice->pos[3*count+0] + lattice->pos[3*count+1]*lattice->pos[3*count+1] + lattice->pos[3*count+2]*lattice->pos[3*count+2];
+      count++;
+    }
+  }
+  //======================================================================================
+
+  //sorting distance wise-----------------------------------------------------------------
+  bool check;
+  double tmpm,tmpx,tmpy,tmpz;
+  do{
+    check =true;
+    for(unsigned int i=0;i<count-1;i++){
+      if(tmp[i+1]<tmp[i]){
+	tmpm = tmp[i]; tmpx = lattice->pos[3*i+0]; tmpy = lattice->pos[3*i+1]; tmpz = lattice->pos[3*i+2];
+	tmp[i] = tmp[i+1]; lattice->pos[3*(i)+0] = lattice->pos[3*(i+1)+0]; lattice->pos[3*(i)+1] = lattice->pos[3*(i+1)+1];  lattice->pos[3*(i)+2] = lattice->pos[3*(i+1)+2];
+	tmp[i+1] = tmpm; lattice->pos[3*(i+1)+0] = tmpx; lattice->pos[3*(i+1)+1] = tmpy; lattice->pos[3*(i+1)+2] = tmpz;
+	check =false;
+      }
+    }
+  }while(check==false);
+  for(unsigned int i=0;i<count;i++){
+    lattice->index[2*i+0] = i;
+  }
+  //------------------------------------------------------------------------------------
+
+  // writing positions............
+  for(unsigned int i=0;i<count;i++){
+    fullpos_out<<lattice->index[2*i+0]<<'\t';
+    fullpos_out<<lattice->pos[3*i+0]<<'\t';
+    fullpos_out<<lattice->pos[3*i+1]<<'\t';
+    fullpos_out<<lattice->pos[3*i+2]<<'\t';
+    fullpos_out<<tmp[i]<<'\n';
+  }
+
+  delete [] tmp;
+}
+//-----------------------------------------------------------------------------------------------------------------------------
+
+//-------------CREATING IBZ FROM FBZ-------------------------------------------------------------------------------------------------------
+void sub_ksymmetry(LATTICE *lattice){
+  lattice->kmap = new unsigned short int [lattice->nlist];
+
+  unsigned short int *track;
+  unsigned int *magk;
+  magk = new unsigned int [lattice->nlist];
+  track =  new unsigned short int [lattice->nlist];
+
+  for(int i=0;i<lattice->nlist;i++){              // id and magnitude of k pints.....
+    track[i] = i;
+    magk[i] = lround((1e+5)*(lattice->klist[3*i+0]*lattice->klist[3*i+0] + lattice->klist[3*i+1]*lattice->klist[3*i+1] + lattice->klist[3*i+2]*lattice->klist[3*i+2]));
+  }
+
+  bool check;
+  unsigned int fswap;
+  unsigned short int iswap;
+
+  do{                  // arranging k in increasing distance from gamma point
+    check = true;
+    for(int i=0;i<lattice->nlist-1;i++){
+      if(magk[i+1]<magk[i]){
+	check =false;
+	fswap = magk[i];
+	iswap = track[i];
+	magk[i] = magk[i+1];
+	track[i] = track[i+1];
+	magk[i+1] = fswap;
+	track[i+1] = iswap;
+      }
+    }
+  }while(check==false);
+
+
+  unsigned int unique,val,count,start[10],indi;
+  double ax,ay,az,bx,by,bz,sum[10],tmp,mul[10],tmpm;
+  unique =0;
+  val = 0;
+  count=0;
+
+  for(int i=0;i<lattice->nlist;i++){             // counting unique k points.......................
+    if((magk[i]!=val)||(i==0)){
+      count=0;
+      unique++;
+      val = magk[i];
+      ax = (lattice->klist[3*track[i]+0])*lattice->kx;
+      ay = (lattice->klist[3*track[i]+1])*lattice->ky;
+      az = (lattice->klist[3*track[i]+2])*lattice->kz;
+      ax = (ax>0)?(ax):(-ax);
+      ay = (ay>0)?(ay):(-ay);
+      az = (az>0)?(az):(-az);
+      sum[count] = ax+ay+az;
+      mul[count] = ax*ay*az;
+      count++;
+    }else{
+      bx = (lattice->klist[3*track[i]+0])*lattice->kx;
+      by = (lattice->klist[3*track[i]+1])*lattice->ky;
+      bz = (lattice->klist[3*track[i]+2])*lattice->kz;
+      bx = (bx>0)?(bx):(-bx);
+      by = (by>0)?(by):(-by);
+      bz = (bz>0)?(bz):(-bz);
+      tmp = bx+by+bz;
+      tmpm = bx*by*bz;
+      //data_out<<ax<<endl;
+      check =false;
+      for(unsigned int j=0;j<count;j++){
+	if( ((sum[j]-tmp < 0.01)&&(sum[j]-tmp > -(0.01))) &&  ((mul[j]-tmpm < 0.01) && (mul[j]-tmpm > -0.01)) )	  check = true;
+      }
+      if(check==false){
+	unique++;
+	sum[count] = tmp;
+	mul[count] = tmpm;
+	count++;
+      }
+    }
+  }
+  //cout<<lattice->nlist<<'\t'<<unique<<endl;
+
+  lattice->IBZ_nlist = unique;                             // storing unique k points and creating mapping
+  lattice->IBZ_klist = new double [unique*3];
+  unique=0;
+  val = 0;
+  count=0;;
+
+  for(int i=0;i<lattice->nlist;i++){
+    if((magk[i]!=val)||(i==0)){
+      count=0;
+      lattice->IBZ_klist[3*unique+0] = lattice->klist[3*track[i]+0];
+      lattice->IBZ_klist[3*unique+1] = lattice->klist[3*track[i]+1];
+      lattice->IBZ_klist[3*unique+2] = lattice->klist[3*track[i]+2];
+      lattice->kmap[track[i]] = unique;
+      unique++;
+      val = magk[i];
+      ax = (lattice->klist[3*track[i]+0])*lattice->kx;
+      ay = (lattice->klist[3*track[i]+1])*lattice->ky;
+      az = (lattice->klist[3*track[i]+2])*lattice->kz;
+      ax = (ax>0)?(ax):(-ax);
+      ay = (ay>0)?(ay):(-ay);
+      az = (az>0)?(az):(-az);
+      sum[count] = ax+ay+az;
+      mul[count] = ax*ay*az;
+      start[count]=i;
+      indi = i;
+      count++;
+    }else{
+      bx = (lattice->klist[3*track[i]+0])*lattice->kx;
+      by = (lattice->klist[3*track[i]+1])*lattice->ky;
+      bz = (lattice->klist[3*track[i]+2])*lattice->kz;
+      bx = (bx>0)?(bx):(-bx);
+      by = (by>0)?(by):(-by);
+      bz = (bz>0)?(bz):(-bz);
+      tmp = bx+by+bz;
+      tmpm = bx*by*bz;
+      //data_out<<ax<<endl;
+      check =false;
+      for(unsigned int j=0;j<count;j++){
+	if(((sum[j]-tmp < 0.01)&&(sum[j]-tmp > -(0.01))) &&  ((mul[j]-tmpm < 0.01) && (mul[j]-tmpm > -0.01))  )	{  check = true; indi = start[j];}
+      }
+      if(check==false){
+	lattice->IBZ_klist[3*unique+0] = lattice->klist[3*track[i]+0];
+	lattice->IBZ_klist[3*unique+1] = lattice->klist[3*track[i]+1];
+	lattice->IBZ_klist[3*unique+2] = lattice->klist[3*track[i]+2];
+	lattice->kmap[track[i]] = unique;
+	unique++;
+	sum[count] = tmp;
+	mul[count] = tmpm;
+	start[count] = i;
+	count++;
+      }else{
+	lattice->kmap[track[i]] = lattice->kmap[track[indi]];
+      }
+    }
+  }
+
+  /*for(int i=0;i<lattice->nlist;i++){
+    data_out<<lattice->klist[3*track[i]+0]<<" "<<lattice->klist[3*track[i]+1]<<" "<<lattice->klist[3*track[i]+2]<<" ";
+    data_out<<lattice->IBZ_klist[3*lattice->kmap[track[i]] + 0]<<" "<<lattice->IBZ_klist[3*lattice->kmap[track[i]] + 1]<<" "<<lattice->IBZ_klist[3*lattice->kmap[track[i]] + 2]<<" "<<lattice->kmap[track[i]]<<endl;
+  }*/
+  
+  
+  lattice->IBZ_kmap= new unsigned short int [lattice->IBZ_nlist];
+  int j;
+  for(unsigned int i=0;i<lattice->IBZ_nlist;i++){
+    check = false;
+    j=0;
+    do{
+      if(((lattice->IBZ_klist[3*i+0]-lattice->klist[3*j+0] < 1e-6)&&(lattice->IBZ_klist[3*i+0]-lattice->klist[3*j+0] > -(1e-6)))){
+	if(((lattice->IBZ_klist[3*i+1]-lattice->klist[3*j+1] < 1e-6)&&(lattice->IBZ_klist[3*i+1]-lattice->klist[3*j+1] > -(1e-6)))){
+	  if(((lattice->IBZ_klist[3*i+2]-lattice->klist[3*j+2] < 1e-6)&&(lattice->IBZ_klist[3*i+2]-lattice->klist[3*j+2] > -(1e-6)))){
+	    lattice->IBZ_kmap[i]=j;
+	    check = true;
+	  }
+	}
+      }
+      j++;
+    }while(check==false);
+  }
+
+
+  
+  delete [] magk;
+  delete [] track;
+}
+//----------------------------------------------------------------------------------------------------------------------------------------
+
+//---------------------SEARCHING FOR GIVEN VALUE IN A LIST OF POINTS----------------------------------------------------------------------------
+int sub_search(long int *sklist,int s, int e, long int tmp){
+  // this subroutine does searching only on intergers....
+  int out,m;
+  if((s-e)>0) return -1;
+
+  m = floor((s+e)/2.);
+  if(sklist[m]==tmp) return m;
+  //if((sklist[m]>=(tmp-(1e-2)))&&(sklist[m]<=(tmp+(1e-2)))) return m;
+  if(sklist[m]>tmp) out = sub_search(sklist,s,m-1,tmp);
+  if(sklist[m]<tmp) out = sub_search(sklist,m+1,e,tmp);
+
+  return out;
+}
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//-------------------- CHECKING MOMENTUM CONSERVATION K1+K2+K3-G = 0-------------------------------------------------------------------
+void sub_kinteraction(LATTICE *lattice){
+  //.......................This Subrotuine is for fcc only with primitive unit cell................................
+  double fos_kinterac = 0.5;
+  lattice->ikinterac = new unsigned short int [lround(fos_kinterac*((lattice->nlist)*(lattice->nlist)))*3];
+  lattice->ninterac = 0;
+  long int *sklist, *IBZ_sklist;
+  unsigned short int *track, *IBZ_track;
+  sklist = new long int [lattice->nlist];
+  track =  new unsigned short int [lattice->nlist];
+  IBZ_sklist = new long int [lattice->IBZ_nlist];
+  IBZ_track =  new unsigned short int [lattice->IBZ_nlist];
+
+  //=====generating sklist=================================
+  long int mx,my,mz;
+  mx =1000; my = 1000000; mz =1000000000;
+  for(int i=lattice->nlist-1; i>=0; --i){
+    sklist[i] = lround(mx*lattice->klist[3*i+0]) + lround(my*lattice->klist[3*i+1]) + lround(mz*lattice->klist[3*i+2]);
+    track[i] = i;
+    //data_out<<sklist[i]<<'\n';
+  }
+  for(int i=lattice->IBZ_nlist-1; i>=0; --i){
+    IBZ_sklist[i] = lround(mx*lattice->IBZ_klist[3*i+0]) + lround(my*lattice->IBZ_klist[3*i+1]) + lround(mz*lattice->IBZ_klist[3*i+2]);
+    IBZ_track[i] = i;
+    //data_out<<sklist[i]<<'\n';
+  }
+  //=========================================================
+
+  //=====sorting the sklist in ascending order
+  bool check;
+  long int tmp;
+  int t;
+  do{
+    check =true;
+    for(int i=lattice->nlist-2;i>=0;--i){
+      if(sklist[i+1]<sklist[i]){
+	tmp = sklist[i+1];
+	t = track[i+1];
+	sklist[i+1] = sklist[i];
+	track[i+1] = track[i];
+	sklist[i] = tmp;
+	track[i] = t;
+	check =false;
+      }
+    }
+  }while(check==false);
+  do{
+    check =true;
+    for(int i=lattice->IBZ_nlist-2;i>=0;--i){
+      if(IBZ_sklist[i+1]<IBZ_sklist[i]){
+	tmp = IBZ_sklist[i+1];
+	t = IBZ_track[i+1];
+	IBZ_sklist[i+1] = IBZ_sklist[i];
+	IBZ_track[i+1] = IBZ_track[i];
+	IBZ_sklist[i] = tmp;
+	IBZ_track[i] = t;
+	check =false;
+      }
+    }
+  }while(check==false);
+  //============================================
+
+  //=======STARTING CHECKING MOMENTUM===========
+  long int tmpx,tmpy,tmpz,tmp1,tmp2,tmp3;
+  long int *dtmp;
+  int res,s,e,i1,i2,ginterac,gsize,count,count1;
+  ginterac = 2;
+  i2=0;
+  gsize= round(pow((((ginterac)*2)+1),3));
+  dtmp = new long int [gsize];
+  for (int r1=-ginterac;r1<=ginterac;++r1){                             // G vectors to check with.....everything is to be scaled by 2*pi/ax
+    for(int r2=-ginterac;r2<=ginterac;++r2){
+      for(int r3=-ginterac;r3<=ginterac;++r3){
+	tmpx = lround(mx*((-1)*r1 + (1)*r2 + (1)*r3));
+	tmpy = lround(my*((1)*r1 + (-1)*r2 + (1)*r3));
+	tmpz = lround(mz*((1)*r1 + (1)*r2 + (-1)*r3));
+	tmp = tmpx+tmpy+tmpz;                                          //desired value from combination of sklist
+	dtmp[i2] = tmp;
+	i2++;
+      }
+    }
+  }
+  //for(i1=0;i1<125;i1++) data_out<<dtmp[i1]<<endl;
+
+  // 6 POSSIBLE CASES FOR 3 PAIR INTERACTION ----------
+  int *type_interac;
+  type_interac = new int [6*3];
+  type_interac[3*0+0] = 1; type_interac[3*0+1] = 1; type_interac[3*0+2] = -1;
+  type_interac[3*1+0] = -1; type_interac[3*1+1] = 1; type_interac[3*1+2] = 1;
+  type_interac[3*2+0] = 1; type_interac[3*2+1] = -1; type_interac[3*2+2] = 1;
+  type_interac[3*3+0] = 1; type_interac[3*3+1] = -1; type_interac[3*3+2] = -1;
+  type_interac[3*4+0] = -1; type_interac[3*4+1] = 1; type_interac[3*4+2] = -1;
+  type_interac[3*5+0] = 1; type_interac[3*5+1] = 1; type_interac[3*5+2] = 1;
+
+  //array to check if there is repetition......
+  long int *repet;
+  repet = new long int [lattice->nlist];
+  int e1,s1,pp,tt;
+  long int res1;
+  bool check1;
+
+#pragma omp parallel for private(i1,i2,tmp1,tmp2,tmp3,s,e,res,check,count,count1,res1,s1,e1,repet,pp,tt,check1) num_threads(numthread)
+	//===========1st case=============
+	for(i1 = lattice->IBZ_nlist-1;i1>=0;--i1){
+	  repet = new long int [lattice->nlist];
+	  tmp1 = IBZ_sklist[i1];
+	  for(i2 = lattice->nlist-1;i2>=0;--i2){
+	    count=0;
+	    e1 = 0;s1=0;
+	    repet[0]=0;
+	    do{
+	      count1=0;
+	      do{
+		tmp2 = sklist[i2];
+		tmp3 = type_interac[3*count1+0]*tmp1 + type_interac[3*count1+1]*tmp2 + type_interac[3*count1+2]*dtmp[count];
+		s = 0; e = i2;
+		res = sub_search(sklist,s,e,tmp3);
+		if(res>=0){
+		  if(e1==0) res1 =-1;
+		  else res1=sub_search(repet,s1,e1,res);
+		  if(res1<0){
+#pragma omp critical(update)
+{
+		    lattice->ikinterac[3*lattice->ninterac+0] = IBZ_track[i1]; lattice->ikinterac[3*lattice->ninterac+1] = track[i2]; lattice->ikinterac[3*lattice->ninterac+2] = track[res];
+		    lattice->ninterac++;
+		    repet[e1]=res;
+		    e1++;
+		    do{
+		      check1=true;
+		      for(pp=1;pp<e1;pp++){
+			if(repet[pp]<repet[pp-1]){
+			  tt = repet[pp];
+			  repet[pp]=repet[pp-1];
+			  repet[pp-1]=tt;
+			  check1 = false;
+			}
+		      }
+		    }while(check1==false);
+
+}
+		}
+	      }
+	      count1++;
+	      }while((count1<6));
+	      count++;
+	    }while((count<gsize));
+	  }
+	}
+	//================================
+  //============================================
+
+
+  delete [] sklist;
+  delete [] track;
+  delete [] IBZ_sklist;
+  delete [] IBZ_track;
+  delete [] dtmp;
+  delete [] type_interac;
+  delete [] repet;
+}
+//------------------------------------------------------------------------------------------------------------------------------------------------
+
+//---------------------------------- CONSTRUCTING RECIPROCAL STRUCTURE-----------------------------------------------------------------------------
+void sub_klist(LATTICE *lattice){
+  //this subroutine is for fcc with primitive unit cell only.....
+  double b1[3],b2[3],b3[3];
+  lattice->klist = new double [lattice->nlist*3];
+
+
+  if((lattice->type==2)&&(lattice->isConv==0)){                                        // primitive fcc cell
+    b1[0] = -1.; b1[1] = 1.; b1[2] = 1.;
+    b2[0] = 1.; b2[1] = -1.; b2[2] = 1.;
+    b3[0] = 1.; b3[1] = 1.; b3[2] = -1.;
+    int i=0;
+    for(int i1 = -round(lattice->kx/2)+1; i1<round(lattice->kx/2)+1;i1++){
+      for(int i2 = -round(lattice->ky/2)+1; i2<round(lattice->ky/2)+1;i2++){
+        for(int i3 = -round(lattice->kz/2)+1; i3<round(lattice->kz/2)+1;i3++){
+          lattice->klist[3*i+0] = ((i1*b1[0])/(lattice->kx)) + ((i2*b2[0])/(lattice->ky)) +((b3[0]*i3)/(lattice->kz));
+          lattice->klist[3*i+1] = ((i1*b1[1])/(lattice->kx)) + ((i2*b2[1])/(lattice->ky)) +((b3[1]*i3)/(lattice->kz));
+          lattice->klist[3*i+2] = ((i1*b1[2])/(lattice->kx)) + ((i2*b2[2])/(lattice->ky)) +((b3[2]*i3)/(lattice->kz));
+          i++;
+        }
+      }
+    }
+
+    //   checking if point is in first brillioun zone
+    double p [14][3];
+    p[0][0] = 1.; p[0][1]=1.; p[0][2]=1.;
+    p[1][0] = 1.; p[1][1]=1.; p[1][2]=-1.;
+    p[2][0] = 1.; p[2][1]=-1.; p[2][2]=1.;
+    p[3][0] = 1.; p[3][1]=-1.; p[3][2]=-1.;
+    p[4][0] = -1.; p[4][1]=1.; p[4][2]=1.;
+    p[5][0] = -1.; p[5][1]=1.; p[5][2]=-1.;
+    p[6][0] = -1.; p[6][1]=-1.; p[6][2]=1.;
+    p[7][0] = -1.; p[7][1]=-1.; p[7][2]=-1.;
+    p[8][0] =2*1.; p[8][1] = 0; p[8][2]=0;
+    p[9][0] =-2*1.; p[9][1] = 0; p[9][2]=0;
+    p[10][0]=0; p[10][1] = 2*1.; p[10][2]=0;
+    p[11][0] =0; p[11][1] = -2*1.; p[11][2]=0;
+    p[12][0] =0; p[12][1] = 0; p[12][2]=2*1.;
+    p[13][0] =0; p[13][1] = 0; p[13][2]=-2*1.;
+
+    bool check;
+    double tmp1,tmp2;
+    for(int i1 = 0; i1<lattice->nlist;i1++){
+      do{
+        check = true;
+        for(int i2=0;i2<14;i2=i2+2){
+          tmp1 = pow((lattice->klist[3*i1+0] - p[i2][0]),2) + pow((lattice->klist[3*i1+1] - p[i2][1]),2) + pow((lattice->klist[3*i1+2] - p[i2][2]),2);
+          tmp2 = pow((lattice->klist[3*i1+0] ),2) + pow((lattice->klist[3*i1+1]),2) + pow((lattice->klist[3*i1+2] ),2);
+          if(tmp2>tmp1){
+            check = false;
+            lattice->klist[3*i1+0] -=p[i2][0];
+            lattice->klist[3*i1+1] -=p[i2][1];
+            lattice->klist[3*i1+2] -=p[i2][2];
+          }
+        }
+        for(int i2=1;i2<14;i2=i2+2){
+          tmp1 = pow((lattice->klist[3*i1+0] - p[i2][0]),2) + pow((lattice->klist[3*i1+1] - p[i2][1]),2) + pow((lattice->klist[3*i1+2] - p[i2][2]),2);
+          tmp2 = pow((lattice->klist[3*i1+0] ),2) + pow((lattice->klist[3*i1+1]),2) + pow((lattice->klist[3*i1+2] ),2);
+          if(tmp2>tmp1){
+            check = false;
+            lattice->klist[3*i1+0] -=p[i2][0];
+            lattice->klist[3*i1+1] -=p[i2][1];
+            lattice->klist[3*i1+2] -=p[i2][2];
+          }
+        }
+      }while(check==false);
+    }
+  }
+}
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+//---------------------- constructing real lattice----------------------------------------------------------------------------------------------
+void sub_readInput(LATTICE *lattice){
+  //this is a general subroutine....valid for all types and formats.....
+
+  std::string line;
+  unsigned short int type,isConv;
+
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  data_in>> lattice->ax >> lattice->ay >> lattice->az;                      // unit cell size in x,y,z direction
+
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  data_in>> type;                                                          // lattice type
+
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  data_in>> isConv;                                                          // unit cell  type for reciprocal space
+
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  data_in>> lattice->natom;                                               // # atoms in unit cell
+
+  lattice->r = new double [lattice->natom*3];
+  lattice->m = new double [lattice->natom];
+
+
+  // lattice vectors for fcc cell
+  double a1[3],a2[3],a3[3];
+
+
+  if((lattice->natom==2)&&(type==2)){
+    std::getline(data_in,line);
+    std::getline(data_in,line);
+    std::getline(data_in,line);
+    data_in>> lattice->r[3*0+0] >> lattice->r[3*0+1] >> lattice->r[3*0+2] >> lattice->m[0];
+    std::getline(data_in,line);
+    data_in>> lattice->r[3*1+0] >> lattice->r[3*1+1] >> lattice->r[3*1+2] >> lattice->m[1];
+
+    // lattice vectors for fcc cell
+    a1[0] = 0.5; a1[1] = 0.5; a1[2] = 0.0;
+    a2[0] = 0.0; a2[1] = 0.5; a2[2] = 0.5;
+    a3[0] = 0.5; a3[1] = 0.0; a3[2] = 0.5;
+
+    for(int i=0;i<lattice->natom;i++){
+      lattice->r[3*i+0] *= lattice->ax;
+      lattice->r[3*i+1] *= lattice->ay;
+      lattice->r[3*i+2] *= lattice->az;
+    }
+  }
+
+  if((lattice->natom==8)&&(type==2)){
+    std::getline(data_in,line);
+    std::getline(data_in,line);
+    std::getline(data_in,line);
+    data_in>> lattice->r[3*0+0] >> lattice->r[3*0+1] >> lattice->r[3*0+2] >> lattice->m[0];
+    std::getline(data_in,line);
+    data_in>> lattice->r[3*1+0] >> lattice->r[3*1+1] >> lattice->r[3*1+2] >> lattice->m[1];
+    std::getline(data_in,line);
+    data_in>> lattice->r[3*2+0] >> lattice->r[3*2+1] >> lattice->r[3*2+2] >> lattice->m[2];
+    std::getline(data_in,line);
+    data_in>> lattice->r[3*3+0] >> lattice->r[3*3+1] >> lattice->r[3*3+2] >> lattice->m[3];
+    std::getline(data_in,line);
+    data_in>> lattice->r[3*4+0] >> lattice->r[3*4+1] >> lattice->r[3*4+2] >> lattice->m[4];
+    std::getline(data_in,line);
+    data_in>> lattice->r[3*5+0] >> lattice->r[3*5+1] >> lattice->r[3*5+2] >> lattice->m[5];
+    std::getline(data_in,line);
+    data_in>> lattice->r[3*6+0] >> lattice->r[3*6+1] >> lattice->r[3*6+2] >> lattice->m[6];
+    std::getline(data_in,line);
+    data_in>> lattice->r[3*7+0] >> lattice->r[3*7+1] >> lattice->r[3*7+2] >> lattice->m[7];
+
+    // lattice vectors for fcc cell
+    a1[0] = 1.0; a1[1] = 0.0; a1[2] = 0.0;
+    a2[0] = 0.0; a2[1] = 1.0; a2[2] = 0.0;
+    a3[0] = 0.0; a3[1] = 0.0; a3[2] = 1.0;
+
+    for(int i=0;i<lattice->natom;i++){
+      lattice->r[3*i+0] *= lattice->ax;
+      lattice->r[3*i+1] *= lattice->ay;
+      lattice->r[3*i+2] *= lattice->az;
+    }
+  }
+  //cout<<lattice->r[3*7+0]<<'\t'<<lattice->r[3*7+1]<<'\t'<<lattice->r[3*7+2]<<endl;
+
+
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  data_in>> lattice->Nx>>lattice->Ny>>lattice->Nz>>lattice->nNx>>lattice->nNy>>lattice->nNz;                                                            // # unit cells in each direction
+  //lattice->Nx = (lattice->Nx/2); lattice->Ny = (lattice->Ny/2); lattice->Nz = (lattice->Nz/2);
+
+
+  lattice->ncell = (((lattice->Nx+lattice->nNx+1)*(lattice->Ny+lattice->nNy+1)*(lattice->Nz+lattice->nNz+1)));                                        // 8 because 2*2*2 as lattice->Nx =lattice->Nx_required/2 and 1 to include central cell as well
+
+  lattice->R = new double [(lattice->ncell)*3];
+  lattice->R[3*0+0] = 0.0;
+  lattice->R[3*0+1] = 0.0;
+  lattice->R[3*0+1] = 0.0;                                               // central cell
+  int i=1;                                                               // generating cloud around central cell.
+
+  for(int i1 = -lattice->nNx; i1<lattice->Nx+1;i1++){
+    for(int i2 = -lattice->nNy; i2<lattice->Ny+1;i2++){
+      for(int i3 = -lattice->nNz; i3<lattice->Nz+1;i3++){
+	if(!((i1==0)&&(i2==0)&&(i3==0))){
+	  lattice->R[3*i+0] = lattice->ax*(i1*a1[0] + i2*a2[0] + i3*a3[0]);
+	  lattice->R[3*i+1] = lattice->ay*(i1*a1[1] + i2*a2[1] + i3*a3[1]);
+	  lattice->R[3*i+2] = lattice->az*(i1*a1[2] + i2*a2[2] + i3*a3[2]);
+	  i++;
+	}
+      }
+    }
+  }
+
+
+  lattice->Nx = lattice->Nx + lattice->nNx + 1 ;
+  lattice->Ny = lattice->Ny + lattice->nNy + 1 ;
+  lattice->Nz = lattice->Nz + lattice->nNz + 1 ;
+  lattice->type = type;
+  lattice->isConv = isConv;
+
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  data_in>>lattice->kx>>lattice->ky>>lattice->kz;
+
+  lattice->nlist = (lattice->kx*lattice->ky*lattice->kz);
+  lattice->kx_scale = 2.*pi/(lattice->ax);
+  lattice->ky_scale = 2.*pi/(lattice->ay);
+  lattice->kz_scale = 2.*pi/(lattice->az);
+
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  data_in>> numthread;
+  //cout<<lattice->ncell<<endl;
+
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  data_in>> lattice->nNeighbour2>> lattice->nNeighbour3>> lattice->nNeighbour4;
+  //cout<<lattice->nNeighbour<<endl;
+
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  data_in>> temperature;
+
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  std::getline(data_in,line);
+  data_in>> FC_available;   // checking whether to run full code or only FC part...
+}
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+//=================================================================================================================================================
+
