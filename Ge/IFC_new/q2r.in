@@ -1,0 +1,3 @@
+ &input
+   fildyn='ge.dyn', zasr='simple', flfrc='q2r888.fc'
+ /

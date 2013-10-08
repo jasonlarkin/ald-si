@@ -1,0 +1,10 @@
+phonons of Si
+ &inputph
+  tr2_ph=1.0d-12,
+  prefix='si',
+  ldisp=.true.,
+  nq1=8, nq2=8, nq3=8
+  amass(1)=28.086
+  outdir='/home/ywg/tmp/Si/',
+  fildyn='si.dyn',
+ /

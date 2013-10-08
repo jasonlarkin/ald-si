@@ -1,0 +1,10 @@
+phonons of Ge
+ &inputph
+  tr2_ph=1.0d-12,
+  prefix='ge',
+  ldisp=.true.,
+  nq1=8, nq2=8, nq3=8
+  amass(1)=72.61
+  outdir='/home/ywg/tmp/Ge/',
+  fildyn='ge.dyn',
+ /
